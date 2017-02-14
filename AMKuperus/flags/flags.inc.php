@@ -40,10 +40,10 @@
   function hide() {
     global $hide;
     if(isset($_GET['show'])) {
-      echo '<input type="submit" value="Show" name="test">';
+      echo '<input type="submit" value="Test" name="test">';
       $hide = '';
     } else {
-      echo '<input type="submit" value="Test" name="show">';
+      echo '<input type="submit" value="Show" name="show">';
       $hide = 'hide';
     }
   }
