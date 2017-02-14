@@ -2,12 +2,12 @@
 
 for($i=1;$i<=10;$i++)
  {
-  for($table_counter=10;$table_counter<=10;$table_counter++)
+  for($table=10;$table<=10;$table++)
      {
-      printf("%d * %d = %d ",$i,$table_counter,($i*$table_counter));
+      printf("%d * %d = %d ",$i,$table,($i*$table));
       echo "  ";
       echo "<br> ";
-          if($table_counter==10)
+          if($table == 10)
           {
           echo "<br> ";
           }
