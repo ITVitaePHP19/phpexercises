@@ -11,71 +11,68 @@
     $answers = [];
     $_SESSION['answers'] = $answers;
     //Creating randomFlags[]
-    $randomFlags = [];
-    $randomFlags = $files;
-    shuffle($randomFlags);
-    $_SESSION['randomFlags'] = $randomFlags;
+    $randomItems = [];
+    $randomItems = $files;
+    shuffle($randomItems);
+    $_SESSION['randomItems'] = $randomItems;
     echo "<h3>Welcome to the quiz, goodluck!</h3>";
   } else {
     //Pull the arrays from session
     $answers = $_SESSION['answers'];
-    $randomFlags = $_SESSION['randomFlags'];
+    $randomItems = $_SESSION['randomItems'];
     //Show the amount off quizitems
-    echo 'There are: ' . count($randomFlags) . ' items in the quiz.<br>';
+    echo 'There are: ' . count($randomItems) . ' items in the quiz.<br>';
     //Push the answer in $_POST['answer'] and put them in $answers[]
     if(isset($_POST['answer'])) {
       array_push($answers, $_POST['answer']);
       $_SESSION['answers'] = $answers;
-      print_r($answers);
-      echo '<br>';
     }
     //Start the quiz
-    if(count($answers) < count($randomFlags)) {
+    if(count($answers) < count($randomItems)) {
       //Setup counter
       $count = count($answers);
       echo 'Answered questions: ' . $count . '<hr>';
       //Show the flag for the quiz.
-      echo '<figure><img src="' . $randomFlags[$count] . '" width="600" height="400">
+      echo '<figure><img src="' . $randomItems[$count] . '" width="600" height="400">
             </figure>';
       //Setting answers
-      $ab = createAnswerArray($randomFlags, $count);
+      //$ab = createAnswerArray($randomFlags, $count);
+      $ab = createAnswerArray($count, count($randomItems));
       //Putting answers inbetween html-tags
-      createAnswers($ab, $randomFlags, $dir);
+      createAnswers($ab, $randomItems, $dir);
     } else {
       //Give the result by comparing the 2 arrays
-      for ($i = 0; $i < count($randomFlags); $i++) {
+      for ($i = 0; $i < count($randomItems); $i++) {
         //Loop trough the randomFlags[] and compare it with anwers[]
-        if ($randomFlags[$i] === $answers[$i]) {
+        if ($randomItems[$i] === $answers[$i]) {
           //When the answer matches the question
-          echo "$randomFlags[$i] is the correct answer!<br>";
+          echo "$randomItems[$i] is the correct answer!<br>";
         } else {
           //When the answer does not match
-          echo "$answer[$i] is not correct, it should have been $randomFlags[$i]<br>";
+          echo "$answer[$i] is not correct, it should have been $randomItems[$i]<br>";
         }
       }
     }
-    echo "<hr>";
-    print_r($randomFlags);
   }
 
-  //Create 3 random answers and the correct answer.
-  //Prep them with HTML-tags
-  function createAnswerArray($array, $count) {
-    //TODO Create a better version of the createAnswerArray as it does not work as expected currently
-    //Create 3 random keys
-    $a = array_rand($array, 3);
-    //TODO Check if the correct answer is not already in the array, otherwise change it.
-    if (!in_array($count, $a) && count($a) == 3) {
-      //Add the 4th (correct answer $count) key
-      array_push($a, $count);
-      //Shuffle the array
-      echo "--------------------------everyday I'm shuffling------------------<hr>";
-      shuffle($a);
-    } else {
-      echo "---------------------recursing-------------------<hr>";
-      print_r($a);
-      createAnswerArray($array, $count);
+  //Create a array with the answer-key and 3 random-generated keys to generate
+  //randomized answers.
+  function createAnswerArray($count, $size) {
+    //Create array to work with and fill it with answer-key
+    $a = [];
+    array_push($a, $count);
+    //Lop while there is not 4 in the array keeps filling, until it contains 4 items.
+    while(count($a) < 4) {
+      //Create a random number with ($size -1) being the maximum.
+      $b = mt_rand(0, ($size - 1));
+      //Check if the item already exists in the array, if TRUE do nothing and create
+      //new random and repeat, if FALSE push the number in the array.
+      if(!in_array($b, $a)) {
+        array_push($a, $b);
+      }
     }
+    //Shuffle the array so it is randomized.
+    shuffle($a);
     return $a;
   }
 
@@ -83,7 +80,7 @@
   function createAnswers($answerArray, $baseArray, $dir) {
     //Grab each key and change it to a prepped html-input-tags
     foreach($answerArray as $q) {
-      echo '<input type="radio" value="' . $baseArray[$q] . '" name="answer">' .
+      echo '<input type="radio" value="' . $baseArray[$q] . '" name="answer" required>' .
       createName($baseArray[$q], $dir) . '<br>';
     }
   }
