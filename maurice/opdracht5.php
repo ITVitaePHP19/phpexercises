@@ -1,9 +1,7 @@
 <article>
 	<br>
-	<h3>Opdracht 5 - Annuity Calculator</h3>
-	<br>
 	<form action="" method="post">
-		<table>
+		<table class="midtable">
 			<tr>
 				<td><label for="capital">Capital: </label></td>
 				<td><input type="number" name="capital"></td>

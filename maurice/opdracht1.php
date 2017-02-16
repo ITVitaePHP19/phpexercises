@@ -1,9 +1,7 @@
 <article>
 	<br>
-	<h3>Opdracht 1 - Currency Calculator</h3>
-	<br>
 	<form action="" method="post">
-		<table>
+		<table class="midtable">
 			<tr>
 				<td><label for="input">Dollars: </label></td>
 				<td><input type="text" name="input"></td>

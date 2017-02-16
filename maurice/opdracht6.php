@@ -1,9 +1,7 @@
 <article>
 	<br>
-	<h3>Opdracht 6 - Correct Answer</h3>
-	<br>
 	<form action="" method="post">
-		<table>
+		<table class="midtable">
 			<tr>
 				<td><img src="lilo.jpg" alt="lilo" height="300"></td>
 				<td>

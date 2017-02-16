@@ -1,9 +1,7 @@
 <article>
 	<br>
-	<h3>Opdracht 2 - BMI Calculator</h3>
-	<br>
 	<form action="" method="post">
-		<table>
+		<table class="midtable">
 			<tr>
 				<td><label for="height">Height in meters: </label></td>
 				<td><input type="text" name="height"></td>

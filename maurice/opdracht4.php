@@ -1,9 +1,7 @@
 <article>
 	<br>
-	<h3>Opdracht 4 - Salary Calculator</h3>
-	<br>
 	<form action="" method="post">
-		<table>
+		<table class="midtable">
 			<tr>
 				<td><label for="gross">Gross Income: </label></td>
 				<td><input type="number" name="gross"></td>

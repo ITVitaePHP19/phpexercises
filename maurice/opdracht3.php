@@ -1,9 +1,7 @@
 <article>
 	<br>
-	<h3>Opdracht 3 - Heart Rate Calculator</h3>
-	<br>
 	<form action="" method="post">
-		<table>
+		<table class="midtable">
 			<tr>
 				<td><label for="age">Age: </label></td>
 				<td><input type="number" name="age"></td>
