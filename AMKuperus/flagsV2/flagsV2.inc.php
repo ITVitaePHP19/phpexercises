@@ -10,10 +10,14 @@ if(isset($_GET['do'])) {
   $do = $_GET['do'];
   switch ($do) {
     case "flags":
+      echo "<p>The improved version. This version accepts .jpg .gif and .png
+      files. To add a file to flags safe the file in the images/-directory as
+      coun_try.jpg/gif/png and the program will automatically on refresh extend
+      the library with you're image.</p>";
       allFlags($files, $dir);
       break;
     case "quiz":
-    include 'quizbeta.inc.php';
+      include 'quizbeta.inc.php';
       break;
     default:
       echo "Something went wrong here, <a href=''>go back</a>.";
@@ -23,14 +27,14 @@ if(isset($_GET['do'])) {
 //Shows all the flags on the screen in a flexbox.
 function allFlags($files, $dir){
   $i = 1;
+  echo '<div class="flex">';
   foreach($files as $f) {
     echo '<figure class="flexin"><img src=' . $f . ' width=150 height=100>
-          <figcaption>' . $i . '. ' . createName($f, $dir) . '</figure>';
+          <figcaption>' . $i . '. ' . createName($f, $dir) . '</figcaption></figure>';
     $i++;
   }
+  echo '</div>';
 }
-
-
 
 //Create a name for the picture by stripping extension and adding a capital.
 function createName($file, $dir) {
