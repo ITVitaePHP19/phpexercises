@@ -17,7 +17,7 @@ if(isset($_GET['do'])) {
       allFlags($files, $dir);
       break;
     case "quiz":
-      include 'quizbeta.inc.php';
+      include 'quiz.inc.php';
       break;
     default:
       echo "Something went wrong here, <a href=''>go back</a>.";
