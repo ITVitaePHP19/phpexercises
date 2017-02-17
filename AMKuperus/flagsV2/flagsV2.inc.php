@@ -29,8 +29,7 @@ function allFlags($files, $dir){
   $i = 1;
   echo '<div class="flex">';
   foreach($files as $f) {
-    echo '<figure class="flexin"><img src=' . $f . ' width=150 height=100>
-          <figcaption>' . $i . '. ' . createName($f, $dir) . '</figcaption></figure>';
+    echo '<figure class="flexin ansbox"><img src=' . $f . ' width=150 height=100><figcaption>' . $i . '. ' . createName($f, $dir) . '</figcaption></figure>';
     $i++;
   }
   echo '</div>';
@@ -47,6 +46,10 @@ function createName($file, $dir) {
   //Give every word a capital.
   $name = ucwords($name);
   return $name;
+}
+
+function showImage($image, $h, $w, $class) {
+  echo "<img src=$image class=$class height=$h width=$w>";
 }
 
 ?>

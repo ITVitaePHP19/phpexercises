@@ -10,7 +10,7 @@
     //Creating $answers-array[]
     $answers = [];
     $_SESSION['answers'] = $answers;
-    //Creating randomFlags[]
+    //Creating randomItems[]
     $randomItems = [];
     $randomItems = $files;
     shuffle($randomItems);
@@ -36,22 +36,31 @@
       echo '<figure><img src="' . $randomItems[$count] . '" width="600" height="400">
             </figure>';
       //Setting answers
-      //$ab = createAnswerArray($randomFlags, $count);
+      //$ab = createAnswerArray($randomItems, $count);
       $ab = createAnswerArray($count, count($randomItems));
       //Putting answers inbetween html-tags
       createAnswers($ab, $randomItems, $dir);
     } else {
+      //Create Flexbox for layout.
+      echo '<div class="flex">' . "\n";
       //Give the result by comparing the 2 arrays
       for ($i = 0; $i < count($randomItems); $i++) {
-        //Loop trough the randomFlags[] and compare it with anwers[]
+        //Loop trough the randomItems[] and compare it with anwers[]
+        //Show the item.
+        echo '<div class="ansbox">';
+        showImage($randomItems[$i], 100, 150, "flexin");
         if ($randomItems[$i] === $answers[$i]) {
           //When the answer matches the question
-          echo "$randomItems[$i] is the correct answer!<br>";
+          echo '<p class="correct">' . createName($randomItems[$i], $dir) . ' is correct!</p>';
         } else {
           //When the answer does not match
-          echo "$answer[$i] is not correct, it should have been $randomItems[$i]<br>";
+          echo '<p class="wrong">You answered: ' . createName($answers[$i], $dir) . '<br>';
+          echo 'The correct answer is: ' . createName($randomItems[$i], $dir) . '</p>';
         }
+        echo "</div>\n";
       }
+      //Close the flexbox-div
+      echo "</div>\n";
     }
   }
 
