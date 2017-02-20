@@ -1,6 +1,6 @@
 <?php session_start(); ?>
-<!--refresh/listen for input every 5 seconds-->
-<meta http-equiv="refresh" content="2; url=bke.php" />
+<!--refresh/listen for input every 1 second-->
+<meta http-equiv="refresh" content="1; url=bke.php" />
 
 <table width="200">
 	<tr>
@@ -30,6 +30,11 @@
 		</td>
 		<td>
 			reset all fields (remove reset again if you want to continue
+		</td>
+	<tr>
+	<tr>
+		<td>
+			Save file to commit input (ctrl-s)
 		</td>
 	<tr>
 </table>
