@@ -44,7 +44,7 @@ nav{
 /*navigation BAR opdrachten*/
 #nav2{
 	clear:both;
-	height: 100px;
+	height: 150px;
 	padding: 5px;
 	background-color: #a6d1d8;
 }
@@ -330,4 +330,30 @@ figure{
 
 .midtable{
 	margin: auto;
+}
+
+#banner{
+	background-color: #1aa4bb;
+	padding: 20px;
+	margin: 20px;
+}
+
+#loginlink{
+	text-decoration: underline;
+	color: black;
+	font-size: 12px;
+}
+
+#logintext{
+	font-size: 12px;
+}
+
+#atregister{
+	background-color: #1aa4bb;
+	padding: 5px;
+	color: white;
+}
+
+#highscore{
+	border: 1px solid black;
 }

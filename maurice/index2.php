@@ -18,6 +18,7 @@
 				"home" => "Home", 
 				"project" => "Project Euler", 
 				"opdrachten" => "Opdrachten", 
+				"activiteiten" => "Activiteiten Tracker", 
 				"info" => "Info", 
 				"contact" => "Contact",
 				"links" => "Links",
@@ -46,6 +47,10 @@
 				break;
 			case 'opdrachten':
 				include 'opdrachten.php';
+				break;
+				
+			case 'activiteiten':
+				include 'activiteitentracker.php';
 				break;
 			case 'info':
 				echo "<br><br>About<br><br>";
@@ -77,7 +82,22 @@
 			case 'op7':
 				include 'opdrachten.php';
 				break;
+			case 'op8':
+				include 'opdrachten.php';
+				break;
+			case 'op9':
+				include 'opdrachten.php';
+				break;
+			case 'op10':
+				include 'opdrachten.php';
+				break;
 			case 'op11':
+				include 'opdrachten.php';
+				break;
+			case 'op12':
+				include 'opdrachten.php';
+				break;
+			case 'op13':
 				include 'opdrachten.php';
 				break;
 			case 'calculator':
@@ -103,6 +123,9 @@
 				break;
 			case 'yahtzee':
 				include 'yahtzee.php';
+				break;
+			case 'bke':
+				include 'bke.php';
 				break;
 			case 'sort_flagname':
 				include 'vlaggen.php';
