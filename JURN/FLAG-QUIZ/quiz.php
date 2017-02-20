@@ -12,14 +12,14 @@ else
 switch ($_SESSION['page']) 
 { 
     case 1:
-        $picture="http://localhost/ITVITAE/phpexercises/Jurn/FLAG-QUIZ/Belgium.png"; 
+        $picture= "FLAGS/Belgium.png"; 
         $option1="Belgium"; 
         $option2="France"; 
         $option3="Germany"; 
         $option4="Holland"; 
         break; 
     case 2:
-        $picture="http://localhost/ITVITAE/phpexercises/Jurn/FLAG-QUIZ/Korea-South.png"; 
+        $picture="FLAGS/Korea-South.png"; 
         $option1="South-Korea"; 
         $option2="Japan"; 
         $option3="Thailand"; 
@@ -27,7 +27,7 @@ switch ($_SESSION['page'])
         $_SESSION['answer1']=$answer; 
         break; 
     case 3: 
-        $picture="http://localhost/ITVITAE/phpexercises/Jurn/FLAG-QUIZ/"; 
+        $picture="FLAGS/Italy.png"; 
         $option1="France"; 
         $option2="Germany"; 
         $option3="Sweden"; 
