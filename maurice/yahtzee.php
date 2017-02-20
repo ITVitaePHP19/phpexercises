@@ -28,3 +28,22 @@
 		</form>
 	</td></tr>
 </table>
+
+<?php
+	require_once('showScores.php');
+
+	// echo "<br>Total Selected: " . $_SESSION["selectedScores"];
+	if(!isset($_SESSION["selectedScores"]))
+	{
+		$_SESSION["selectedScores"] = 0;
+	}
+	
+	//post score if all scores are selected
+	if($_SESSION["selectedScores"] > 12)
+	{
+		showHS();
+		$_SESSION["selectedScores"] = 0;
+	}
+	
+	
+?>

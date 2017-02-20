@@ -9,7 +9,12 @@
 		"op5" => "Opdracht&nbsp5",
 		"op6" => "Opdracht&nbsp6",
 		"op7" => "Opdracht&nbsp7",
+		"op8" => "Opdracht&nbsp8",
+		"op9" => "Opdracht&nbsp9",
+		"op10" => "Opdracht&nbsp10",
 		"op11" => "Opdracht&nbsp11",
+		"op12" => "Opdracht&nbsp12",
+		"op13" => "Opdracht&nbsp13",
 		"calculator" => "Rekenmachine",
 		"calculator2" => "Simpele&nbspRekenmachine",
 		"vlaggen" => "Vlaggen",
@@ -17,7 +22,8 @@
 		"letterfrequentie" => "Letter&nbspfrequentie",
 		"romeinserekenmachine" => "Romeinse&nbspRekenmachine",
 		"lettertypechaos" => "Lettertype&nbspChaos",
-		"yahtzee" => "Yahtzee"
+		"yahtzee" => "Yahtzee",
+		"bke" => "Boter Kaas & Eieren"
 		); 
 		
 		//if not null, $p = 'p'
@@ -52,8 +58,23 @@
 			case 'op7':
 				include 'opdracht7.php';
 				break;
+			case 'op8':
+				include 'opdracht8.php';
+				break;
+			case 'op9':
+				include 'opdracht9.php';
+				break;
+			case 'op10':
+				include 'opdracht10.php';
+				break;
 			case 'op11':
 				include 'opdracht11.php';
+				break;
+			case 'op12':
+				include 'opdracht12.php';
+				break;
+			case 'op13':
+				include 'opdracht13.php';
 				break;
 			case 'calculator':
 				include 'calculator.php';
@@ -78,6 +99,9 @@
 				break;
 			case 'yahtzee':
 				include 'yahtzee.php';
+				break;
+			case 'bke':
+				include 'bke.php';
 				break;
 			case 'test':
 				include 'flagtest.php';

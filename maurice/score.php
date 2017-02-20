@@ -2,7 +2,6 @@
 	
 	function liveScores()
 	{	
-		
 		$score = str_split($_SESSION["roll"]);
 		$counts = array_count_values($score);
 		//default variables for normal scores
@@ -20,20 +19,11 @@
 		$smstraight = 0;
 		$lnstraight = 0;
 		$chance = array_sum($score);
-		// $_SESSION["subtotal"];
-		// $_SESSION["subtotal2"];
-		$bonus = 0;
+		$_SESSION["bonus"] = 0;
 		
-		if(!isset($_SESSION["subtotal"]))
-		{
-			$_SESSION["subtotal"] = 0;
-		}
-		if(!isset($_SESSION["subtotal2"]))
-		{
-			$_SESSION["subtotal2"] = 0;
-		}
-		$total = $_SESSION["subtotal"] + $_SESSION["subtotal2"];
+		$total = $_SESSION["subtotal"] + $_SESSION["subtotal2"] + $_SESSION["bonus"];
 		
+		$_SESSION["total"] = $total;
 		if(isset($_POST["reset"]))
 		{
 			unset($_SESSION["ones"]);
@@ -64,6 +54,8 @@
 			unset($_SESSION["savechance"]);
 			unset($_SESSION["subtotal"]);
 			unset($_SESSION["subtotal2"]);
+			unset($_SESSION["bonus"]);
+			unset($_SESSION["selectedScores"]);
 		}
 		
 		//Ones
@@ -80,7 +72,7 @@
 		}else {echo "<br>Ones: 0";}
 		if(!isset($_SESSION["ones"]))
 		{
-			echo  "<input type='radio' name='select' value='ones'>";
+			echo  "<input type='radio' name='select' value='ones'" . $_SESSION["turns"] . ">";
 		}		
 		
 		//Twos
@@ -166,7 +158,23 @@
 		if(!isset($_SESSION["sixes"]))
 		{
 			echo  "<input type='radio' name='select' value='sixes'>";
-		}	
+		}
+		//Subtotal
+		if(isset($_SESSION["subtotal"]))
+		{
+			echo "<br>subtotal: " . $_SESSION["subtotal"];
+		}else{$_SESSION["subtotal"] = 0;}
+		
+		if($_SESSION["subtotal"] > 61)
+		{
+			$_SESSION["bonus"] = 35;
+		}
+		
+		//Bonus
+		if(isset($_SESSION["bonus"]))
+		{
+			echo "<br>bonus: " . $_SESSION["bonus"];
+		}
 		
 		//yahtzee
 		if(isset($_SESSION["yahtzee"]))
@@ -178,7 +186,11 @@
 			$yahtzee = 50;
 			echo "<br>Yahtzee: " . $yahtzee;
 			$_SESSION["saveyahtzee"] = $yahtzee;
-		}else {echo "<br>Yahtzee: 0";}
+		}else 
+		{
+			echo "<br>Yahtzee: 0";
+			$_SESSION["saveyahtzee"] = $yahtzee;
+		}
 		if(!isset($_SESSION["yahtzee"]))
 		{
 			echo "<input type='radio' name='select' value='yahtzee'>";;
@@ -194,7 +206,11 @@
 			$foak = array_sum($score);
 			echo "<br>4 of a Kind: " . $foak;
 			$_SESSION["savefoak"] = $foak;
-		}else {echo "<br>4 of a Kind: 0";}
+		}else 
+		{
+			echo "<br>4 of a Kind: 0";
+			$_SESSION["savefoak"] = 0;
+		}
 		if(!isset($_SESSION["foak"]))
 		{
 			echo "<input type='radio' name='select' value='foak'>";
@@ -209,9 +225,14 @@
 		{
 			$toak = array_sum($score);
 			echo "<br>3 of a Kind: " . $toak;
-			$_SESSION["savetoak"] = $foak;
-		}else {echo "<br>3 of a Kind: 0";}
-		if(!isset($_SESSION["foak"]))
+			$_SESSION["savetoak"] = $toak;
+		}
+		else 
+		{
+			echo "<br>3 of a Kind: 0";
+			$_SESSION["savetoak"] = 0;			
+		}
+		if(!isset($_SESSION["toak"]))
 		{
 			echo "<input type='radio' name='select' value='toak'>";
 		}		
@@ -228,8 +249,17 @@
 				$fullhouse = 25;
 				echo "<br>Fullhouse: " . $fullhouse;
 				$_SESSION["savefullhouse"] = $fullhouse;
-			} else {echo "<br>Fullhouse: 0";}
-		} else {echo "<br>Fullhouse: 0";}
+			} 
+			else 
+			{
+				echo "<br>Fullhouse: 0";
+				$_SESSION["savefullhouse"] = 0;
+			}
+		} else 
+			{
+				echo "<br>Fullhouse: 0";
+				$_SESSION["savefullhouse"] = 0;
+			}
 		if(!isset($_SESSION["fullhouse"]))
 		{
 			echo "<input type='radio' name='select' value='fullhouse'>";
@@ -245,7 +275,12 @@
 			$lnstraight = 40;
 			echo "<br>Long Straight: " . $lnstraight;
 			$_SESSION["savelnstraight"] = $lnstraight;
-		}else {echo "<br>Long straight: 0";}
+		}
+		else 
+		{
+			echo "<br>Long straight: 0";
+			$_SESSION["savelnstraight"] = 0;
+		}
 		if(!isset($_SESSION["lnstraight"]))
 		{
 			echo "<input type='radio' name='select' value='lnstraight'>";
@@ -262,27 +297,29 @@
 			$smstraight = 30;
 			echo "<br>Small Straight: " . $smstraight;
 			$_SESSION["savesmstraight"] = $smstraight;
-		}else {echo "<br>Small straight: 0";}
+		}else 
+		{
+			echo "<br>Small straight: 0";
+			$_SESSION["savesmstraight"] = 0;
+		}
 		if(!isset($_SESSION["smstraight"]))
 		{
 			echo "<input type='radio' name='select' value='smstraight'>";
 		}	
 		
+		//chance
 		if(isset($_SESSION["chance"]))
 		{
 			echo  "<br>Chance: " . $_SESSION["chance"];
-			$_SESSION["savechance"] = $chance;
 		}
 		else
 		{ 
 			echo  "<br>Chance: " . $chance;
 			echo "<input type='radio' name='select' value='chance'>";
+			$_SESSION["savechance"] = $chance;
 		}
 		
-		if(isset($_SESSION["subtotal"]))
-		{
-			echo "<br>subtotal: " . $_SESSION["subtotal"];
-		}
+		
 		if(isset($_SESSION["subtotal2"]))
 		{
 			echo "<br>subtotal 2: " . $_SESSION["subtotal2"];
