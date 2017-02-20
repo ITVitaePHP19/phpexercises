@@ -10,5 +10,5 @@
 		$input *= 1.609344;
 		$other = "kilometres";
 	}
-	echo $input . " " . $convert . " is " . $_POST["input"] . " " . $other;
+	echo $_POST["input"] . " " . $convert . " is " . $input . " " . $other;
 ?>
