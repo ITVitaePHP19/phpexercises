@@ -17,7 +17,6 @@
     echo '<div class="flexcontainer">';
     //Get each element and put them in a div with a randomColor() - randomFont(
     //randomSize() - randomRotate()
-    )
     foreach($text as $t) {
       echo '<div  class="flex" style="
                   background-color: ' . randomColor() . ';
