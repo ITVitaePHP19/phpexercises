@@ -6,38 +6,6 @@
     <link rel="stylesheet" href="stylesheet.css">
   </head>
   <body>
-    <?php
-    //font array
-    $font =
-        array(
-          "Arial",
-          "monospace",
-          "Comic Sans MS",
-          "Times",
-          "Lucida Sans",
-          "Verdana",
-          "Helvetica",
-          "Charcoal",
-          "Trebuchet MS",
-          "Fantasy"
-        );
-    //colour array
-      $fontColour =
-        array(
-          "#800060",
-          "black",
-          "red",
-          "yellow",
-          "#66ff66",
-        );
-
-    ?>
-<!-- <style>
- span{
-   font-family: <?php// echo($font[rand(1,10)]); ?>;
-   color: <?php// echo($fontColour[rand(1,5)]); ?>;
-  }
-</style> -->
 
     <form action="" method="POST">
       <fieldset>
@@ -54,15 +22,16 @@
       //get the contents from whatever is posted in 'file'
         if (isset($_POST['submit'])){
           $file = file_get_contents($_POST["file"]);
-
+//function to get random class, $randomClass variable takes string and addes variable $random
           function getRandomClass($random) {
       //    $random = rand(1, 5);
           $randomClass = "randomClass".$random;
           return $randomClass;
 }
-
+//str_split takes text from file and puts in array
           $fileArray = str_split($file);
           foreach ($fileArray as $change) {
+//echo span with class, adds in the getRandomClass function and rand(between 1 and 5)
             echo "<span class=".getRandomClass(rand(1,5)).">". $change."</span>";
           }
       }
