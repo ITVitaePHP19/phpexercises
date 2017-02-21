@@ -2,7 +2,8 @@
 <?php
   //Session destroy (remove when done)
   if(isset($_POST['unset'])) {
-    session_destroy();
+    //session_destroy();
+    $_SESSION = array();
   }
 
   //If there is no session yet create the session, setting the arrays for the quiz.
