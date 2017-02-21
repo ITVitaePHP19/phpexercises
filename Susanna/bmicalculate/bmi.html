@@ -1,0 +1,32 @@
+<DOCTYPE! HTML>
+<html>
+<head><title>BMI Calculator</title></head>
+
+
+
+
+<body>
+<H1>BMI-calculator example</H1>
+<form method="post" action="bmi.php">
+
+<!-- handy if the input is not next to label -->
+	<p><label for="heightinput">Height in meters</label>
+	<input id="heightinput" name="heightM" placeholder="0" type="number" min="0" step="any"/></p>
+	
+<!-- put label after the input to click the label and put focus on inputbox -->
+	<p><label>Weight in kilograms
+	<input name="weightKG" placeholder="0" type="number" min="0" step="any"/>
+	</label></p>
+	
+	<p><input type="reset" name="Reset" value="Reset">
+	<input type="submit" name="Calculate" value="Calculate"></p>
+	
+	
+
+
+</form>
+
+</body>
+
+
+</html>
