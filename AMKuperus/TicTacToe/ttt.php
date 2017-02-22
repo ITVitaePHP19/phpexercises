@@ -7,7 +7,7 @@
 </head>
 <body>
   <?php
-    include 'nax2.inc.php';
+    include 'ttt.inc.php';
   ?>
 </body>
 </html>

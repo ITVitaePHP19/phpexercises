@@ -13,7 +13,7 @@
     $_SESSION = [];
   }
 
-
+  //Initializing Arrays for the game in session.
   //Checking if there is a field set in $_SESSION
   if(!isset($_SESSION['field'])) {
     //Setting up a playfield
@@ -35,30 +35,35 @@
     $o = $_SESSION['o'];
     $turn = $_SESSION['turn'];
     echo "<p>You are playing Nuts and Bolts</p>";
-  }
 
-  if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    if (isset($_POST['push'])) {
-      $push = $_POST['push'];
-    }
-    if(count($field) > 0) {
-      setField($field);
-      //maybe get POST from here instead of deeper in the loop
-      if($turn % 2 == 0) {
-        //Even = o
-        echo "<hr>even $turn <br>";
-        array_push($o, $push);
-        $turn++;
-      } else {
-        //Odd = x
-        echo "<hr>odd $turn <br>";
-        array_push($x, $push);
-        $turn++;
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      if (isset($_POST['push'])) {
+        $push = $_POST['push'];
       }
-      echo '<hr>' . print_r($o) . '<br>';
-      echo '<hr>' . print_r($x) . '<br>';
+      if(count($field) > 0) {
+        setField($field);
+        //maybe get POST from here instead of deeper in the loop
+        if($turn % 2 == 0) {
+          //Even = o
+          echo "<hr>X >>>even <br>Turn: $turn <hr>";
+          array_push($o, $push);
+          $_SESSION['o'] = $o;
+        } else {
+          //Odd = x
+          echo "<hr>O >>>odd <br>Turn: $turn";
+          array_push($x, $push);
+          $_SESSION['x'] = $x;
+        }
+        $turn++;
+        $_SESSION['turn'] = $turn;
+        echo '<hr>Array size:' . count($o) . ' O>>>';
+        print_r($o);
+        echo '<hr>Array size:' . count($x) . ' X>>>';
+        print_r($x);
+        echo '<hr><br>';
+      }
     }
-
   }
 
 
