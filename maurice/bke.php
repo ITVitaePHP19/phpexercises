@@ -2,7 +2,7 @@
 <!--refresh/listen for input every 1 second-->
 <meta http-equiv="refresh" content="1; url=bke.php" />
 
-<table width="200">
+<table border="1" width="200">
 	<tr>
 		<td>
 			Commands
@@ -132,6 +132,7 @@
 			)
 		{
 			echo "You won!";
+			$winner = true;
 		}
 		
 		//If there's more X's than O's, it's the computers turn
@@ -146,10 +147,13 @@
 					$left[] += $sessions[$i];
 				}
 			}
-			$new =  $left[rand(0, (count($left) - 1))];
-			$f = new NumberFormatter("en", NumberFormatter::SPELLOUT);
-			$n = $f->format($new);
-			$_SESSION[$n] = "O";
+			if($winner == false)
+			{
+				$new =  $left[rand(0, (count($left) - 1))];
+				$f = new NumberFormatter("en", NumberFormatter::SPELLOUT);
+				$n = $f->format($new);
+				$_SESSION[$n] = "O";
+			}
 		}
 		
 		//Check if computer won

@@ -1,5 +1,6 @@
+<article id="yahtzee">
 <br>
-<table class="roll">
+<table class="roll" border="1">
 	<tr>
 		<form action="" method="post">
 		<?php
@@ -8,25 +9,12 @@
 				include "start.php";
 			}
 		?>
-			<td><input type="checkbox" name="reset" value="reset"></td>
+			<td><input type="checkbox" name="reset" value="reset">Restart Game</td>
 	</tr>
 	<tr>
-		<td><input type="checkbox" name="hold[]" value="0">Hold</td>
-		<td><input type="checkbox" name="hold[]" value="1">Hold</td>
-		<td><input type="checkbox" name="hold[]" value="2">Hold</td>
-		<td><input type="checkbox" name="hold[]" value="3">Hold</td>
-		<td><input type="checkbox" name="hold[]" value="4">Hold</td>
-		
+		<td><input id="rollbutton" type="submit" name="roll" value="Roll"></td>
 	</tr>
-	<tr>
-		<td><input type="submit" name="roll" value="Roll"></td>
-	</tr>
-</table>
-<table >
-	<tr><td width="100px">
-		
 		</form>
-	</td></tr>
 </table>
 
 <?php
@@ -42,8 +30,6 @@
 	if($_SESSION["selectedScores"] > 12)
 	{
 		showHS();
-		$_SESSION["selectedScores"] = 0;
 	}
-	
-	
 ?>
+</article>

@@ -58,21 +58,24 @@
 			unset($_SESSION["selectedScores"]);
 		}
 		
+		//Score table
+		echo "<table id='scoretable'>";
+		
 		//Ones
 		if(isset($_SESSION["ones"]))
 		{
-			echo  "<br>Ones: " . $_SESSION["ones"];
+			echo  "<td width='200'>Ones: " . $_SESSION["ones"];
 		}
 		elseif(isset($counts[1]))
 		{	
 			$ones = $counts[1];
-			echo "<br>Ones: " . $ones;
+			echo "<td width='200'>Ones: " . $ones;
 			$_SESSION["save1"] = $ones;
 			
-		}else {echo "<br>Ones: 0";}
+		}else {echo "<td width='200'>Ones: 0";}
 		if(!isset($_SESSION["ones"]))
 		{
-			echo  "<input type='radio' name='select' value='ones'" . $_SESSION["turns"] . ">";
+			echo  "<input type='radio' name='select' value='ones' " . $_SESSION["turns"] . ">";
 		}		
 		
 		//Twos
@@ -89,7 +92,7 @@
 		}else {echo "<br>Twos: 0";}
 		if(!isset($_SESSION["twos"]))
 		{
-			echo  "<input type='radio' name='select' value='twos'>";
+			echo  "<input type='radio' name='select' value='twos' " . $_SESSION["turns"] . ">";
 		}	
 		
 		//Threes
@@ -106,7 +109,7 @@
 		}else {echo "<br>Threes: 0";}
 		if(!isset($_SESSION["threes"]))
 		{
-			echo  "<input type='radio' name='select' value='threes'>";
+			echo  "<input type='radio' name='select' value='threes' " . $_SESSION["turns"] . ">";
 		}	
 		
 		//Fours
@@ -123,7 +126,7 @@
 		}else {echo "<br>Fours: 0";}
 		if(!isset($_SESSION["fours"]))
 		{
-			echo  "<input type='radio' name='select' value='fours'>";
+			echo  "<input type='radio' name='select' value='fours' " . $_SESSION["turns"] . ">";
 		}	
 		
 		//Fives
@@ -140,7 +143,7 @@
 		}else {echo "<br>Fives: 0";}
 		if(!isset($_SESSION["fives"]))
 		{
-			echo  "<input type='radio' name='select' value='fives'>";
+			echo  "<input type='radio' name='select' value='fives'" . $_SESSION["turns"] . ">";
 		}	
 		
 		//Sixes
@@ -157,7 +160,7 @@
 		}else {echo "<br>Sixes: 0";}
 		if(!isset($_SESSION["sixes"]))
 		{
-			echo  "<input type='radio' name='select' value='sixes'>";
+			echo  "<input type='radio' name='select' value='sixes' " . $_SESSION["turns"] . ">";
 		}
 		//Subtotal
 		if(isset($_SESSION["subtotal"]))
@@ -173,27 +176,27 @@
 		//Bonus
 		if(isset($_SESSION["bonus"]))
 		{
-			echo "<br>bonus: " . $_SESSION["bonus"];
+			echo "<br>bonus: " . $_SESSION["bonus"] . "</td>";
 		}
 		
 		//yahtzee
 		if(isset($_SESSION["yahtzee"]))
 		{
-			echo  "<br>Yahtzee: " . $_SESSION["yahtzee"];
+			echo  "<br><td width='200'>Yahtzee: " . $_SESSION["yahtzee"];
 		}
 		elseif(isset($counts[1]) && $counts[1] == 5 || isset($counts[2]) && $counts[2] == 5 || isset($counts[3]) && $counts[3] == 5 || isset($counts[4]) && $counts[4] == 5 || isset($counts[5]) && $counts[5] == 5 || isset($counts[6]) && $counts[6] == 5)
 		{
 			$yahtzee = 50;
-			echo "<br>Yahtzee: " . $yahtzee;
+			echo "<br><td width='200'>Yahtzee: " . $yahtzee;
 			$_SESSION["saveyahtzee"] = $yahtzee;
 		}else 
 		{
-			echo "<br>Yahtzee: 0";
+			echo "<br><td width='200'>Yahtzee: 0";
 			$_SESSION["saveyahtzee"] = $yahtzee;
 		}
 		if(!isset($_SESSION["yahtzee"]))
 		{
-			echo "<input type='radio' name='select' value='yahtzee'>";;
+			echo "<input type='radio' name='select' value='yahtzee' " . $_SESSION["turns"] . ">";;
 		}
 		
 		//four of a kind
@@ -213,7 +216,7 @@
 		}
 		if(!isset($_SESSION["foak"]))
 		{
-			echo "<input type='radio' name='select' value='foak'>";
+			echo "<input type='radio' name='select' value='foak' " . $_SESSION["turns"] . ">";
 		}
 
 		//three of a kind
@@ -234,7 +237,7 @@
 		}
 		if(!isset($_SESSION["toak"]))
 		{
-			echo "<input type='radio' name='select' value='toak'>";
+			echo "<input type='radio' name='select' value='toak' " . $_SESSION["turns"] . ">";
 		}		
 			
 		//full house
@@ -262,7 +265,7 @@
 			}
 		if(!isset($_SESSION["fullhouse"]))
 		{
-			echo "<input type='radio' name='select' value='fullhouse'>";
+			echo "<input type='radio' name='select' value='fullhouse' " . $_SESSION["turns"] . ">";
 		}	
 		
 		//long straight
@@ -283,7 +286,7 @@
 		}
 		if(!isset($_SESSION["lnstraight"]))
 		{
-			echo "<input type='radio' name='select' value='lnstraight'>";
+			echo "<input type='radio' name='select' value='lnstraight'" . $_SESSION["turns"] . ">";
 		}	
 		
 		
@@ -304,7 +307,7 @@
 		}
 		if(!isset($_SESSION["smstraight"]))
 		{
-			echo "<input type='radio' name='select' value='smstraight'>";
+			echo "<input type='radio' name='select' value='smstraight' " . $_SESSION["turns"] . ">";
 		}	
 		
 		//chance
@@ -315,7 +318,7 @@
 		else
 		{ 
 			echo  "<br>Chance: " . $chance;
-			echo "<input type='radio' name='select' value='chance'>";
+			echo "<input type='radio' name='select' value='chance' " . $_SESSION["turns"] . ">";
 			$_SESSION["savechance"] = $chance;
 		}
 		
@@ -324,6 +327,9 @@
 		{
 			echo "<br>subtotal 2: " . $_SESSION["subtotal2"];
 		}
-		echo "<br>TOTAL: " . $total;
+		echo "<br>TOTAL: " . $total . "</td>";
+		
+		
+		echo "</table>";
 	}
 ?>
