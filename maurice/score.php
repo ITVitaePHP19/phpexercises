@@ -56,6 +56,7 @@
 			unset($_SESSION["subtotal2"]);
 			unset($_SESSION["bonus"]);
 			unset($_SESSION["selectedScores"]);
+			unset($_SESSION["tries"]);
 		}
 		
 		//Score table
@@ -64,15 +65,15 @@
 		//Ones
 		if(isset($_SESSION["ones"]))
 		{
-			echo  "<td width='200'>Ones: " . $_SESSION["ones"];
+			echo  "<td width='300'>Ones: " . $_SESSION["ones"];
 		}
 		elseif(isset($counts[1]))
 		{	
 			$ones = $counts[1];
-			echo "<td width='200'>Ones: " . $ones;
+			echo "<td width='300'>Ones: " . $ones;
 			$_SESSION["save1"] = $ones;
 			
-		}else {echo "<td width='200'>Ones: 0";}
+		}else {echo "<td width='400'>Ones: 0";}
 		if(!isset($_SESSION["ones"]))
 		{
 			echo  "<input type='radio' name='select' value='ones' " . $_SESSION["turns"] . ">";
@@ -166,7 +167,7 @@
 		if(isset($_SESSION["subtotal"]))
 		{
 			echo "<br>subtotal: " . $_SESSION["subtotal"];
-		}else{$_SESSION["subtotal"] = 0;}
+		}else{echo "<br>Subtotal: " . $_SESSION["subtotal"] = 0;}
 		
 		if($_SESSION["subtotal"] > 61)
 		{
@@ -329,6 +330,7 @@
 		}
 		echo "<br>TOTAL: " . $total . "</td>";
 		
+		echo "<img id='croupier' src='croupier.png' height='300' width='auto'>";
 		
 		echo "</table>";
 	}

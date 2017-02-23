@@ -369,6 +369,8 @@ figure{
 	border: 1px solid white;
 	background-color: green;
 	color: white;
+	font-size: 20px;
+	line-height: 30px;
 }
 
 .roll{
@@ -377,6 +379,7 @@ figure{
 	border: 1px solid white;
 	background-color: green;
 	color: white;
+	height: 200px;
 }
 
 #rollbutton{
@@ -391,7 +394,33 @@ figure{
 }
 
 #yahtzee{
-	background-color: green;
+	background: repeating-linear-gradient(
+  45deg,
+  green,
+  green 10px,
+  #056b23 10px,
+  #056b23 20px
+  );
 	height: 100%;
 	color: white;
+}
+
+.die{
+	width: 150px;
+	text-align: center;
+}
+
+#croupier{
+	float: right;
+	padding-right: 30px;
+}
+
+#bketable{
+	margin: 20px;
+	text-align: center;
+}
+
+#commands{
+	margin: 20px;
+	float: right;
 }

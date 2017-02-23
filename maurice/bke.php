@@ -1,8 +1,8 @@
-<?php session_start(); ?>
+<?php //if(session_start() == null){ session_start(); }	?>
 <!--refresh/listen for input every 1 second-->
-<meta http-equiv="refresh" content="1; url=bke.php" />
+<meta http-equiv="refresh" content="1; url=index2.php?p=bke" />
 
-<table border="1" width="200">
+<table id="commands"  border="1" width="200">
 	<tr>
 		<td>
 			Commands
@@ -128,7 +128,6 @@
 			$sessions[2] == "X" && $sessions[5] == "X" && $sessions[8] == "X" ||
 			$sessions[0] == "X" && $sessions[4] == "X" && $sessions[8] == "X" ||
 			$sessions[2] == "X" && $sessions[4] == "X" && $sessions[6] == "X"
-			
 			)
 		{
 			echo "You won!";
@@ -188,7 +187,7 @@
 	function drawBoard($one, $two, $three, $four, $five, $six, $seven, $eight, $nine)
 	{
 		
-		echo 	"<table border='1' width='250px' height='250'>" . 
+		echo 	"<table id='bketable' border='1' width='250px' height='250'>" . 
 				"<tr><td>" . $one . "</td><td>" . $two . "</td><td>" . $three . "</td></tr>" .
 				"<tr><td>" . $four . "</td><td>" . $five . "</td><td>" . $six . "</td></tr>" .
 				"<tr><td>" . $seven . "</td><td>" . $eight . "</td><td>" . $nine . "</td></tr>" .

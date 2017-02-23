@@ -125,7 +125,7 @@
 				include 'yahtzee.php';
 				break;
 			case 'bke':
-				include 'bke.php';
+				include 'opdrachten.php';
 				break;
 			case 'sort_flagname':
 				include 'vlaggen.php';
