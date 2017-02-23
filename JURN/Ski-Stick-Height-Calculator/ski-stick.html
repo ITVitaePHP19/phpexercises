@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ski-Stick-Height Calculator</title>
+</head>
+<body>
+<h1><p class="header">Ski-Stick-Height Calculator</p></h1>
+<h3>Use this calculator to calculate the appropriate ski-stick height that you need</h3>
+<p>put your height in the field below (in cm),  select the type of ski-stick and click on calculate to get the right height of the stick you need</p>
+
+      <form action="stickheight.php" method="POST">
+      <input type="number" name="in">cm<br>
+	  <p>calculate for:</p>
+      <input type="radio" name="height" value="classical" required> Cross-country classical<br>
+      <input type="radio" name="height" value="freestyle" required> Cross-country free-style<br>
+	  <input type="radio" name="height" value="nordic" required> Nordic walk<br>
+      <input type="submit" name="calculate" value="calculate">
+      <input type="reset" name="reset" value="reset"><br>
+      </form>
+
+</body>
+</html>
