@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Temperature Converter</title>
+</head>
+<body>
+<h1><p class="header">Temperature Converter</p></h1>
+<h3>converts the temperature from Celcius to Fahrenheit or vice versa</h3>
+<p>put a number in the field, select celcius or fahrenheit and click on convert</p>
+
+      <form action="convert-temp.php" method="POST">
+      <input type="number" name="in"><br>
+	  <p>convert to:</p>
+      <input type="radio" name="temperature" value="celcius" required> Celcius<br>
+      <input type="radio" name="temperature" value="fahrenheit" required> Fahrenheit<br>
+      <input type="submit" name="convert" value="convert">
+      <input type="reset" name="reset" value="reset"><br>
+      </form>
+
+</body>
+</html>
