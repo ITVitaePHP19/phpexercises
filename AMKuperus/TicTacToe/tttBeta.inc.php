@@ -75,20 +75,41 @@ echo '<form action="" method="POST">';
 
 //TODO write function to check the player [] if it contains a winning combination
 
-//TODO Make this field apear in a nice 3x3 playfield
-  //Set up the playfield, checks the content of each array-elemement, if element
-  //string-length is bigger then 1 element is a position (like A1 or C2) else
-  //position is already chosen and filled with a X or a Y
+  //Divide the $field[] into 3 arrays a[] b[] c[]
+  //Call setElement to put each element into html-tags
   function setField($field) {
-    echo "<hr>";
-    foreach($field as $f) {
+    $a = [];
+    $a[0] = $field[0];
+    $a[1] = $field[1];
+    $a[2] = $field[2];
+    setElement($a);
+    $b = [];
+    $b[0] = $field[3];
+    $b[1] = $field[4];
+    $b[2] = $field[5];
+    setElement($b);
+    $c = [];
+    $c[0] = $field[6];
+    $c[1] = $field[7];
+    $c[2] = $field[8];
+    setElement($c);
+  }
+
+  //TODO Fix the layout so it apears nicely 3x3
+  //If element's strlen() is longer then 1 element is a position,
+  //If element is a position make a radiobutton with as value its position.
+  //Else make the element apear as either a X or a O
+  function setElement($array) {
+    echo "<p>\n";
+    foreach($array as $v) {
       //Filter out al positions ann give those a radiobutton
-      if(strlen($f) > 1) {//Create a radiobutton
-        echo "$f<input type=radio value=$f name=pos>\n";
+      if(strlen($v) > 1) {//Create a radiobutton
+        echo "$v<input type=radio value=$v name=pos>\n";
       } else {
-        echo "-$f-";
+        echo "-$v-";
       }
     }
+    echo "</p>\n";
   }
 
 echo "<hr>\n";
