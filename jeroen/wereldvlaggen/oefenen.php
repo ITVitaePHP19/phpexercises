@@ -16,10 +16,9 @@
 	//places json-content in array 
 	$json = json_decode($content, true);
 
-	//creates for each country-code in the json file 
 	foreach ($json as $total => $country){
 		foreach($country as $key => $value){
-			if ($key == 'code'){
+			if($key == 'code'){
 					$image = "flags/$value.svg";
 					echo '<div class="flex-item" onclick="correct(this)"><img src="'.$image.'" alt="vlag" width="160px" height="100px" />'.PHP_EOL;
 			}		

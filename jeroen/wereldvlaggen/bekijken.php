@@ -20,7 +20,6 @@ foreach ($json as $total => $country){
 		if ($key == 'code'){
 				$image = "flags/$value.svg";
 				echo '<div class="flex-item"><img src="'.$image.'" alt="vlag" width="160px" height="100px" />'.PHP_EOL;
-			}
 		}		
 		if($key == 'name'){
 			echo PHP_EOL. $value.'</div>';
