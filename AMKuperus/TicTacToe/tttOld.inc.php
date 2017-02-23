@@ -1,9 +1,9 @@
 <form action="" method="POST">
 <?php
-  //TODO 0.) initialize the game, set up the arrays
-  //TODO 1.) setfields
-  //TODO function to place radiobuttons
-  //TODO 2.) play x/o
+  //IN PROGRESS 0.) initialize the game, set up the arrays
+  // 1.) setfields
+  // function to place radiobuttons
+  // 2.) play x/o
   //TODO 3.) put chosen position in x/o array[] and remove from $field[]
   //TODO 4.) check is there is a winner
   //TODO 5.) check if tere still is a field
@@ -38,30 +38,41 @@
 
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-      if (isset($_POST['push'])) {
-        $push = $_POST['push'];
-      }
+
       if(count($field) > 0) {
         setField($field);
-        //maybe get POST from here instead of deeper in the loop
-        if($turn % 2 == 0) {
-          //Even = o
-          echo "<hr>X >>>even <br>Turn: $turn <hr>";
-          array_push($o, $push);
-          $_SESSION['o'] = $o;
-        } else {
-          //Odd = x
-          echo "<hr>O >>>odd <br>Turn: $turn";
-          array_push($x, $push);
-          $_SESSION['x'] = $x;
+//maybe beter set the field with a button to start the game//then have button
+//apear for player o and x when playing for better readout of players
+      if (isset($_POST['push'])) {
+
+        $push = $_POST['push'];
+
+          if($turn % 2 == 0) {
+            //Even = o
+            echo "<hr>X >>>even <br>Turn: $turn <hr>";
+            array_push($o, $push);
+            $_SESSION['o'] = $o;
+          } else {
+            //Odd = x
+            echo "<hr>O >>>odd <br>Turn: $turn";
+            array_push($x, $push);
+            $_SESSION['x'] = $x;
+          }
+          //Search for the key to remove the element from the array
+          $k = array_search($push, $field);
+          //Removing the position from the $field[]
+          unset($field[$k]);
         }
+        $_SESSION['field'] = $field;
+
         $turn++;
         $_SESSION['turn'] = $turn;
         echo '<hr>Array size:' . count($o) . ' O>>>';
         print_r($o);
         echo '<hr>Array size:' . count($x) . ' X>>>';
         print_r($x);
-        echo '<hr><br>';
+        echo '<hr>Field Array size: ' . count($field) . ' Field>>>';
+        print_r($field);
       }
     }
   }

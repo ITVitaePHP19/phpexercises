@@ -3,11 +3,11 @@
   session_start();
 ?>
 <head>
-  <title>Nuts And Bolts</title>
+  <title>TicTacToe</title>
 </head>
 <body>
   <?php
-    include 'ttt.inc.php';
+    include 'tttBeta.inc.php';
   ?>
 </body>
 </html>
