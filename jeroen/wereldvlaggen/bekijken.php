@@ -7,25 +7,29 @@
 </head>
 <body>
 <h1>Overzicht</h1>
+
 <div class="flex-container">
 
 <?php
-$images = glob("flags-name/*.svg");
-for ($i=1; $i<count($images); $i++){
-	$image = $images[$i];
-		echo '<div class="flex-item"> <img src="'.$image .'" alt="vlag" width="160px" height="100px" />
-	<br>' . test_input($image) . '</div>';
+//gets data from json-file
+$content = file_get_contents("flags/countries.json");
+$json = json_decode($content, true);
+
+foreach ($json as $total => $country){
+	foreach($country as $key => $value){
+		if ($key == 'code'){
+				$image = "flags/$value.svg";
+				echo '<div class="flex-item"><img src="'.$image.'" alt="vlag" width="160px" height="100px" />'.PHP_EOL;
+			}
+		}		
+		if($key == 'name'){
+			echo PHP_EOL. $value.'</div>';
+		}
+	}
 }
 
-function test_input($data) {
-	$data = trim($data);
-	$data = stripslashes($data);
-	$data = htmlspecialchars($data);
-	$data = str_replace(".svg", "", $data);
-	$data = str_replace("flags-name/", "", $data);
-	return $data;
-}
 ?>
+
 </div>
 </body>
 </html>
