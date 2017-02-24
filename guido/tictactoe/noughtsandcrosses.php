@@ -28,7 +28,7 @@ $_SESSION['post-data'] = $_POST;
 <?php
 echo "<button id='button1' name'play'>Play</button>";
 if (isset($_POST['play'])) {
-playGame();
+  playGame();
 }
 
 function playGame() {
@@ -41,9 +41,16 @@ function playGame() {
                     echo "</br>\n";
                 }
 }
-// echo "<button id='reset' name='reset'>Play again</button>";
-            ?>
+echo "<button id='reset' name='reset'>Play again</button>";
+echo "<br><br>";
 
+if (isset($_POST['reset'])) {
+  $_SESSION = array();
+}
+      ?>
         </form>
+
+      <br>
+      <br>
   </body>
 </html>
