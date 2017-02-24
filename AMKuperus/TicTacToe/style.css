@@ -1,0 +1,21 @@
+body {
+  background-color: #DDDDDD;
+}
+
+h1, h2 {
+  font-family: sans-serif;
+}
+
+
+
+th, td {
+  border: 2px solid black;
+}
+
+td {
+  background-color: tomato;
+  height: 5vw;
+  width: 5vw;
+  text-align: center;
+  font-size: 2em;
+}
