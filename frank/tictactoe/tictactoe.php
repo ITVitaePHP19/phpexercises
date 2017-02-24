@@ -12,10 +12,11 @@ Tic tac toe
 <?php
     
 // WORK IN PROGRESS
-    
-if (isset($_POST['button'])) {
-echo "Player O's turn";
-}
+
+
+  if (isset($_POST['button'])) {
+    echo "Player O's turn";
+  }
     
 else {
 echo "Player X's turn";    
@@ -26,7 +27,8 @@ echo "Player X's turn";
 <form method="POST">
 <table>
     <tr>    
-        <td><button name="button" value="1"/></td>
+        <td><button name="button" value="1"/>
+        <?php if (isset($_POST['button'])){ echo "X";} ?></td>
         <td><button name="button" value="2"/></td>
         <td><button name="button" value="3"/></td>
     </tr>
