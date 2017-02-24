@@ -2,7 +2,7 @@
 ##############################################################################
 ##################TicTacToe by @author : AMKuperus############################
 ####Copyleft,only to be used for non-profit and always mention the author.####
-##########################Version 0.4Beta--Feb.2017###########################
+##########################Version 0.8Beta--Feb.2017###########################
 ##############################################################################
 
 echo '<form action="" method="POST">';
@@ -27,6 +27,9 @@ echo '<form action="" method="POST">';
     //Creating a variable for the number of turns played
     $turn = 1;
     $_SESSION['turn'] = $turn;
+    //Boolean variable game (switches when there is a winner)
+    $game = true;
+    $_SESSION['game'] = $game;
     //Say something to the visitors
     echo "<h1>Are you ready to play some TicTacToe</h1>\n";
   } else {
@@ -35,10 +38,12 @@ echo '<form action="" method="POST">';
     $x = $_SESSION['x'];
     $o = $_SESSION['o'];
     $turn = $_SESSION['turn'];
+    $game = $_SESSION['game'];
     //Say something to the visitors
     echo "<h1>You are playing TicTacToe</h1>\n";
 
-    if(isset($_POST['pos'])) {
+    if($game == true && $turn < 9){
+      if(isset($_POST['pos'])) {
       //The chosen position (pos)
       $pos = $_POST['pos'];
       //Search for the key to remove the element from the array $field[] and
@@ -64,21 +69,19 @@ echo '<form action="" method="POST">';
       $turn++;
       $_SESSION['turn'] = $turn;
       //TODO Some stuff only for testingREMOVE WHEN DONE>>>>
-      echo '<hr>Array size: ' . count($o) . ' O>>>ARRAY>>>';
-      print_r($o);
-      echo '<hr>Array size: ' . count($x) . ' X>>>ARRAY>>>';
-      print_r($x);
-      echo '<hr>Array size: ' . count($field) . ' FIELD ARRAY>>';
-      print_r($field);
-      echo "<br>";
+      //echo '<hr>Array size: ' . count($o) . ' O>>>ARRAY>>>';
+      //print_r($o);
+      //echo '<hr>Array size: ' . count($x) . ' X>>>ARRAY>>>';
+      //print_r($x);
+      //echo '<hr>Array size: ' . count($field) . ' FIELD ARRAY>>';
+      //print_r($field);
+      //echo "<br>";
     }
     //Setup the field in 3x3 setting with a table
     echo "<table>";
     setField($field);
-    echo "</table>";
+    echo "</table>";}
   }
-
-//TODO Make the game stop when there is a winner.
 
   //$win[] is a multidimensional array containing all winning combinations in
   //TicTacToe.
@@ -103,8 +106,11 @@ echo '<form action="" method="POST">';
   //If there is no difference, a winning combination is found in $haystack[] and
   //there is a winner
   function allInArray($needle, $haystack) {
+    global $game;
     if(!array_diff($needle, $haystack) == true) {
       echo "<h1>We have a winner</h1>";
+      $game = false;
+      $_SESSION['game'] = $game;
     }
   }
 
