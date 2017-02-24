@@ -49,13 +49,15 @@ echo '<form action="" method="POST">';
         echo "<hr>X>>>Even is playing<br>Turn: $turn<hr>\n";
         //Add to the $o[] and push to the $_SESSION['o'] and $field[]
         array_push($o, $pos);
-        $field[$k] = "X";
+        isWinner($o);
+        $field[$k] = "O";
         $_SESSION['o'] = $o;
       } else {
         echo "<hr>O>>>Odd is playing<br>Turn: $turn<hr>\n";
         //Add to the $x[] and push to the $_SESSION['x'] and $field[]
         array_push($x, $pos);
-        $field[$k] = "O";
+        isWinner($x);
+        $field[$k] = "X";
         $_SESSION['x'] = $x;
       }
       $_SESSION["field"] = $field;
@@ -70,10 +72,41 @@ echo '<form action="" method="POST">';
       print_r($field);
       echo "<br>";
     }
+    //Setup the field in 3x3 setting with a table
+    echo "<table>";
     setField($field);
+    echo "</table>";
   }
 
-//TODO write function to check the player [] if it contains a winning combination
+//TODO Make the game stop when there is a winner.
+
+  //$win[] is a multidimensional array containing all winning combinations in
+  //TicTacToe.
+  //With a foreach-loop we walk trough every winning combination with allInArray()
+  //If allInArray() finds a winning combi it echo's that to the screen.
+  function isWinner($array) {
+    //Winning combinations
+    $win = [["A1", "A2", "A3"],
+            ["B1", "B2", "B3"],
+            ["C1", "C2", "C3"],
+            ["A1", "B1", "C1"],
+            ["A2", "B2", "C2"],
+            ["A3", "B3", "C3"],
+            ["A1", "B2", "C3"],
+            ["A3", "B2", "C1"]];
+    foreach($win as $w) {
+      allInArray($w, $array);
+    }
+  }
+
+  //Checks if there is a difference between $needle[] and $haystack[]
+  //If there is no difference, a winning combination is found in $haystack[] and
+  //there is a winner
+  function allInArray($needle, $haystack) {
+    if(!array_diff($needle, $haystack) == true) {
+      echo "<h1>We have a winner</h1>";
+    }
+  }
 
   //Divide the $field[] into 3 arrays a[] b[] c[]
   //Call setElement to put each element into html-tags
@@ -95,21 +128,20 @@ echo '<form action="" method="POST">';
     setElement($c);
   }
 
-  //TODO Fix the layout so it apears nicely 3x3
   //If element's strlen() is longer then 1 element is a position,
   //If element is a position make a radiobutton with as value its position.
   //Else make the element apear as either a X or a O
   function setElement($array) {
-    echo "<p>\n";
+    echo "<tr>\n";
     foreach($array as $v) {
-      //Filter out al positions ann give those a radiobutton
+      //Filter out al positions and give those a radiobutton
       if(strlen($v) > 1) {//Create a radiobutton
-        echo "$v<input type=radio value=$v name=pos>\n";
+        echo "<td><input type=radio value=$v name=pos></td>\n";
       } else {
-        echo "-$v-";
+        echo "<td>$v</td>";
       }
     }
-    echo "</p>\n";
+    echo "</tr>\n";
   }
 
 echo "<hr>\n";
