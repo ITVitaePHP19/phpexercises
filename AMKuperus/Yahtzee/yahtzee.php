@@ -8,19 +8,30 @@
 </head>
 <body>
   <h1>Play Yahtzee</h1>
-  <form action="" method="POST"><!--This form should only be shown when nog game has yet been setup-->
-    <p>Choose the number off players</p><!--Do something with php-->
-    <select name="players" required>
-      <option value=""></option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-    </select>
-    <input type="submit" value="Start">
+    <?php
+    if(isset($_POST['reset'])) {
+      $_SESSION = [];
+    }
+    echo '<form action="" method="POST">';
+      if(!isset($_POST['players'])) {
+        echo '<p>Choose the number off players</p>
+                <select name="players" required>
+                  <option value=""></option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  </select>
+                <input type="submit" value="Start">
+              </form>';
+      } elseif($_SERVER['REQUEST_METHOD'] == 'POST') {
+          $players = $_POST['players'];
+          $_SESSION['players'] = $players;
+          echo $players;
+          include 'yahtzee.inc.php';
+          echo '<input type="submit" value="Play">';
+      }
+    ?>
+    <input type="submit" name="reset" value="Reset">
   </form>
-  <?php
-    include 'yahtzee.inc.php';
-  ?>
 </body>
 </html>
