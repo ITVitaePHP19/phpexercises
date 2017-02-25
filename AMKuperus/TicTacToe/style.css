@@ -6,8 +6,6 @@ h1, h2 {
   font-family: sans-serif;
 }
 
-
-
 th, td {
   border: 2px solid black;
 }
@@ -17,5 +15,50 @@ td {
   height: 5vw;
   width: 5vw;
   text-align: center;
-  font-size: 2em;
+  font-size: 3.5em;
+}
+
+.startimg {
+  position: absolute;
+  left: 5vw;
+  width: 17vw;
+  height: 17vw;
+}
+
+.ui {
+  position: absolute;
+  top: 5.5vw;
+  left: 18vw;
+  width: 10em;
+  padding: 0.5em;
+  background-color: #FFF;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.ui_c {
+  position: absolute;
+  top: 18vw;
+  left: 17vw;
+  padding: 1em;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.game {
+  position: absolute;
+  top: 5vw;
+  left: 0.5vw;
+  z-index: 1;
+}
+
+.win {
+  position: absolute;
+  top: 5vw;
+  left: 1vw;
+  border-radius: 8px;
+  border: 2px solid black;
+  padding: 2em;
+  background-color: #53C048;
+  z-index: 2;
 }
