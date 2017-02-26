@@ -62,6 +62,8 @@
     echo "<hr>\n";
     //Select player to play and play
     if($game == true) {
+      $player = $players[$turn];
+      //TODO On the end add 1 to turn or reset it to 0
       //TODO Select player
       //TODO Setup dice
       //TODO Controlmechanism for rollin the dice (Dice <radiobutton>if isset rollDice else nothing)
