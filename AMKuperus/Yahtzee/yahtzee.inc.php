@@ -2,19 +2,8 @@
 ################################################################################
 ##########################Yahtzee by @author AMKuperus##########################
 #####Copyleft,only to be used for non-profit and always mention the author.#####
-############################Version 0.2-BETA-Feb.2017###########################
+############################Version 0.3-BETA-Feb.2017###########################
 ################################################################################
-##DONE//TODO CREATE Setup start off the game->select #players and setup a game from there
-//TODO CREATE Play the game, if there is players
-//TODO functions to apply the rules of Yahtzee
-//TODO Let the game run max number round, keep track of scores of each players
-###DONE//TODO Function to roll the dice (mc_rand)
-//TODO Dice should be selectable to choose if player wants to reroll the Dice
-//TODO Player turn is max 3 turns, then player must select what he/she is playing for
-//TODO safe players "turns" in a array per player(multidimensional?)
-//TODO make the score-thingy in a visible scorebooklook apear per player wneh player plays
-//TODO keep track of the score via the scorebook, which puts it into an array
-//Dice <radiobutton>if isset rollDice else nothing
 
   //Reset the game
   if (isset($_POST['reset'])) {
@@ -33,6 +22,11 @@
               </select>
             <input type="submit" value="Start">';
   } elseif(!isset($_SESSION['players'])) {
+    //Setup variable for counting which players turn it is.
+    $turn = 0;
+    $_SESSION['turn'] = $turn;
+    $game = true;
+    $_SESSION['game'] = $game;
     //Setup players
     $players = $_POST['players'];
     switch($players) {
@@ -55,16 +49,27 @@
         $_SESSION['players'] = [$player1, $player2, $player3, $player4];
         break;
     }
-    //echo '<input type="submit" value="Start">';
-    print_r($_SESSION['players']);
+    print_r($_SESSION['players']);#Remove when done
   } else {
     //Start a game
     $players = $_SESSION['players'];
+    $turn = $_SESSION['turn'];
+    $game = $_SESSION['game'];
     $nop = count($players);//NumberOffPlayers
     $_SESSION['nop'] = $nop;
     echo "Number off players: $nop<hr>\n";
-    print_r($players);
+    print_r($players);#Remove when done.
+    echo "<hr>\n";
     //Select player to play and play
+    if($game == true) {
+      //TODO Select player
+      //TODO Setup dice
+      //TODO Controlmechanism for rollin the dice (Dice <radiobutton>if isset rollDice else nothing)
+      //TODO Mechanism to show scores grapical
+      //TODO Player turn is max 3 turns, then player must select what he/she is playing for
+      //TODO Put score (chosen attribute + that score) in player array and write it to $_SESSION['players']
+      //TODO Mechanics for when the game should end
+    }
   }
 
   //Roll a dice, $dice is the dice to roll
