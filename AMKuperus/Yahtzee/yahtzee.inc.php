@@ -2,7 +2,7 @@
 ################################################################################
 ##########################Yahtzee by @author AMKuperus##########################
 #####Copyleft,only to be used for non-profit and always mention the author.#####
-############################Version 0.3-BETA-Feb.2017###########################
+############################Version 0.4-BETA-Feb.2017###########################
 ################################################################################
 
   //Reset the game
@@ -51,6 +51,7 @@
     }
     print_r($_SESSION['players']);#Remove when done
   } else {
+    //TODO Fix problem on game start when chosen #players the inbetween. Maybe with a button?
     //Start a game
     $players = $_SESSION['players'];
     $turn = $_SESSION['turn'];
@@ -63,6 +64,8 @@
     //Select player to play and play
     if($game == true) {
       $player = $players[$turn];
+      setDice();
+      echo "START GAME";
       //TODO On the end add 1 to turn or reset it to 0
       //TODO Select player
       //TODO Setup dice
@@ -72,6 +75,16 @@
       //TODO Put score (chosen attribute + that score) in player array and write it to $_SESSION['players']
       //TODO Mechanics for when the game should end
     }
+  }
+
+  //Setup the dice
+  function setDice() {
+    echo  '<p>Dice 1 <input type="radio" value="dice1" name="dice1"></p>' .
+          '<p>Dice 2 <input type="radio" value="dice2" name="dice2"></p>' .
+          '<p>Dice 3 <input type="radio" value="dice3" name="dice3"></p>' .
+          '<p>Dice 4 <input type="radio" value="dice4" name="dice4"></p>' .
+          '<p>Dice 5 <input type="radio" value="dice5" name="dice5"></p>';
+
   }
 
   //Roll a dice, $dice is the dice to roll
