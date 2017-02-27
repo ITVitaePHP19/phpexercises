@@ -71,12 +71,16 @@
       echo "START GAME";
       $c = 0;
       if($c < 3) {
-        echo "Roll: $c<hr>\n";
+        echo "<hr>Roll: $c<hr>\n";
         print_r($player);
         //Player plays
-        if(isset($_POST['dice1'])) {//TODO Rewrite this, this is not working at all
-          $dice1 = rollDice($_POST['dice1']);//TODO diceselection is not working
-          echo '<p>DICE ' . $dice1 . ' SUCCESFULLY SELECTED</p>';
+        if(isset($_POST['roll'])) {//TODO Rewrite this, this is not working at all
+          if(isset($_POST['dice1'])) {
+            //Dice1
+            echo '<p>DICE ' . $dice1 . ' SUCCESFULLY SELECTED</p>';
+            rollDice($dice1);
+          }
+
         } else {
           echo "<p>NOTHING CHOSEN</p>";
         }
@@ -88,7 +92,7 @@
       //TODO Player turn is max 3 turns, then player must select what he/she is playing for
       //TODO Put score (chosen attribute + that score) in player array and write it to $_SESSION['players']
       //TODO Mechanics for when the game should end
-      echo '<input type="submit" name="" value="Roll">';
+      echo '<input type="submit" name="roll" value="Roll">';
       $c++;
     }
   }
