@@ -77,6 +77,7 @@
         if(isset($_POST['roll'])) {//TODO Rewrite this, this is not working at all
           if(isset($_POST['dice1'])) {
             //Dice1
+            $dice1 = $_POST['dice1'];//TODO
             echo '<p>DICE ' . $dice1 . ' SUCCESFULLY SELECTED</p>';
             rollDice($dice1);
           }
