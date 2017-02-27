@@ -8,7 +8,7 @@
 	      $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $query = "INSERT INTO `login` (firstname, lastName, username, password, email) VALUES ('$firstName','$lastName','$username', '$password', '$email')";
+        $query = "INSERT INTO `login` (Firstname, Lastname, username, password, email) VALUES ('$firstName','$lastName','$username', '$password', '$email')";
         $result = mysqli_query($connection, $query);
         if($result){
             $success = "User Created Successfully.";
@@ -39,7 +39,7 @@
                   <label>Username:</label><br>
                   <input type= "text" name= "username" class= "box"><br><br>
                   <label>Password:</label><br>
-                  <input type= "password" name= "password" class= "box" autocomplete="off"><br><br>
+                  <input type= "password" name= "password" class="box" autocomplete="off"><br><br>
                   <input type= "submit" value ="Submit"/><br>
                   <?php
                   if(isset($success))
