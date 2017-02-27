@@ -2,16 +2,17 @@
 ################################################################################
 ##########################Yahtzee by @author AMKuperus##########################
 #####Copyleft,only to be used for non-profit and always mention the author.#####
-############################Version 0.4-BETA-Feb.2017###########################
+############################Version 0.5-BETA-Feb.2017###########################
 ################################################################################
 
   //Reset the game
   if (isset($_POST['reset'])) {
     $_SESSION = [];
+    $_POST = [];
   }
 
   //Ask for the number of players and setup the game
-  if(!isset($_POST['players'])) {
+  if(!isset($_POST['players'])) {##TODO This must come from session not post, now it keeps resetting the game.
     //Show a form to choose number of players
     echo '<p>Choose the number off players</p>
             <select name="players" required>
@@ -22,6 +23,7 @@
               </select>
             <input type="submit" value="Start">';
   } elseif(!isset($_SESSION['players'])) {
+    echo 'SETTING UP THE GAME CREATING PLAYERS<input type="submit" value="Start">';##Remove when done
     //Setup variable for counting which players turn it is.
     $turn = 0;
     $_SESSION['turn'] = $turn;
@@ -49,9 +51,7 @@
         $_SESSION['players'] = [$player1, $player2, $player3, $player4];
         break;
     }
-    print_r($_SESSION['players']);#Remove when done
   } else {
-    //TODO Fix problem on game start when chosen #players the inbetween. Maybe with a button?
     //Start a game
     $players = $_SESSION['players'];
     $turn = $_SESSION['turn'];
@@ -66,25 +66,33 @@
       $player = $players[$turn];
       setDice();
       echo "START GAME";
+      $c = 0;
+      if($c < 3) {
+        //Player plays
+        if(isset($_POST['dice1'])) {
+          $dice1 = rollDice($_POST['dice1']);
+        } else {
+          echo "nothing";
+        }
+      }
       //TODO On the end add 1 to turn or reset it to 0
       //TODO Select player
-      //TODO Setup dice
       //TODO Controlmechanism for rollin the dice (Dice <radiobutton>if isset rollDice else nothing)
       //TODO Mechanism to show scores grapical
       //TODO Player turn is max 3 turns, then player must select what he/she is playing for
       //TODO Put score (chosen attribute + that score) in player array and write it to $_SESSION['players']
       //TODO Mechanics for when the game should end
+      echo '<input type="submit" name="" value="Roll">';
+      $c++;
     }
   }
 
   //Setup the dice
   function setDice() {
-    echo  '<p>Dice 1 <input type="radio" value="dice1" name="dice1"></p>' .
-          '<p>Dice 2 <input type="radio" value="dice2" name="dice2"></p>' .
-          '<p>Dice 3 <input type="radio" value="dice3" name="dice3"></p>' .
-          '<p>Dice 4 <input type="radio" value="dice4" name="dice4"></p>' .
-          '<p>Dice 5 <input type="radio" value="dice5" name="dice5"></p>';
-
+    $dices = ["dice1", "dice2", "dice3", "dice4", "dice5"];
+    foreach($dices as $dice) {
+      echo '<p>' . $dice . '<input type="radio" value="' . $dice . '" name="' . $dice . '">' . rollDice($dice) . '</p>';
+    }
   }
 
   //Roll a dice, $dice is the dice to roll
