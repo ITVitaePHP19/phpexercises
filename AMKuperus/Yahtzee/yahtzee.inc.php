@@ -2,7 +2,7 @@
 ################################################################################
 ##########################Yahtzee by @author AMKuperus##########################
 #####Copyleft,only to be used for non-profit and always mention the author.#####
-############################Version 0.5-BETA-Feb.2017###########################
+############################Version 0.6-BETA-Feb.2017###########################
 ################################################################################
 
   //Reset the game
@@ -12,7 +12,10 @@
   }
 
   //Ask for the number of players and setup the game
-  if(!isset($_POST['players'])) {##TODO This must come from session not post, now it keeps resetting the game.
+  if(!isset($_SESSION['game'])) {
+    //Setup a game
+    $game = true;
+    $_SESSION['game'] = $game;
     //Show a form to choose number of players
     echo '<p>Choose the number off players</p>
             <select name="players" required>
@@ -22,13 +25,10 @@
               <option value="4">4</option>
               </select>
             <input type="submit" value="Start">';
-  } elseif(!isset($_SESSION['players'])) {
-    echo 'SETTING UP THE GAME CREATING PLAYERS<input type="submit" value="Start">';##Remove when done
+  } else if(!isset($_SESSION['players'])) {
     //Setup variable for counting which players turn it is.
     $turn = 0;
     $_SESSION['turn'] = $turn;
-    $game = true;
-    $_SESSION['game'] = $game;
     //Setup players
     $players = $_POST['players'];
     switch($players) {
@@ -51,6 +51,9 @@
         $_SESSION['players'] = [$player1, $player2, $player3, $player4];
         break;
     }
+    echo '<p>Setting up a game for ' . $players . ' players.<br>
+          Press start when you are ready to play.</p>' .
+          '<input type="submit" value="Start">';
   } else {
     //Start a game
     $players = $_SESSION['players'];
@@ -68,11 +71,14 @@
       echo "START GAME";
       $c = 0;
       if($c < 3) {
+        echo "Roll: $c<hr>\n";
+        print_r($player);
         //Player plays
-        if(isset($_POST['dice1'])) {
-          $dice1 = rollDice($_POST['dice1']);
+        if(isset($_POST['dice1'])) {//TODO Rewrite this, this is not working at all
+          $dice1 = rollDice($_POST['dice1']);//TODO diceselection is not working
+          echo '<p>DICE ' . $dice1 . ' SUCCESFULLY SELECTED</p>';
         } else {
-          echo "nothing";
+          echo "<p>NOTHING CHOSEN</p>";
         }
       }
       //TODO On the end add 1 to turn or reset it to 0
