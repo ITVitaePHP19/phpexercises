@@ -37,6 +37,10 @@ label {
 .div2 {
   margin: 30px;
 }
-.top {
-
+.welcome {
+  width: 225px;
+  border: solid 3px white;
+  color:white;
+  text-align: left;
+  text-indent: 2px;
 }

@@ -13,7 +13,7 @@
         if($result){
             $success = "User Created Successfully.";
         }else{
-            $fail ="User Registration Failed";
+            $fail = "User Registration Failed.";
         }
     }
     ?>
@@ -68,10 +68,9 @@
                </form>
 
             </div>
-
          </div>
-
       </div>
 </div>
+
    </body>
 </html>
