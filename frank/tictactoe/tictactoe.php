@@ -12,8 +12,6 @@ Tic tac toe
 <?php
     
 // WORK IN PROGRESS
-
-
   if (isset($_POST['button'])) {
     echo "Player O's turn";
   }
@@ -21,26 +19,33 @@ Tic tac toe
 else {
 echo "Player X's turn";    
 }
-
 ?>
     
 <form method="POST">
 <table>
     <tr>    
-        <td><button name="button" value="1"/>
-        <?php if (isset($_POST['button'])){ echo "X";} ?></td>
-        <td><button name="button" value="2"/></td>
-        <td><button name="button" value="3"/></td>
+        <td><button name="button1"/>
+        <?php if (isset($_POST['button1'])){ echo "X";} ?></td>
+        <td><button name="button2"/>
+        <?php if (isset($_POST['button2'])){ echo "X";} ?></td>
+        <td><button name="button3"/>
+        <?php if (isset($_POST['button3'])){ echo "X";} ?></td>
     </tr>
     <tr>
-        <td><button name="button" value="4"/></td>
-        <td><button name="button" value="5"/></td>
-        <td><button name="button" value="6"/></td>
+        <td><button name="button4"/>
+        <?php if (isset($_POST['button4'])){ echo "X";} ?></td>
+        <td><button name="button5"/>
+        <?php if (isset($_POST['button5'])){ echo "X";} ?></td>
+        <td><button name="button6"/>
+        <?php if (isset($_POST['button6'])){ echo "X";} ?></td>       
     </tr>
     <tr>
-        <td><button name="button" value="7"/></td>
-        <td><button name="button" value="8"/></td>
-        <td><button name="button" value="9"/></td>
+        <td><button name="button7"/>
+        <?php if (isset($_POST['button7'])){ echo "X";} ?></td>
+        <td><button name="button8"/>
+        <?php if (isset($_POST['button8'])){ echo "X";} ?></td>
+        <td><button name="button9"/>
+        <?php if (isset($_POST['button9'])){ echo "X";} ?></td> 
 </table>
     <input type="reset" value="Start over">
 </form>
