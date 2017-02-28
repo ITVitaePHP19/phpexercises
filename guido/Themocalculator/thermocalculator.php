@@ -9,27 +9,27 @@
 <form method="post" action="">
 
 Celsius to Fahrenheit:
-    <input type="text" name="celsius" size="5" autocomplete="off"/>
-    <input type="submit" value="Fahrenheit" />
+    <input type="text" name="celcius" size="5" autocomplete="off"/>
+    <input type="submit" name="celc" value="calculate" />
 
 <br>
 
 Fahrenheit to Celsius:
     <input type="text" name="fahrenheit" size="5" autocomplete="off"/>
-    <input type="submit" value="Celsius" />
+    <input type="submit" name ="fah" value="calculate" />
 <br>
 <br>
     <?php
 
     if (isset($_POST['celc'])) {
-      $celc = $_POST['celsius'];
-      $fahrenheit = round(($celc * 9/5) + 32, 0);
+      $celc = $_POST['celcius'];
+      $fahrenheit = round($celc * 9/5 + 32, 0);
       echo "$celc celcius is $fahrenheit in fahrenheit";
     }
 
-    if (isset($_POST['fahrenheit'])) {
+    elseif (isset($_POST['fah'])) {
       $fah = $_POST['fahrenheit'];
-      $celcius = round(($fah - 32) * 5/9, 0);;
+      $celcius = round(($fah - 32) * 5/9, 0);
       echo "$fah fahrenheit is $celcius in celcius";
     }
     ?>
