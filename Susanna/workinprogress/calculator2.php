@@ -4,7 +4,14 @@
 <head><title>Calculator</title>
 <?php
 
-
+//  to do
+// build functionality for %
+// fix fatal error from pressing = twice
+// add euro's mode with rounding and , as punctuation instead of .
+// change the layout of the buttons so it looks a bit better
+// return function to . to have a 0 appear in front of it if its pressed in an empty field. done
+//
+// 
 session_start();
 if (!isset ($_SESSION["result"])){
 	$_SESSION["result"] = "";
@@ -27,7 +34,7 @@ if(isset($_POST["buttonPress"])) {
 	switch ($_POST["buttonPress"]){
 		case ".":
 			if($_SESSION["result"] == "") {
-				$_SESSION["result"] = "0"; 
+				$_SESSION["result"] = "0."; 
 			} 
 			if (strpos($_SESSION["result"], '.') == false) 
 			{ 
