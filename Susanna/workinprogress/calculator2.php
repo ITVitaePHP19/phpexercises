@@ -1,18 +1,20 @@
 <DOCTYPE! HTML>
-
+<?php	
+	session_start();
+?>
 <html>
 <head><title>Calculator</title>
 <?php
 
-//  to do
+// TODO
 // build functionality for %
 // fix fatal error from pressing = twice
 // add euro's mode with rounding and , as punctuation instead of .
 // change the layout of the buttons so it looks a bit better
 // return function to . to have a 0 appear in front of it if its pressed in an empty field. done
-//
+// add another session for last button pressed.
 // 
-session_start();
+
 if (!isset ($_SESSION["result"])){
 	$_SESSION["result"] = "";
 }
@@ -25,6 +27,7 @@ if (!isset ($_SESSION["operator"])){
 if (!isset ($_SESSION["lastnumber"])){
 	$_SESSION["lastnumber"] = "";
 }
+
 
 
 
