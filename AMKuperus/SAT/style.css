@@ -1,0 +1,38 @@
+body {
+  background-image: url("images/logo_white_transp.png");
+  background-color: #E0E1E6;
+}
+
+h1, h2 {
+  font-family: sans-serif;
+  text-align: center;
+  color: rgba(1,167,189,1.00);
+}
+
+p, a {
+  font-family: sans-serif;
+  font-size: 0.8em;
+}
+
+a {
+  color: rgba(1,167,189,1.00);
+}
+
+a:hover {
+  color: rgba(2, 133, 150,1.00);
+  text-shadow: 0.02em 0.02em 0.02em #5A585E;
+}
+.loginbox {
+  position: absolute;
+  top: 20vw;
+  left: 35%;
+  background-color: #FFF;
+  width: 15em;
+  padding: 2em;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px #5A585E;
+}
+
+#loginbtn {
+  float: right;
+}
