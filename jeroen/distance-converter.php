@@ -21,15 +21,15 @@
 </form>
 <br>
 <?php
+if(isset($_POST['count'])){$count = $_POST['count'];}else{$count="";}
 $mile = 0.622;
 $km = 1.609;
-$count = ($_POST["count"]);
 
-if($_POST["unit_of_length"]=="mile_to_km"){
+if(isset($_POST['unit_of_length']) && $_POST["unit_of_length"]=="mile_to_km"){
 	$output = $count*$km;
 	echo $count . " mile is " . $output . " km.";
 }
-elseif($_POST["unit_of_length"]=="km_to_mile"){
+elseif(isset($_POST['unit_of_length']) && $_POST["unit_of_length"]=="km_to_mile"){
 	$output = $count*$mile;
 	echo $count . " km is " . $output . " miles.";
 }

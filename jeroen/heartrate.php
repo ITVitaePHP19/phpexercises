@@ -8,8 +8,8 @@
 <?php
 $age= $Err="";
 $message ="";
-$upperLimit=((220-($_POST['age']))*0.85);
-$lowerLimit=((220-($_POST['age']))*0.65);
+if(isset($_POST['age'])){$upperLimit=((220-($_POST['age']))*0.85);}else {$upperLimit="";}
+if(isset($_POST['age'])){$lowerLimit=((220-($_POST['age']))*0.65);}else {$lowerLimit="";}
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){

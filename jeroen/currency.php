@@ -16,7 +16,7 @@ Dollars: <input type="number" name="Dollar" min="0" step="any" required>
 <br>
 <?php
 $CurrentExchangeRate = 0.931403;
-$dollar = $_POST['Dollar'];
+if(isset($_POST['Dollar'])){$dollar = $_POST['Dollar'];}else{$dollar="";}
 
 if ($dollar!= null){
 	$euro=round($dollar*$CurrentExchangeRate,2);
