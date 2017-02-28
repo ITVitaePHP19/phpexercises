@@ -14,7 +14,7 @@ Tic tac toe
 <body>
 <h1>Tic-tac-toe</h1> 
 <?php
-
+//$currentplayer = "x";
 // Wie is aan de beurt?
     for ($i=0; $i<9; $i++) {
 }
@@ -25,10 +25,12 @@ Tic tac toe
   $_SESSION['count'] = $count+1;
 
 if ($count % 2 == 0) {
-    echo "Player X's turn";
-}
-elseif ($count % 1 == 0){
     echo "Player O's turn";
+    $currentplayer = 'X';
+}
+else {
+    echo "Player X's turn";
+    $currentplayer = 'O';
 }     
 
 if(isset($_POST['destroy'])){
@@ -38,31 +40,31 @@ session_destroy();
     
 if (isset($_POST['button'])) {
     if($_POST['button'] == 0) {
-        $_SESSION['button1'] = "O";
+        $_SESSION['button0'] = $currentplayer;
     }
     if($_POST['button'] == 1) {
-        $_SESSION['button1'] = "O";
+        $_SESSION['button1'] = $currentplayer;
     }
     if($_POST['button'] == 2) {
-        $_SESSION['button2'] = "O";
+        $_SESSION['button2'] = $currentplayer;
     }
     if($_POST['button'] == 3) {
-        $_SESSION['button3'] = "O";
+        $_SESSION['button3'] = $currentplayer;
     }
     if($_POST['button'] == 4) {
-        $_SESSION['button4'] = "O";
+        $_SESSION['button4'] = $currentplayer;
     }
     if($_POST['button'] == 5) {
-        $_SESSION['button5'] = "O";
+        $_SESSION['button5'] = $currentplayer;
     }
     if($_POST['button'] == 6) {
-        $_SESSION['button6'] = "O";
+        $_SESSION['button6'] = $currentplayer;
     }
     if($_POST['button'] == 7) {
-        $_SESSION['button7'] = "O";
+        $_SESSION['button7'] = $currentplayer;
     }
     if($_POST['button'] == 8) {
-        $_SESSION['button8'] = "O";
+        $_SESSION['button8'] = $currentplayer;
     }
 }
 ?>
