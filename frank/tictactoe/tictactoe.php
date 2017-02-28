@@ -14,7 +14,23 @@ Tic tac toe
 <body>
 <h1>Tic-tac-toe</h1> 
 <?php
-    
+
+// Wie is aan de beurt?
+    for ($i=0; $i<9; $i++) {
+}
+
+  $count = 0;
+  if (isset($_SESSION['count']))
+    $count = $_SESSION['count'];
+  $_SESSION['count'] = $count+1;
+
+if ($count % 2 == 0) {
+    echo "Player X's turn";
+}
+elseif ($count % 1 == 0){
+    echo "Player O's turn";
+}     
+
 if(isset($_POST['destroy'])){
 $_SESSION = [];
 session_destroy();
@@ -22,7 +38,7 @@ session_destroy();
     
 if (isset($_POST['button'])) {
     if($_POST['button'] == 0) {
-        $_SESSION['button0'] = "O";
+        $_SESSION['button1'] = "O";
     }
     if($_POST['button'] == 1) {
         $_SESSION['button1'] = "O";
@@ -50,8 +66,6 @@ if (isset($_POST['button'])) {
     }
 }
 ?>
-    
-    
     
 <form method="POST">
 <table>
