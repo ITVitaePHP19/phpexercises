@@ -48,7 +48,6 @@
 			case 'opdrachten':
 				include 'opdrachten.php';
 				break;
-				
 			case 'activiteiten':
 				include 'activiteitentracker.php';
 				break;
@@ -138,6 +137,15 @@
 				break;
 			case 'uploadFlag':
 				include 'uploadFlag.php';
+				break;
+			case 'login':
+				include 'login.php';
+				break;
+			case 'verification':
+				include 'verification.php';
+				break;
+			case 'student':
+				include 'student.php';
 				break;
 		}
 	?>
