@@ -1,3 +1,9 @@
+<!doctype html>
+<html>
+<head>
+<title>multiplication table</title>
+</head>
+<body>
 <?php
 echo "<table border>";
 for($i=1;$i<=10;$i++){
@@ -6,3 +12,5 @@ for($i=1;$i<=10;$i++){
 }
 echo "</table>";
 ?>
+</body>
+</html>
