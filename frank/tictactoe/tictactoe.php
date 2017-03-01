@@ -4,7 +4,8 @@
 
 /* 
 UNDER CONSTRUCTION:
-Er moet 2 keer worden geklikt op "Start over" om de sessie te legen.
+Er moet 2 keer worden geklikt op "Start over" (de submit button) om de sessie te legen.
+De eerste keer dat er op de submit gedrukt is, nadat er op een button is gedrukt komt er 1 getal bij op de counter, dit hoort ook niet.
 Voordat er op de eerste button is gedrukt moet er aangegeven worden dat Player X begint.
 */
 session_start();
