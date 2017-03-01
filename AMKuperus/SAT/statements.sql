@@ -2,22 +2,27 @@ CREATE TABLE users (
   userId INT UNSIGNED NOT NULL AUTO_INCREMENT,
   userName VARCHAR(255) NOT NULL UNIQUE,
   passCode CHAR(40) NOT NULL,
-  firstName VARCHAR(255) NOT NULL.
+  firstName VARCHAR(255) NOT NULL,
   lastName VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  group VARCHAR(255) NOT NULL,
+  groupID VARCHAR(20) NOT NULL,
+  role VARCHAR(20) NOT NULL,
   PRIMARY KEY (userID)
   );
 
 CREATE TABLE activity (
   activity VARCHAR(255) NOT NULL,
-  userID -->link vanuit users db
-  startDate ##DATE,
-  endDate ##DATE,
-  timeSpent ##INT,
-  pleasure ##INT,
-  difficulty ##INT,
+  activityID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  type VARCHAR(255) NULL,
+  startDate DATE NOT NULL,
+  endDate DATE NOT NULL,
+  difficulty INT NOT NULL,
+  satisfaction INT NOT NULL,
   notes VARCHAR(255) NULL,
+  PRIMARY KEY (activityID)
 );
 
-group: PHP19/TEACHER/etc
+CREATE TABLE role (
+  role VARCHAR(20) NOT NULL,
+  roleDescription VARCHAR(255) NOT NULL
+);
