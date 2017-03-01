@@ -21,15 +21,16 @@
 </form>
 <br>
 <?php
-$input = ($_POST["input"]);
+if(isset($_POST["input"])){$input = ($_POST["input"]);}else{$input ="";}
+if(isset($_POST["unit_of_temperature"])){$uot=$_POST["unit_of_temperature"];} else{$uot="";}
 $F = round(($input-32)*5/9, 1);
 $C = round($input*5/9+32, 1);
-echo $test. "<br>";
-if($_POST["unit_of_temperature"]=="F_to_C"){
+
+if($uot=="F_to_C"){
 	$output = $input*$F;
 	echo $input . "&deg fahrenheit is " . $output . "&deg celcius.";
 }
-elseif($_POST["unit_of_temperature"]=="C_to_F"){
+elseif($uot=="C_to_F"){
 	$output = $input*$C;
 	echo $input . "&deg celcius is " . $output . "&deg fahrenheit.";
 }
