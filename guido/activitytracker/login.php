@@ -37,6 +37,7 @@
       <link rel="stylesheet" href="stylesheet.css">
    </head>
 <body>
+
            <div class="top" align ="center">
            <div class="topdiv">
            <div class="whitediv">
@@ -67,6 +68,6 @@
          </div>
       </div>
 </div>
-
+	<img src="http://127.0.0.1/itvitae/opdrachten/activiteitentracker/images/itvitae.png" alt="">
    </body>
 </html>

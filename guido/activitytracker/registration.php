@@ -71,6 +71,6 @@
          </div>
       </div>
 </div>
-
+<img src="http://127.0.0.1/itvitae/opdrachten/activiteitentracker/images/itvitae.png" alt="">
    </body>
 </html>
