@@ -1,17 +1,27 @@
 <?php
-$hn = 'localhost';
-$un= 'root';
-$pw= 'Leonard1';
-$db = 'activity';
+//$hn = 'localhost';
+//$un = 'root';
+//$pw = 'Leonard1';
+//$db = 'activity';
 
-$conn = new mysqli($hn, $un, $pw, $db);
-if ($conn->connect_error) die($conn->connect_error);
+//$conn = new mysqli($hn, $un, $pw, $db);
+//if ($conn->connect_error) die($conn->connect_error);
+
+require('connect.php');
+
+// Check connection
+if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
+}
+echo "Connected successfully";
+
 
 if (isset($_POST['delete']) && isset($_POST['id'])) {
-  $id = get_post($conn, 'id');
+  $id = get_post($connection, 'id');
   $query = "DELETE FROM activitytracker WHERE id='$id'";
-  $result = $conn->query($query);
-  if (!$result) echo "DELETE failed: $query<br>" . $conn->error . "<br><br>";
+  $result = $connection->query($query);
+//if result isn't true giv econnection  error message
+  if (!$result) echo "DELETE failed: $query<br>" . $connection->error . "<br><br>";
 }
 
 if (isset($_POST['id']) &&
@@ -25,24 +35,24 @@ if (isset($_POST['id']) &&
     isset($_POST['Notes']))
 {
 
-  $id                   = get_post($conn, 'id');
-  $myActivities         = get_post($conn, 'My_Activities');
-  $startDate            = get_post($conn, 'Start_Date');
-  $endDate              = get_post($conn, 'End_Date');
-  $timeSpentInHours     = get_post($conn, 'Time_spent_in_hours');
-  $percentageCompleted  = get_post($conn, 'Percentage_Completed');
-  $pleasure             = get_post($conn, 'Pleasure');
-  $difficulty           = get_post($conn, 'Difficulty');
-  $notes                = get_post($conn, 'Notes');
+  $id                   = get_post($connection, 'id');
+  $myActivities         = get_post($connection, 'My_Activities');
+  $startDate            = get_post($connection, 'Start_Date');
+  $endDate              = get_post($connection, 'End_Date');
+  $timeSpentInHours     = get_post($connection, 'Time_spent_in_hours');
+  $percentageCompleted  = get_post($connection, 'Percentage_Completed');
+  $pleasure             = get_post($connection, 'Pleasure');
+  $difficulty           = get_post($connection, 'Difficulty');
+  $notes                = get_post($connection, 'Notes');
   $query                = "INSERT INTO activitytracker VALUES" .
       "('$id',  '$myActivities', '$startDate', '$endDate', '$timeSpentInHours', '$percentageCompleted', '$pleasure', '$difficulty', '$notes')";
-  $result = $conn->query($query);
+  $result = $connection->query($query);
   if (!$result) echo "INSERT failed: $query<br>" .
-    $conn->error . "<br><br>";
+    $connection->error . "<br><br>";
 }
 
 echo <<<_END
-<form action="sqltest.php" method="POST"><pre>
+<form action="tracker.php" method="POST"><pre>
 My Activities             <input type="text" name="My_Activities">
 Start Date                <input type="text" name="Start_Date">
 End Date                  <input type="text" name="End_Date">
@@ -56,12 +66,12 @@ Notes                     <input type="text" name="Notes">
 _END;
 
 $query = "SELECT * FROM activitytracker";
-$result = $conn->query($query);
-if (!$result) die ("Database access failed: " . $conn->error);
+$result = $connection->query($query);
+if (!$result) die ("Database access failed: " . $connection->error);
 
 $rows = $result->num_rows;
 
-for ($j = 0; $j = $rows; ++$j) {
+for ($j = 0; $j < $rows; ++$j) {
   $result ->data_seek($j);
   $row = $result->fetch_array(MYSQLI_NUM);
 
@@ -77,7 +87,7 @@ Difficulty               $row[6]
 Notes                    $row[7]
 ID                       $row[8]
 </pre>
-<form action="sqltest.php" method="POST">
+<form action="tracker.php" method="POST">
 <input type="hidden" name="delete" value="yes">
 <input type="hidden" name="id" value="$row[8]">
 <input type="submit" value="DELETE RECORD"></form>
@@ -85,10 +95,10 @@ _END;
 }
 
 $result->close();
-$conn->close();
+$connection->close();
 
-function get_post($conn, $var)
+function get_post($connection, $var)
 {
-  return $conn->real_escape_string($_POST[$var]);
+  return $connection->real_escape_string($_POST[$var]);
 }
 ?>
