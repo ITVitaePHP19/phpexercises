@@ -5,9 +5,9 @@
 <head>
 <body>
 <nav>
-	<a href="http://localhost/contactform/index.php?page=home">Home</a>
-	<a href="http://localhost/contactform/index.php?page=info">Info</a>
-	<a href="http://localhost/contactform/index.php?page=contact">Contact</a>
+	<a href="index.php?page=home">Home</a>
+	<a href="index.php?page=info">Info</a>
+	<a href="index.php?page=contact">Contact</a>
 </nav>
 <?php 
 $page = 1;
