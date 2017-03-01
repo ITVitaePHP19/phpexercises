@@ -14,8 +14,7 @@ Tic tac toe
 <body>
 <h1>Tic-tac-toe</h1> 
 <?php
-//$currentplayer = "x";
-// Wie is aan de beurt?
+    
     for ($i=0; $i<9; $i++) {
 }
 
@@ -24,9 +23,10 @@ Tic tac toe
     $count = $_SESSION['count'];
   $_SESSION['count'] = $count+1;
 
-if ($count % 2 == 0) {
+
+if ($count % 2 <= 0) {
     echo "Player O's turn";
-    $currentplayer = 'X';
+    $currentplayer = "X";
 }
 else {
     echo "Player X's turn";
@@ -40,31 +40,40 @@ session_destroy();
     
 if (isset($_POST['button'])) {
     if($_POST['button'] == 0) {
-        $_SESSION['button0'] = $currentplayer;
+        $_SESSION['but0'] = $currentplayer;
+        $_SESSION['dis0'] = 'disabled';
     }
     if($_POST['button'] == 1) {
-        $_SESSION['button1'] = $currentplayer;
+        $_SESSION['but1'] = $currentplayer;
+        $_SESSION['dis1'] = 'disabled';
     }
     if($_POST['button'] == 2) {
-        $_SESSION['button2'] = $currentplayer;
+        $_SESSION['but2'] = $currentplayer;
+        $_SESSION['dis2'] = 'disabled';
     }
     if($_POST['button'] == 3) {
-        $_SESSION['button3'] = $currentplayer;
+        $_SESSION['but3'] = $currentplayer;
+        $_SESSION['dis3'] = 'disabled';
     }
     if($_POST['button'] == 4) {
-        $_SESSION['button4'] = $currentplayer;
+        $_SESSION['but4'] = $currentplayer;
+        $_SESSION['dis4'] = 'disabled';
     }
     if($_POST['button'] == 5) {
-        $_SESSION['button5'] = $currentplayer;
+        $_SESSION['but5'] = $currentplayer;
+        $_SESSION['dis5'] = 'disabled';
     }
     if($_POST['button'] == 6) {
-        $_SESSION['button6'] = $currentplayer;
+        $_SESSION['but6'] = $currentplayer;
+        $_SESSION['dis6'] = 'disabled';
     }
     if($_POST['button'] == 7) {
-        $_SESSION['button7'] = $currentplayer;
+        $_SESSION['but7'] = $currentplayer;
+        $_SESSION['dis7'] = 'disabled';
     }
     if($_POST['button'] == 8) {
-        $_SESSION['button8'] = $currentplayer;
+        $_SESSION['but8'] = $currentplayer;
+        $_SESSION['dis8'] = 'disabled';
     }
 }
 ?>
@@ -72,19 +81,19 @@ if (isset($_POST['button'])) {
 <form method="POST">
 <table>
     <tr>    
-        <td><button name="button" value="0"/><?php if (isset($_SESSION['button0'])) echo $_SESSION['button0'];   ?></td>
-        <td><button name="button" value="1"/><?php if (isset($_SESSION['button1'])) echo $_SESSION['button1'];   ?></td>
-        <td><button name="button" value="2"/><?php if (isset($_SESSION['button2'])) echo $_SESSION['button2'];   ?></td>
+        <td><button name="button" value="0" <?php if (isset($_SESSION['dis0'])) echo $_SESSION['dis0']; ?> ><?php if (isset($_SESSION['but0'])) echo $_SESSION['but0']; ?></button></td>
+        <td><button name="button" value="1" <?php if (isset($_SESSION['dis1'])) echo $_SESSION['dis1']; ?> ><?php if (isset($_SESSION['but1'])) echo $_SESSION['but1']; ?></button></td>
+        <td><button name="button" value="2" <?php if (isset($_SESSION['dis2'])) echo $_SESSION['dis2']; ?> ><?php if (isset($_SESSION['but2'])) echo $_SESSION['but2']; ?></button></td>
     </tr>
     <tr>
-        <td><button name="button" value="3"/><?php if (isset($_SESSION['button3'])) echo $_SESSION['button3'];   ?></td>
-        <td><button name="button" value="4"/><?php if (isset($_SESSION['button4'])) echo $_SESSION['button4'];   ?></td>
-        <td><button name="button" value="5"/><?php if (isset($_SESSION['button5'])) echo $_SESSION['button5'];   ?></td>
+        <td><button name="button" value="3" <?php if (isset($_SESSION['dis3'])) echo $_SESSION['dis3']; ?> ><?php if (isset($_SESSION['but3'])) echo $_SESSION['but3']; ?></button></td>
+        <td><button name="button" value="4" <?php if (isset($_SESSION['dis4'])) echo $_SESSION['dis4']; ?> ><?php if (isset($_SESSION['but4'])) echo $_SESSION['but4']; ?></button></td>
+        <td><button name="button" value="5" <?php if (isset($_SESSION['dis5'])) echo $_SESSION['dis5']; ?> ><?php if (isset($_SESSION['but5'])) echo $_SESSION['but5']; ?></button></td>
     </tr>
     <tr>
-        <td><button name="button" value="6"/><?php if (isset($_SESSION['button6'])) echo $_SESSION['button6'];   ?></td>
-        <td><button name="button" value="7"/><?php if (isset($_SESSION['button7'])) echo $_SESSION['button7'];   ?></td>
-        <td><button name="button" value="8"/><?php if (isset($_SESSION['button8'])) echo $_SESSION['button8'];   ?></td>
+        <td><button name="button" value="6" <?php if (isset($_SESSION['dis6'])) echo $_SESSION['dis6']; ?> ><?php if (isset($_SESSION['but6'])) echo $_SESSION['but6']; ?></button></td>
+        <td><button name="button" value="7" <?php if (isset($_SESSION['dis7'])) echo $_SESSION['dis7']; ?> ><?php if (isset($_SESSION['but7'])) echo $_SESSION['but7']; ?></button></td>
+        <td><button name="button" value="8" <?php if (isset($_SESSION['dis8'])) echo $_SESSION['dis8']; ?> ><?php if (isset($_SESSION['but8'])) echo $_SESSION['but8']; ?></button></td>
     </tr>
 </table>
     <input type="submit" name="destroy" value="Start over">
