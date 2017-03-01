@@ -23,18 +23,18 @@ session_start();
 if(!isset($_SESSION['output'])) {
 	$_SESSION['output'] = "";
 }
-
-$a = "";
-$b = "";
-$operator =""; 
 $total ="";
-
 //formfields gevuld houden na submit
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-	$a = $_POST["inputA"];
-	$b = $_POST["inputB"];
+if(isset($_POST['inputA'])){$a = $_POST['inputA'];}else{$a="";}
+if(isset($_POST['inputB'])){$b = $_POST['inputB'];}else{$b="";}
+if(isset($_POST['operator'])){
 	$operator = $_POST['operator'];
+	if ($operator=="%"){
+		$operator = "/100*";
+	}
 }
+else{$operator="";}
+
 if (isset($_POST['clear'])){
 	$_SESSION['output']="";}
 ?>
@@ -60,14 +60,6 @@ if (isset($_POST['clear'])){
 			<td>
 			<p id="result">
 			<?php
-				if(isset($_POST['inputA'])){$a = $_POST['inputA'];}
-				if(isset($_POST['inputB'])){$b = $_POST['inputB'];}
-				if(isset($_POST['operator'])){
-					$operator = $_POST['operator'];
-					if ($operator=="%"){
-						$operator = "/100*";
-					}
-				}
 				$result=$a.$operator.$b;
 				//leest string als php-code, zodat het als som berekend kan worden
 				$answer=eval('return ' . $result . ';');
@@ -78,7 +70,6 @@ if (isset($_POST['clear'])){
 				if($total != null){
 					echo $_SESSION['output']."<br>";
 				}
-				
 			?>
 			<p>
 			</td>
