@@ -24,18 +24,18 @@
 <br>
 
 <?php
-$height = $_POST['height'];
+if(isset($_POST['height'])){$height = $_POST['height'];}else{$height="";}
 $CCC = $height*0.85;
 $CCF = $height*0.9;
 $NW = $height*0.68;
-
-if($_POST["sticktype"]=="CCC"){
+if(isset($_POST['sticktype'])){$stick = $_POST['sticktype'];}else{$stick="";}
+if($stick=="CCC"){
 	echo "Height of the stick should be about ". round($CCC, 1). " centimeters.";
 }
-elseif($_POST["sticktype"]=="CCF"){
+elseif($stick=="CCF"){
 	echo "Height of the stick should be about ". round($CCF, 1). " centimeters.";
 }
-elseif($_POST["sticktype"]=="NW"){
+elseif($stick=="NW"){
 	echo "Height of the stick should be about ". round($NW, 1). " centimeters.";
 }
 ?>
