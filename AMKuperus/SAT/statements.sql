@@ -26,3 +26,10 @@ CREATE TABLE role (
   role VARCHAR(20) NOT NULL,
   roleDescription VARCHAR(255) NOT NULL
 );
+
+
+# Rechten voor `itvitae`@`localhost`
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON *.* TO 'itvitae'@'localhost' IDENTIFIED BY PASSWORD '*69C739191FDD75AA6B6641465E26590D15055734';
+
+GRANT ALL PRIVILEGES ON `sat`.* TO 'itvitae'@'localhost';
