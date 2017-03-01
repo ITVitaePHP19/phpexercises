@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 
 <?php
+
+/* 
+UNDER CONSTRUCTION:
+Er moet 2 keer worden geklikt op "Start over" om de sessie te legen.
+Bij 0 moet het spel altijd beginnen met X.
+*/
 session_start();
 ?>
 
@@ -14,31 +20,31 @@ Tic tac toe
 <body>
 <h1>Tic-tac-toe</h1> 
 <?php
-    
-    for ($i=0; $i<9; $i++) {
-}
 
   $count = 0;
   if (isset($_SESSION['count']))
     $count = $_SESSION['count'];
-  $_SESSION['count'] = $count+1;
 
 
-if ($count % 2 <= 0) {
+if ($count % 2 == 0) {
     echo "Player O's turn";
     $currentplayer = "X";
 }
 else {
     echo "Player X's turn";
     $currentplayer = 'O';
-}     
-
+}
+    
+echo '<br>Counter: ' . $count;
+    
+    
 if(isset($_POST['destroy'])){
 $_SESSION = [];
 session_destroy();
 }
     
 if (isset($_POST['button'])) {
+      $_SESSION['count'] = $count+1;
     if($_POST['button'] == 0) {
         $_SESSION['but0'] = $currentplayer;
         $_SESSION['dis0'] = 'disabled';
@@ -76,6 +82,7 @@ if (isset($_POST['button'])) {
         $_SESSION['dis8'] = 'disabled';
     }
 }
+      
 ?>
     
 <form method="POST">
