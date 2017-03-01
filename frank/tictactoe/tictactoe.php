@@ -5,7 +5,7 @@
 /* 
 UNDER CONSTRUCTION:
 Er moet 2 keer worden geklikt op "Start over" om de sessie te legen.
-Bij 0 moet het spel altijd beginnen met X.
+Voordat er op de eerste button is gedrukt moet er aangegeven worden dat Player X begint.
 */
 session_start();
 ?>
