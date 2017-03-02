@@ -4,5 +4,5 @@
   //Accountname
   $account="";
   //Password
-  $password="itvitae123";
+  $password=";
 ?>
