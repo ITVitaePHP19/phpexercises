@@ -1,9 +1,6 @@
 <?php
 //Database connection
-$server = 'localhost';
-$dbname = 'sat';
-$user = 'itvitae';
-$pass = 'NekN7nQA37xtB13U';
+require_once 'setup.inc';
 
 try {
   $db = new PDO("mysql:host=$server;dbname=$dbname", $user, $pass);

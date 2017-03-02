@@ -9,7 +9,6 @@
 ##Login page include
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['userName']) && isset($_POST['pass'])) {
-      //$userName = htmlspecialchars(stripslashes(trim($_POST['userName'])))
       $username = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
       $password = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING);
     } else {
