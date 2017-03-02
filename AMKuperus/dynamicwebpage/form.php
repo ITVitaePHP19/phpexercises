@@ -9,8 +9,7 @@
 
   //Send the form with email(-->this is the gmail script paset in the code)
   function sendForm() {
-    $account="itvitae1@gmail.com";
-    $password="itvitae12";
+    require_once 'setup.inc';
     $to="itvitae1@gmail.com";
     $from= $_POST['email'];
     $from_name= $_POST['name'];
