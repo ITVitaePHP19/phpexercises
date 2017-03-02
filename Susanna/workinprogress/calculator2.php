@@ -7,14 +7,18 @@
 <?php
 
 // TODO
+// remove the ability to press operators one after another, maybe by not allowing them to do anything if both result and lastnumber sessions are blank
+// or by saying if buttonPressPrev is a operator or = for it to do nothing
 // build functionality for %
-// fix fatal error from pressing = twice
 // add euro's mode with rounding and , as punctuation instead of .
 // change the layout of the buttons so it looks a bit better
-// return function to . to have a 0 appear in front of it if its pressed in an empty field. done
-// add another session for last button pressed.
-// 
 
+// return function to . to have a 0 appear in front of it if its pressed in an empty field. DONE
+// add another session for last button pressed. DONE 
+// fix fatal error from pressing = twice DONE 
+
+
+// checks if the session var exists, if not, creates it with empty string
 if (!isset ($_SESSION["result"])){
 	$_SESSION["result"] = "";
 }
@@ -27,30 +31,43 @@ if (!isset ($_SESSION["operator"])){
 if (!isset ($_SESSION["lastnumber"])){
 	$_SESSION["lastnumber"] = "";
 }
+if (!isset ($_SESSION["buttonPressPrev"])){
+	$_SESSION["buttonPressPrev"] = "";
+}
 
 
-
-
-if(isset($_POST["buttonPress"])) {
-	
+// any button pressed except for Clear enters here through $_POST["buttonPress"]
+if(isset($_POST["buttonPress"])) {	
 	echo 'last button pressed is '.$_POST["buttonPress"];
+	echo ' previous button pressed is '.$_SESSION["buttonPressPrev"];
+	
 	switch ($_POST["buttonPress"]){
+		//function of .
 		case ".":
 			if($_SESSION["result"] == "") {
 				$_SESSION["result"] = "0."; 
 			} 
-			if (strpos($_SESSION["result"], '.') == false) 
-			{ 
+			if (strpos($_SESSION["result"], '.') == false) { 
 				$_SESSION["result"] = appendValue($_SESSION["result"], ".");
 			}
 			break;
+		//function of =
+		case "=":
+			if(($_SESSION["buttonPressPrev"] == '=') == false){
+				handleOperator($_SESSION["operator"]);
+				$_SESSION["operator"] = "";
+				$_SESSION["result"] = $_SESSION["lastnumber"];	
+			}
+			break;
+		//send operators to handleOperator function
 		case "+":
 		case "-":
 		case "*":
 		case "/":
-		case "=":
+
 			handleOperator($_POST["buttonPress"]);
 			break;
+		// send memory function buttons to handleMemory function
 		case "MC":
 		case "MR":
 		case "MS":
@@ -58,65 +75,74 @@ if(isset($_POST["buttonPress"])) {
 		case "M-":
 			handleMemory($_POST["buttonPress"]);
 			break;
+		// send all other buttonPress values to appendValue function
 		default:
 			$_SESSION["result"] = appendValue($_POST["buttonPress"]);
 	}
-
+	// store button press value into session "buttonPressPrev"
+	$_SESSION["buttonPressPrev"] = $_POST["buttonPress"];
 }
 
-
+// functionality of Clear
 if(isset($_POST["Clear"])) { 
 	$_SESSION["operator"] = "";
 	$_SESSION["lastnumber"] = "";
 	$_SESSION["result"] = ""; 
+	$_SESSION["buttonPressPrev"];
 }
-
+// memory buttons function
 function handleMemory($buttonvalue) {
 	switch($buttonvalue) {
+		// clear memory
 		case "MC":
 			$_SESSION["memory"] = ""; 
 			break;
+		// recall from memory
 		case "MR":
 			$_SESSION["result"] = $_SESSION["memory"];
 			break;
+		// save to memory
 		case "MS":
 			$_SESSION["memory"] = $_SESSION["result"]; 
 			break;
+		// memory value plus result
 		case "M+":
 			$_SESSION["memory"] += $_SESSION["result"];
 			break;
+		// memory value minus result
 		case "M-":
 			$_SESSION["memory"] -= $_SESSION["result"];
 			break;
 	}
 }
-
+// function for + - * and /
 function handleOperator($buttonvalue) {
 	if($_SESSION["operator"] == "") {
 		$_SESSION["operator"] = $buttonvalue;
 		$_SESSION["lastnumber"] = $_SESSION["result"];
 		$_SESSION["result"] = "";		
-	} elseif($buttonvalue == "=") {
-				handleOperator($_SESSION["operator"]);
-				$_SESSION["operator"] = "";
-				$_SESSION["result"] = $_SESSION["lastnumber"];				
-	} else {
+	} 			
+	else {
 		switch($_SESSION["operator"]) {
+			// lastnumber - result
 			case "-":
 				$_SESSION["result"] = $_SESSION["lastnumber"] - $_SESSION["result"];
 				$_SESSION["operator"] = "";
 				handleOperator($buttonvalue);
 				break;
+			// lastnumber + result
 			case "+":
 				$_SESSION["result"] = $_SESSION["lastnumber"] + $_SESSION["result"];
 				$_SESSION["operator"] = "";
 				handleOperator($buttonvalue);
 				break;
+			// lastnumber * result
 			case "*":
 				$_SESSION["result"] = $_SESSION["lastnumber"] * $_SESSION["result"];
 				$_SESSION["operator"] = "";
 				handleOperator($buttonvalue);
 				break;
+			// lastnumber divided by result
 			case "/":
 				$_SESSION["result"] = $_SESSION["lastnumber"] / $_SESSION["result"];
 				$_SESSION["operator"] = "";
@@ -126,7 +152,7 @@ function handleOperator($buttonvalue) {
 	}
 }
 
-
+// add value to result string
 function appendValue($buttonvalue) {
 	return $_SESSION["result"].$buttonvalue;	
 }
