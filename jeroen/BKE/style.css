@@ -23,6 +23,8 @@ td .game{
 }
 
 table div{
+	line-height: 63px;
+	vertical-align: middle;
 	font-size: 60px;
 	font-weight: bold;
 	text-align: center;
