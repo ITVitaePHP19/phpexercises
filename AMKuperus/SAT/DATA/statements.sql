@@ -7,6 +7,7 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL,
   groupID VARCHAR(20) NOT NULL,
   role VARCHAR(20) NOT NULL,
+  state VARCHAR(40) DEFAULT NULL,
   PRIMARY KEY (userID)
   );
 

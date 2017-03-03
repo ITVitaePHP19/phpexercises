@@ -10,4 +10,11 @@
   $user = '';
   //Password of the Database-user
   $pass = '';
+  //SMTP setup for overriding php.ini smtp-setting
+  $smtp = '';
+  //Only activate if needed.
+  //Activate by removing #
+  #ini_set('SMTP', "$smtp");
+  //Root url off the website
+  $websiteurl = '';
 ?>
