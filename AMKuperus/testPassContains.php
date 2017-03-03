@@ -20,12 +20,14 @@
       }
     }
 
+    //If $pass is bigger then or 8 and smaller then 72(limit for BCRYPT) return true
     function passLength($pass) {
       if(strlen($pass) >= 8 && strlen($pass) < 72) {
         return true;
       }
     }
 
+    //Check if $pass contains small letter capital digit and special char and returns true if so.
     function passContains($pass) {
       //Check for small letters a-z
       $letter = preg_match('/[a-z]/', $pass);

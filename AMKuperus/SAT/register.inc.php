@@ -8,17 +8,17 @@
   <p>First name: <input type="text" name="firstName" placeholder="first name"></p>
   <p>Last name: <input type="text" name="lastName" placeholder="last name"></p>
   <p>E-mail: <input type="email" name="email" placeholder="your.name@itvitaelearning.nl"></p>
-  <p>Group: </p><!--TODO Write function to fill in this part with a selectbox-->
   <input type="submit" value="submit">
   <input type="reset" value="Reset">
 </form>
 <?php
 //Include for user registration
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //TODO make elsestatements and  a message when data is not correct or filled in, and then keep correct data in fields
     //username
     if(isset($_POST['userName'])) {
       $username = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
-    } //TODO make elsestatements and  a message when data is not correct or filled in, and then keep correct data in fields
+    } //Fill in username error
     //password
     if(isset($_POST['pass1'])) {
       $p = $_POST['pass1'];
@@ -27,23 +27,22 @@
           if(passContains($p) && passLength($p)) {//Checking for correct mix and length
             //Hash the string
             $pass = passsword_hash($p, PASSWORD_BCRYPT, ['cost', 12]);
-          }//else password not correct warning
-        }//else password boxes dont match
-      }
+          }//else password not correct mix/length error
+        }//else password boxes dont match error, retype, empty boxes
+      }//second passwordbox not filled in error
     }//TODO Add error/warningreports in else
     //firstname
     if(isset($_POST['firstName'])) {
       $firstName = filter_input(INPUT_POST, 'fisrtName', FILTER_SANITIZE_STRING);
-    }
+    }//Fill in firstname error
     //lastname
     if(isset($_POST['lastName'])) {
       $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
-    }
+    }//Fill in lastname error
     //email
     if(isset($_POST['email'])) {
       $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    }
-    //if(isset($_POST['group'])) {}
+    }//Fill in email error
   }
 
   //If $pass is bigger then or 8 and smaller then 72(limit for BCRYPT) return true

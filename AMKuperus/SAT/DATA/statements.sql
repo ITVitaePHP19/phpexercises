@@ -24,8 +24,7 @@ CREATE TABLE activity (
 );
 
 CREATE TABLE role (
-  role VARCHAR(20) NOT NULL,
-  roleDescription VARCHAR(255) NOT NULL
+  role VARCHAR(20) NOT NULL
 );
 
 

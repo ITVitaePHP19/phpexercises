@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.3
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 01, 2017 at 06:56 AM
--- Server version: 5.6.31
--- PHP Version: 5.6.24
+-- Gegenereerd op: 03 mrt 2017 om 06:48
+-- Serverversie: 5.6.35
+-- PHP-versie: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,11 +19,13 @@ SET time_zone = "+00:00";
 --
 -- Database: `sat`
 --
+CREATE DATABASE IF NOT EXISTS `sat` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `sat`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `activity`
+-- Tabelstructuur voor tabel `activity`
 --
 
 CREATE TABLE `activity` (
@@ -40,27 +42,27 @@ CREATE TABLE `activity` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Tabelstructuur voor tabel `role`
 --
 
 CREATE TABLE `role` (
-  `role` varchar(20) NOT NULL,
-  `roleDescription` varchar(255) NOT NULL
+  `role` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `role`
+-- Gegevens worden geëxporteerd voor tabel `role`
 --
 
-INSERT INTO `role` (`role`, `roleDescription`) VALUES
-('Admin', 'Admin of SAT.'),
-('Student', 'Student at ITVitae.'),
-('Teacher', 'Teacher at ITVitae.');
+INSERT INTO `role` (`role`) VALUES
+('registered'),
+('student'),
+('teacher'),
+('admin');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabelstructuur voor tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -71,43 +73,38 @@ CREATE TABLE `users` (
   `lastName` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `groupID` varchar(20) NOT NULL,
-  `role` varchar(20) NOT NULL
+  `role` varchar(20) NOT NULL,
+  `state` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `activity`
+-- Indexen voor tabel `activity`
 --
 ALTER TABLE `activity`
   ADD PRIMARY KEY (`activityID`);
 
 --
--- Indexes for table `role`
---
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`role`);
-
---
--- Indexes for table `users`
+-- Indexen voor tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userId`),
   ADD UNIQUE KEY `userName` (`userName`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `activity`
+-- AUTO_INCREMENT voor een tabel `activity`
 --
 ALTER TABLE `activity`
   MODIFY `activityID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `userId` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;

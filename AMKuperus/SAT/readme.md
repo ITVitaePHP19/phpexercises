@@ -11,3 +11,8 @@ To make a database work with the S.A.T. you need:
 - Change the file config.sample.inc to configure the program to work with the database.
 
 (info on how to change the sample-file is included in the sample-file)
+
+##User registration and permissions
+When a user registers they enter the platform on the lowest level being registered.
+- Teacher can change user -> student
+- Admin can change user -> student and user -> Teacher
