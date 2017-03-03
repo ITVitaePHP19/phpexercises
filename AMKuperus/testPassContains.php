@@ -13,10 +13,16 @@
   </form>
   <?php
     if(isset($_POST['text'])) {
-      if(passContains($_POST['text']) == true && strlen($_POST['text']) >= 8) {
+      if(passContains($_POST['text']) == true && passLength($_POST['text'])) {
         echo "correct";
       } else {
         echo "no!";
+      }
+    }
+
+    function passLength($pass) {
+      if(strlen($pass) >= 8 && strlen($pass) < 72) {
+        return true;
       }
     }
 

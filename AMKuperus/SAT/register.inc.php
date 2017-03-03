@@ -2,7 +2,7 @@
   <h2>Register</h2>
   <p>Fill in all the fields please</p>
   <p>Username: <input type="text" name="userName" placeholder="username"></p>
-  <small>Password must be minimal 8 characters long and contain a mix of capitals/letters/number/chars.</small>
+  <small>Password must be minimal 8 characters long and contain small letter a digit a capital and a special character.</small>
   <p>Password: <input type="text" name="pass1" placeholder="********"></p>
   <p>Re-type password: <input type="password" name="pass2" placeholder="********"></p>
   <p>First name: <input type="text" name="firstName" placeholder="first name"></p>
@@ -15,31 +15,45 @@
 <?php
 //Include for user registration
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //username
     if(isset($_POST['userName'])) {
       $username = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
     } //TODO make elsestatements and  a message when data is not correct or filled in, and then keep correct data in fields
-    if(isset($_POST['pass1'] && isset($_POST['pass2']))) {
+    //password
+    if(isset($_POST['pass1'])) {
       $p = $_POST['pass1'];
-      if ($p == $_POST['pass2']) {//Both filled in boxes match?
-        if(passContains($p) && strlen($p) >= 8) {//Checking for correct mix and length
-          //Hash the string
-          $pass = passsword_hash($_POST['pass1'], PASSWORD_BCRYPT, ['cost', 8]);
-        }//else password not coorect warning
-      }//else password boxes dont match
+      if(isset($_POST{'pass2'})) {
+        if ($p == $_POST['pass2']) {//Both filled in boxes match?
+          if(passContains($p) && passLength($p)) {//Checking for correct mix and length
+            //Hash the string
+            $pass = passsword_hash($p, PASSWORD_BCRYPT, ['cost', 12]);
+          }//else password not correct warning
+        }//else password boxes dont match
+      }
     }//TODO Add error/warningreports in else
-
+    //firstname
     if(isset($_POST['firstName'])) {
       $firstName = filter_input(INPUT_POST, 'fisrtName', FILTER_SANITIZE_STRING);
     }
+    //lastname
     if(isset($_POST['lastName'])) {
       $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
     }
+    //email
     if(isset($_POST['email'])) {
       $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     }
     //if(isset($_POST['group'])) {}
   }
 
+  //If $pass is bigger then or 8 and smaller then 72(limit for BCRYPT) return true
+  function passLength($pass) {
+    if(strlen($pass) >= 8 && strlen($pass) < 72) {
+      return true;
+    }
+  }
+
+  //Check if $pass contains small letter capital digit and special char and returns true if so.
   function passContains($pass) {
     //Check for small letters a-z
     $letter = preg_match('/[a-z]/', $pass);
@@ -53,5 +67,4 @@
       return true;
     }
   }
-
 ?>
