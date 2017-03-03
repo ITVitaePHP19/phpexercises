@@ -1,0 +1,39 @@
+html{
+	font-family: Sans-serif;
+	background-color: #f4f4f4;
+}
+
+h1{
+	font-size: 18px;
+	text-align: center;
+	color: #999999;
+}
+
+#ttt{
+	box-shadow: 5px 5px 6px 0px #c5c5c5;
+	background-color: white;
+	padding: 10px;
+	width: 240px;
+	
+}
+
+td .game{
+	width: 60px;
+	height:60px;
+}
+
+table div{
+	line-height: 63px;
+	vertical-align: middle;
+	font-size: 60px;
+	font-weight: bold;
+	text-align: center;
+	background-color: dodgerblue;
+	color: white;
+	margin: 1.5px;
+	border-radius: 5px;
+}
+
+form{
+	margin: 15px;
+}
