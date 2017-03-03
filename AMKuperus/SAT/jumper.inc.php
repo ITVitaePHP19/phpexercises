@@ -1,6 +1,6 @@
 <?php
 //Database connection
-require_once 'setup.inc';
+require_once 'config.inc';
 
 try {
   $db = new PDO("mysql:host=$server;dbname=$dbname", $user, $pass);
