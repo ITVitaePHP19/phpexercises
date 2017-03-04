@@ -4,19 +4,23 @@
 <title>Currency</title>
 </head>
 <body>
-
-<form method="post" action="calculate.php">
-
-		Dollars:<input type="number" name="number"> <br>
+<h1>Euro to foreign currency converter</h1>
+<form method="post" action="calculate1.php">
+	Euro<input type="number" name="number"> 
+	
+	<select name="koersen">
+    <option value="dollar" name="dollar"> Dollar</option>
+    <option value="hkgdollar">hkgdollar</option>
+    <option value="franc">franc</option>
+    <option value="mark">mark</option>
+	 <option value="gulden">gulden</option>
+	 <option value="neppeValuta">neppeValuta</option>
+  </select>
+  
+  <br><br>
 		
-		HKG dollars:<input type="number" name="number2"> <br>
-		
-		Francs: :<input type="number" name="number3"> <br>
-		
-		Marks : :<input type="number" name="number4"> <br>
-		
-		
-				<input type="submit" name="submit" value="calculate">   <br>
+	<input type="submit" name="submit" value="calculate">   
+			
 </form>
 
 </body>
