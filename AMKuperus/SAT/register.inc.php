@@ -1,8 +1,8 @@
 <form class='loginbox' action="" method="POST">
   <h2>Register</h2>
   <p>Fill in all the fields please</p>
-  <p>Username: <input type="text" name="userName" placeholder="username"></p>
-  <small>Password must be minimal 8 characters long and contain small letter a digit a capital and a special character.</small>
+  <p>Username: <input type="text" name="userName" value="<?php if(isset($_POST['userName'])) { echo $_POST['userName']; } ?>"placeholder="username"></p>
+  <small>Password must be minimal 10 characters long and contain small letter a digit a capital and a special character.</small>
   <p>Password: <input type="text" name="pass1" placeholder="********"></p>
   <p>Re-type password: <input type="password" name="pass2" placeholder="********"></p>
   <p>First name: <input type="text" name="firstName" placeholder="first name"></p>
@@ -45,9 +45,9 @@
     }//Fill in email error
   }
 
-  //If $pass is bigger then or 8 and smaller then 72(limit for BCRYPT) return true
+  //If $pass is bigger then or 10 and smaller then 72(limit for BCRYPT) return true
   function passLength($pass) {
-    if(strlen($pass) >= 8 && strlen($pass) < 72) {
+    if(strlen($pass) >= 10 && strlen($pass) < 72) {
       return true;
     }
   }
