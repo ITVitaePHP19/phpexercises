@@ -5,13 +5,6 @@ if( isset($_SESSION['counter'] ) ) {
 }else {
    $_SESSION['counter'] = 1;
 }
-//stores anything in $_POST in variable $_SESSION['post-data']
-// $_SESSION['post-data'] = $_POST;
-if( isset($_SESSION['post-data'])) {
-   $_SESSION['post-data'] += 1;
-}else {
-   $_SESSION['post-data'] = 1;
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,42 +19,18 @@ if( isset($_SESSION['post-data'])) {
     <?php echo '<span class="span1">'. "You've visited the page ". $_SESSION['counter']. " times</span>"; ?>
     <br>
     <h1>Welcome to Tic-Tac-Toe!</h1>
-    <form action="" method="post">
+    <?php
+    include 'tictactoe.php';
+    ?>
+<!--
+        <button name="pressed" value="A1"></button><button name="pressed" value="A2"></button><button name="pressed" value="A3"></button></br>
+        <button name="pressed" value="B1"></button><button name="pressed" value="B2"></button><button name="pressed" value="B3"></button></br>
+        <button name="pressed" value="C1"></button><button name="pressed" value="C2"></button><button name="pressed" value="C3"></button></br>
+        <button id="reset" name="reset" value="reset">Reset Game</button>
+        <div id="message"></div>
+-->
 
-<br>
-<br>
-<?php
-echo "<button id='button1' name'play'>Play</button>";
-if (isset($_POST['play'])) {
-  playGame();
-}
 
-function playGame() {
-// If 'post-data counter is an even number'
-  if ($_SESSION['post-data'] % 2) {
-    for ($i=0; $i<9; $i++) {
-        echo '<button name="press" value="'.$i.'">';
-            if ($_POST['press']==$i)
-                echo 'X';
-            echo '</button>';
-        if ($i!=0 && ($i+1)%3==0)
-            echo "</br>\n";
-        } elseif () {
-
-        }
-
-  }
-}
-echo "<button id='reset' name='reset'>Play again</button>";
-echo "<br><br>";
-
-if (isset($_POST['reset'])) {
-  $_SESSION = array();
-}
-      ?>
-        </form>
-
-      <br>
-      <br>
+    </form>
   </body>
 </html>
