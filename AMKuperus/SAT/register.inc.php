@@ -1,4 +1,13 @@
 <?php
+//TODO Check username/email and give error if username/email already exists in DB
+//TODO Create errormessages per type of error
+//TODO Add error per errortype to the error[]
+//TODO Check input on length string (strlen) before passing
+//TODO Create functions when form is completely filled in and checked ok for:
+      //TODO sending email with link with unique token for activation
+      //TODO add everything to the database
+      
+  //The registration form.
   echo '<form class="box registerbox" action="" method="POST">
           <h2>Register</h2>
           <p>Fill in all the fields please</p>
@@ -12,10 +21,8 @@
           <input type="submit" value="Submit">
           <input type="reset" value="Reset">
         </form>';
-//Include for user registration
+
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //TODO make elsestatements and  a message when data is not correct or filled in,
-    //and then keep correct data in fields
     $errors = [];
     $user = [];
 
