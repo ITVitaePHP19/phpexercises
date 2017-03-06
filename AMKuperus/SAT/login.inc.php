@@ -1,4 +1,4 @@
-<form class="loginbox" action="" method="POST">
+<form class="box loginbox" action="" method="POST">
   <h2>Login</h2>
   <p>Username: <input type="text" name="userName" placeholder="your.name"></p>
   <p>Password: <input type="password" name="pass" placeholder="**********" max="70"></p>

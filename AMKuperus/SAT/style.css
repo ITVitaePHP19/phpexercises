@@ -26,15 +26,26 @@ a:hover {
   color: rgba(2, 133, 150,1.00);
   text-shadow: 0.02em 0.02em 0.02em #5A585E;
 }
-.loginbox {
+
+.box {
   position: absolute;
-  top: 20vw;
-  left: 35%;
   background-color: #FFF;
-  width: 15em;
   padding: 2em;
   border-radius: 4px;
   box-shadow: 2px 2px 2px #5A585E;
+
+}
+
+.loginbox {
+  top: 20vw;
+  left: 35%;
+  width: 15em;
+}
+
+.registerbox {
+  top: 15vw;
+  left: 35%;
+  width: 20em;
 }
 
 #loginbtn {

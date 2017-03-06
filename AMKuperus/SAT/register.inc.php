@@ -1,24 +1,33 @@
-<form class='loginbox' action="" method="POST">
-  <h2>Register</h2>
-  <p>Fill in all the fields please</p>
-  <p>Username: <input type="text" name="userName" value="<?php if(isset($_POST['userName'])) { echo $_POST['userName']; } ?>"placeholder="username"></p>
-  <small>Password must be minimal 10 characters long and contain small letter a digit a capital and a special character.</small>
-  <p>Password: <input type="text" name="pass1" placeholder="********"></p>
-  <p>Re-type password: <input type="password" name="pass2" placeholder="********"></p>
-  <p>First name: <input type="text" name="firstName" placeholder="first name"></p>
-  <p>Last name: <input type="text" name="lastName" placeholder="last name"></p>
-  <p>E-mail: <input type="email" name="email" placeholder="your.name@itvitaelearning.nl"></p>
-  <input type="submit" value="submit">
-  <input type="reset" value="Reset">
-</form>
 <?php
+  echo '<form class="box registerbox" action="" method="POST">
+          <h2>Register</h2>
+          <p>Fill in all the fields please</p>
+          <p>Username: <input type="text" name="userName" ' . setValue('userName') . 'placeholder="username"></p>
+          <small>Password must be minimal 10 characters long and contain small letter a digit a capital and a special character.</small>
+          <p>Password: <input type="text" name="pass1" placeholder="**********"></p>
+          <p>Re-type password: <input type="password" name="pass2" placeholder="**********"></p>
+          <p>First name: <input type="text" name="firstName" ' . setValue('firstName') . 'placeholder="first name"></p>
+          <p>Last name: <input type="text" name="lastName" ' . setValue('lastName') . 'placeholder="last name"></p>
+          <p>E-mail: <input type="email" name="email" ' . setValue('email') . 'placeholder="your.name@itvitaelearning.nl"></p>
+          <input type="submit" value="Submit">
+          <input type="reset" value="Reset">
+        </form>';
 //Include for user registration
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //TODO make elsestatements and  a message when data is not correct or filled in, and then keep correct data in fields
+    //TODO make elsestatements and  a message when data is not correct or filled in,
+    //and then keep correct data in fields
+    $errors = [];
+    $user = [];
+
     //username
-    if(isset($_POST['userName'])) {
-      $username = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
-    } //Fill in username error
+    if(isset($_POST['userName']) && strlen($_POST['userName']) >= 5) {
+      $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
+      $user['userName'] = $userName;
+      //Go find out if the username already exists is the DB, if so send error, else nothing.
+    } else {//Fill in username error
+      array_push($errors, 'Fill in a username. Username is the name with which you login and should contain more then 5 characters.');
+    }
+
     //password
     if(isset($_POST['pass1'])) {
       $p = $_POST['pass1'];
@@ -31,18 +40,46 @@
         }//else password boxes dont match error, retype, empty boxes
       }//second passwordbox not filled in error
     }//TODO Add error/warningreports in else
+
     //firstname
     if(isset($_POST['firstName'])) {
-      $firstName = filter_input(INPUT_POST, 'fisrtName', FILTER_SANITIZE_STRING);
-    }//Fill in firstname error
+      $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING);
+      $user['firstName'] = $firstName;
+    } else {//Fill in firstname error
+      array_push($errors, 'Fill in you\'re last name please.');
+    }
+
     //lastname
     if(isset($_POST['lastName'])) {
       $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
-    }//Fill in lastname error
+      $user['lastName'] = $lastName;
+    } else {//Fill in lastname error
+      array_push($errors, 'Fill in you\'re last name please');
+    }
+
     //email
     if(isset($_POST['email'])) {
       $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    }//Fill in email error
+      $user['email'] = $email;
+    } else {//Fill in email error
+      array_push($errors, 'Fill in a correct emailadres please');
+    }
+
+    echo '<hr>';
+    print_r($errors);
+    echo '<hr>';
+    print_r($user);
+  }//$_SERVER['REQUEST_METHOD'] End bracket
+
+  //Create a value-element for the html-inputfield of the form with the value
+  //the user has already submitted so that if they need to correct something they
+  //do not have to fill in the complete form again.
+  //$element is the element that was filled in, like userName/fisrtName
+  function setValue($element) {
+    if(isset($_POST[$element])) {
+      $content = $_POST[$element];
+      return 'value="' . $content . '" ';
+    }
   }
 
   //If $pass is bigger then or 10 and smaller then 72(limit for BCRYPT) return true
