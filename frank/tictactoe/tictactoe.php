@@ -2,8 +2,6 @@
 
 <?php
 
-// UNDER CONSTRUCTION
-
 session_start();
 ?>
 
@@ -12,7 +10,7 @@ session_start();
 <title>
 Tic tac toe
 </title>
-<link rel="stylesheet" type="text/css" href="style.css">  
+<link rel='stylesheet' type='text/css' href='style.css'>  
 </head>
 <body>
 <h1>Tic-tac-toe</h1> 
@@ -75,82 +73,98 @@ if (isset($_POST['button'])) {
         if(isset($_SESSION['but0']) && isset($_SESSION['but1']) && isset($_SESSION['but2'])){
         if ($_SESSION['but0'] == 'X' && $_SESSION['but1'] == 'X' && $_SESSION['but2'] == 'X') {
         $turn = 'Player X has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but3']) && isset($_SESSION['but4']) && isset($_SESSION['but5'])){
         if ($_SESSION['but3'] == 'X' && $_SESSION['but4'] == 'X' && $_SESSION['but5'] == 'X') {
         $turn = 'Player X has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but6']) && isset($_SESSION['but7']) && isset($_SESSION['but8'])){
         if ($_SESSION['but6'] == 'X' && $_SESSION['but7'] == 'X' && $_SESSION['but8'] == 'X') {
         $turn = 'Player X has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but0']) && isset($_SESSION['but3']) && isset($_SESSION['but6'])){
         if ($_SESSION['but0'] == 'X' && $_SESSION['but3'] == 'X' && $_SESSION['but6'] == 'X') {
         $turn = 'Player X has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but1']) && isset($_SESSION['but4']) && isset($_SESSION['but7'])){
         if ($_SESSION['but1'] == 'X' && $_SESSION['but4'] == 'X' && $_SESSION['but7'] == 'X') {
         $turn = 'Player X has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but2']) && isset($_SESSION['but5']) && isset($_SESSION['but8'])){
         if ($_SESSION['but2'] == 'X' && $_SESSION['but5'] == 'X' && $_SESSION['but8'] == 'X') {
         $turn = 'Player X has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but0']) && isset($_SESSION['but4']) && isset($_SESSION['but8'])){
         if ($_SESSION['but0'] == 'X' && $_SESSION['but4'] == 'X' && $_SESSION['but8'] == 'X') {
         $turn = 'Player X has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but2']) && isset($_SESSION['but4']) && isset($_SESSION['but6'])){
         if ($_SESSION['but2'] == 'X' && $_SESSION['but4'] == 'X' && $_SESSION['but6'] == 'X') {
         $turn = 'Player X has won the game';
+        $_SESSION = [];
         }
     }
     
         if(isset($_SESSION['but0']) && isset($_SESSION['but1']) && isset($_SESSION['but2'])){
         if ($_SESSION['but0'] == 'O' && $_SESSION['but1'] == 'O' && $_SESSION['but2'] == 'O') {
         $turn = 'Player O has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but3']) && isset($_SESSION['but4']) && isset($_SESSION['but5'])){
         if ($_SESSION['but3'] == 'O' && $_SESSION['but4'] == 'O' && $_SESSION['but5'] == 'O') {
         $turn = 'Player O has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but6']) && isset($_SESSION['but7']) && isset($_SESSION['but8'])){
         if ($_SESSION['but6'] == 'O' && $_SESSION['but7'] == 'O' && $_SESSION['but8'] == 'O') {
         $turn = 'Player O has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but0']) && isset($_SESSION['but3']) && isset($_SESSION['but6'])){
         if ($_SESSION['but0'] == 'O' && $_SESSION['but3'] == 'O' && $_SESSION['but6'] == 'O') {
         $turn = 'Player O has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but1']) && isset($_SESSION['but4']) && isset($_SESSION['but7'])){
         if ($_SESSION['but1'] == 'O' && $_SESSION['but4'] == 'O' && $_SESSION['but7'] == 'O') {
         $turn = 'Player O has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but2']) && isset($_SESSION['but5']) && isset($_SESSION['but8'])){
         if ($_SESSION['but2'] == 'O' && $_SESSION['but5'] == 'O' && $_SESSION['but8'] == 'O') {
         $turn = 'Player O has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but0']) && isset($_SESSION['but4']) && isset($_SESSION['but8'])){
         if ($_SESSION['but0'] == 'O' && $_SESSION['but4'] == 'O' && $_SESSION['but8'] == 'O') {
         $turn = 'Player O has won the game';
+        $_SESSION = [];
         }
     }
         if(isset($_SESSION['but2']) && isset($_SESSION['but4']) && isset($_SESSION['but6'])){
         if ($_SESSION['but2'] == 'O' && $_SESSION['but4'] == 'O' && $_SESSION['but6'] == 'O') {
         $turn = 'Player O has won the game';
+        $_SESSION = [];
         }
     }
     
@@ -162,7 +176,7 @@ if (isset($_POST['button'])) {
 
 ?>
     
-<form method="POST">
+<form method='POST'>
 <table>
     <tr>    
         <td><button name="button" value="0" <?php if (isset($_SESSION['but0'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but0'])) echo $_SESSION['but0']; ?></button></td>
@@ -180,7 +194,7 @@ if (isset($_POST['button'])) {
         <td><button name="button" value="8" <?php if (isset($_SESSION['but8'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but8'])) echo $_SESSION['but8']; ?></button></td>
     </tr>
 </table>
-    <input type="submit" name="destroy" value="Start over">
+    <input type='submit' name='destroy' value='Start over'>
 </form>
 </body>
 </html>
