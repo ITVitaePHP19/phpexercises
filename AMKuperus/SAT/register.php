@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php
 //TODO Check username/email and give error if username/email already exists in DB
-//TODO Create errormessages per type of error
-//TODO Add error per errortype to the error[]
+//TODO Add errors for password
 //TODO Check input on length string (strlen) before passing
 //TODO Create functions when form is completely filled in and checked ok for:
       //TODO sending email with link with unique token for activation
@@ -38,27 +37,41 @@
       }//TODO Add error/warningreports in else
 
       //firstname
-      if(isset($_POST['firstName']) && strlen($_POST['firstName']) >= 2) {
+      if(isset($_POST['firstName']) && strlen($_POST['firstName']) >= 2 && preg_match('/[a-zA-Z]/', $_POST['firstName'])) {
         $firstName = filter_input(INPUT_POST, 'firstName', FILTER_SANITIZE_STRING);
         $user['firstName'] = $firstName;
       } else {//Fill in firstname error
-        array_push($errors, 'Fill in you\'re last name please.');
+        if (empty($_POST['firstName'])) {
+          array_push($errors, 'Fill in your first name please.');
+        } elseif (!preg_match('/[a-zA-Z]/', $_POST['firstName'])) {
+          array_push($errors, 'Fill in a correct first name please.');
+        }
       }
 
       //lastname
-      if(isset($_POST['lastName']) && strlen($_POST['lastName']) >= 2) {
+      if(isset($_POST['lastName']) && strlen($_POST['lastName']) >= 2 && preg_match('/[a-zA-Z]/', $_POST['lastName'])) {
         $lastName = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
         $user['lastName'] = $lastName;
       } else {//Fill in lastname error
-        array_push($errors, 'Fill in you\'re last name please');
+        if (empty($_POST['lastName'])) {
+          array_push($errors, 'Fill in your last name please.');
+        } elseif (!preg_match('/[a-zA-Z]/', $_POST['lastName'])) {
+          array_push($errors, 'Fill in a correct last name please.');
+        }
       }
 
       //email
-      if(isset($_POST['email'])) {
+      //6 is the minimum length for a possible emailadress
+      if(isset($_POST['email']) && strlen($_POST['email']) >= 6) {
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $user['email'] = $email;
       } else {//Fill in email error
-        array_push($errors, 'Fill in a correct emailadres please');
+        //if emailadress is empty
+        if (empty($_POST['email'])){
+          array_push($errors, 'Fill in a email-adress please.');
+        } elseif (strlen($_POST['email'])) {
+          array_push($errors, 'Fill in a correct emailadres please.');
+        }
       }
 
     } //submitbutton
