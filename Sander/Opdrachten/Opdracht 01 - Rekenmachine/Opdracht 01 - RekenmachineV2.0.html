@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<link href="Opdracht 01 - Rekenmachine.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<table>
+		<tr>
+			<td colspan="2"><input type="text" name="first" placeholder="First" size="10" class="text" /></td>
+			<td colspan="2"><input type="text" name="second" placeholder="Second" size="10" class="text" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" name="7" value="7" class="button" /></td>
+			<td><input type="button" name="8" value="8" class="button" /></td>
+			<td><input type="button" name="9" value="9" class="button" /></td>
+			<td><input type="button" name="/" value="/" class="button" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" name="4" value="4" class="button" /></td>
+			<td><input type="button" name="5" value="5" class="button" /></td>
+			<td><input type="button" name="6" value="6" class="button" /></td>
+			<td><input type="button" name="*" value="*" class="button" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" name="1" value="1" class="button" /></td>
+			<td><input type="button" name="2" value="2" class="button" /></td>
+			<td><input type="button" name="3" value="3" class="button" /></td>
+			<td><input type="button" name="-" value="-" class="button" /></td>
+		</tr>
+		<tr>
+			<td><input type="button" name="%" value="%" class="button" /></td>
+			<td><input type="button" name="0" value="0" class="button" /></td>
+			<td><input type="button" name="C" value="C" class="button" /></td>
+			<td><input type="button" name="+" value="+" class="button" /></td>
+		</tr>
+	</table>
+</form>
+
+</body>
+</html>
