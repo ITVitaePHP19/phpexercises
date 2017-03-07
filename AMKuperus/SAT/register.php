@@ -11,24 +11,9 @@
   include 'head.inc.php';
   echo '<body>';
 
-  //The registration form.
-  echo '<form class="box registerbox" action="" method="POST">
-          <h2>Register</h2>
-          <p>Fill in all the fields please</p>
-          <p>Username: <input type="text" name="userName" ' . setValue('userName') . 'placeholder="username"></p>
-          <small>Password must be minimal 10 characters long and contain small letter a digit a capital and a special character.</small>
-          <p>Password: <input type="text" name="pass1" placeholder="**********"></p>
-          <p>Re-type password: <input type="password" name="pass2" placeholder="**********"></p>
-          <p>First name: <input type="text" name="firstName" ' . setValue('firstName') . 'placeholder="first name"></p>
-          <p>Last name: <input type="text" name="lastName" ' . setValue('lastName') . 'placeholder="last name"></p>
-          <p>E-mail: <input type="email" name="email" ' . setValue('email') . 'placeholder="your.name@itvitaelearning.nl"></p>
-          <input type="submit" name="submit" value="Submit">
-          <input type="reset" name="reset" value="Reset">
-        </form>';
-
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $errors = [];
     $user = [];
+    $errors = [];
     if(isset($_POST['submit'])) {
       //username
       if(isset($_POST['userName']) && strlen($_POST['userName']) >= 5) {
@@ -94,6 +79,7 @@
   //do not have to fill in the complete form again.
   //$element is the element that was filled in, like userName/fisrtName
   function setValue($element) {
+    global $user;
     if(isset($user[$element])) {
       $content = $user[$element];
       return 'value="' . $content . '" ';
@@ -121,5 +107,20 @@
       return true;
     }
   }
+  //The registration form.
+  echo '<form class="box registerbox" action="" method="POST">
+          <h2>Register</h2>
+          <p>Fill in all the fields please</p>
+          <p>Username: <input type="text" name="userName" ' . setValue('userName') . 'placeholder="username"></p>
+          <small>Password must be minimal 10 characters long and contain small letter a digit a capital and a special character.</small>
+          <p>Password: <input type="text" name="pass1" placeholder="**********"></p>
+          <p>Re-type password: <input type="password" name="pass2" placeholder="**********"></p>
+          <p>First name: <input type="text" name="firstName" ' . setValue('firstName') . 'placeholder="first name"></p>
+          <p>Last name: <input type="text" name="lastName" ' . setValue('lastName') . 'placeholder="last name"></p>
+          <p>E-mail: <input type="email" name="email" ' . setValue('email') . 'placeholder="your.name@itvitaelearning.nl"></p>
+          <input type="submit" name="submit" value="Submit">
+          <input type="reset" name="reset" value="Reset">
+        </form>';
+
   echo '</body></html>';
 ?>
