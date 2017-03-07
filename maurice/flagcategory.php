@@ -46,7 +46,6 @@
 	else {
 		echo "0 results";
 	}		
-		
 			
 	//4. Close the connection
 	mysqli_close($dbc);	

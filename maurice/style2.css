@@ -424,3 +424,69 @@ figure{
 	margin: 20px;
 	float: right;
 }
+
+#activiteitentracker{
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+}
+
+#actbody{
+	background-color: #e0e0e0;
+	height: auto;
+	margin: 50px;
+	box-shadow: 10px 10px 10px #0b4751;
+}
+
+#actbanner{
+	background-color: white;
+	width: auto;
+	height: 50px;
+	padding: 20px;
+}
+
+#itvllogo{
+	float: left;
+}
+
+#bannertext{
+	padding-top: 20px;
+	font-size: 25px;
+	width: 300px;
+	color: orange;
+	text-align:center;
+	float: left;
+}
+
+#bannername{
+	padding-top: 20px;
+	
+}
+
+.even{
+	background-color: #1aa4bb;
+	width: 150px;
+}
+
+.odd{
+	background-color: #bbf3f7;
+	width: 150px;
+}
+
+#ths{
+	color: orange;
+	background-color: #0b4751;
+	height: 30px;	
+}
+
+#studentselect{
+	background-color: #e0e0e0;
+	height: auto;
+	margin: auto;
+	box-shadow: 10px 10px 10px #0b4751;
+	width: 800px;
+}
+
+#ww{
+	color: black;
+}

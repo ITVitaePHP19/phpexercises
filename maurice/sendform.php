@@ -1,5 +1,6 @@
 <?php
 	require_once('phpmailer/PHPMailerAutoload.php');
+	require_once('config.php');
 	
 	//Get the sumbitted form data
 	$first_name = $_POST["firstname"];
@@ -34,7 +35,7 @@
 	$mail->Port = 465; // or 587
 	$mail->IsHTML(true);
 	$mail->Username = "mjwaney@gmail.com";
-	$mail->Password = "dec12NL!";
+	$mail->Password = $configMailPassword;
 	$mail->SetFrom($email);
 	$mail->Subject = $subject;
 	$mail->Body = $message;

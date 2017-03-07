@@ -147,6 +147,12 @@
 			case 'student':
 				include 'student.php';
 				break;
+			case 'staff':
+				include 'staff.php';
+				break;
+			case 'wwvergeten':
+				include 'wwvergeten.php';
+				break;
 		}
 	?>
 	<!--<footer>Maurice Waney</footer>-->

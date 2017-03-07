@@ -1,5 +1,6 @@
 <?php
 	require_once('class.phpmailer.php');
+	require_once('config.php');
 	
 	//Get the sumbitted form data
 	$name = $_POST["name"];
@@ -9,6 +10,7 @@
 	$code = rand(1000, 9999);
 	$verification = 0;
 	
+	//Add the corresponding email suffix
 	if($_POST["itvitaemail"] == "student")
 	{
 		$email .= "@itvitaelearning.nl";
@@ -47,7 +49,7 @@
 	$mail->Port = 465; // or 587
 	$mail->IsHTML(true);
 	$mail->Username = "mjwaney@gmail.com";
-	$mail->Password = "dec12NL!";
+	$mail->Password = $configMailPassword;
 	$mail->SetFrom($email);
 	$mail->Subject = $subject;
 	$mail->Body = $message;

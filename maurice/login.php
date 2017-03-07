@@ -24,6 +24,8 @@
 	</form>
 </table>
 
+<a id="ww" href="index2.php?p=wwvergeten">Wachtwoord vergeten?</a>
+
 <?php
 
 	if(isset($_POST["submit"]))
@@ -31,6 +33,7 @@
 		$login = $_POST["itvitaemail"];
 		$email = $_POST["email"];
 		$password = $_POST["pw"];
+		
 		
 		if($login == "student")
 		{
@@ -40,7 +43,6 @@
 		{
 			$email .= "@itvitae.nl";
 		}
-		
 		$_SESSION["email"] = $email;
 		
 		//1. Connect with mysqli_connect
@@ -58,7 +60,7 @@
 			// output data of each row
 			while($row = $result->fetch_assoc())
 			{
-				
+				//go to the corresponding page
 				if($email == $row["mail"] && $password == $row["password"])
 				{	
 					if($login == "student")
@@ -68,7 +70,7 @@
 					}
 					else
 					{
-						header("Location: index2.php?p=staff");
+						header("Location: staff.php");
 						die();
 					}
 				}else{ echo "Incorrect email & password combination";}
@@ -80,6 +82,9 @@
 		}
 		//4. Close the connection
 		mysqli_close($dbc);	
+		
+		// displayRow($email);
+		// addRow();
 	}
 
 ?>
