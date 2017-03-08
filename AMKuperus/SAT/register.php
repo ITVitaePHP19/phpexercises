@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <?php
 //TODO Check username/email and give error if username/email already exists in DB
-//TODO Add errors for password
-//TODO Check input on length string (strlen) before passing
 //TODO Create functions when form is completely filled in and checked ok for:
       //TODO sending email with link with unique token for activation
       //TODO add everything to the database
@@ -30,11 +28,21 @@
           if ($p == $_POST['pass2']) {//Both filled in boxes match?
             if(passContains($p) && passLength($p)) {//Checking for correct mix and length
               //Hash the string
-              $pass = passsword_hash($p, PASSWORD_BCRYPT, ['cost', 12]);
-            }//else password not correct mix/length error
-          }//else password boxes dont match error, retype, empty boxes
-        }//second passwordbox not filled in error
-      }//TODO Add error/warningreports in else
+              $pass = password_hash($p, PASSWORD_BCRYPT, ['cost', 12]);
+              $user['pass'] = $pass;
+            } else {//else password not correct mix/length error
+              if(!passContains($p)) {
+                array_push($errors, 'Password must contain atleast a digit a small letter a capital letter and a scpecial character. Please try again.');
+              }
+              if(!passLength($p)) {
+                array_push($errors, 'Password must be minimal of 10 characters and maximal of 72 characters.');
+              }
+            }
+          } else {//else password boxes dont match error, retype, empty boxes
+              array_push($errors, 'Passwords do not match, try again please.');
+          }
+        }
+      }
 
       //firstname
       if(isset($_POST['firstName']) && strlen($_POST['firstName']) >= 2 && preg_match('/[a-zA-Z]/', $_POST['firstName'])) {
@@ -82,15 +90,17 @@
     }
     echo '<hr>Errors ';
     print_r($errors);
-    echo '<hr>User ';
+    echo '<hr>User ' . count($user) . ': ';
     print_r($user);
+
+    //If the user[] is 5 all field are filled in and we can send to DB and create email with token for activation.
 
   }//$_SERVER['REQUEST_METHOD'] End bracket
 
   //Create a value-element for the html-inputfield of the form with the value
   //the user has already submitted so that if they need to correct something they
   //do not have to fill in the complete form again.
-  //$element is the element that was filled in, like userName/fisrtName
+  //$element is the element that was filled in, like userName/firstName
   function setValue($element) {
     global $user;
     if(isset($user[$element])) {
