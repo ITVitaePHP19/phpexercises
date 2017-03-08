@@ -33,7 +33,8 @@
 			// output data of each row
 			while($row = $result->fetch_assoc()){
 				
-				echo "Matching result: " . $row["password"];
+				include "mailMessage.php";
+				mailMessage($email, "Forgotten Password", "Your password is " . $row["password"]);
 			}
 		} 
 		else 
