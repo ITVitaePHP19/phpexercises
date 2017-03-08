@@ -1,5 +1,8 @@
 <?php
-
+//TO DO: Decide whether or not DELETE RECORD button is needed
+//TO DO: Edit the activity tracker layout so the output of the query is shown in same table
+//TO DO: Clean up the activity tracker code starting on line 97
+//       by maybe placing the output of query into an array or object
 require('connect.php');
 
 // Check connection
