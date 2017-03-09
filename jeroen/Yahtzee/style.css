@@ -1,0 +1,112 @@
+html{
+	font-family: sans-serif;
+	background-color: #f4f4f4;
+}
+
+h1{
+	font-size: 50px;
+	text-align: center;
+	color: #7c7c7c;
+}
+
+#flex-container{
+	width: 100%;
+/*	flex-wrap: wrap;
+	flex-wrap: -webkit-wrap;
+    display: -webkit-flex;
+	display: -moz-flex;*/
+    display: flex;
+	text-align: center;
+	font-size: 18px;
+}
+
+.card{
+	background-color: white;
+	box-shadow: 5px 5px 6px 0px #c5c5c5;
+	border-radius: 5px;
+	margin: 2%;
+}
+
+.card-header{
+	background-color: #ffc67c;
+	font-size: 30px;
+	font-weight: bold;
+	padding: 5px;
+	text-transform: uppercase;
+	color: white;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#dice_container{
+	display: flex;
+	margin: 5px;
+}
+
+.keepdice{
+	display: inline;
+}
+
+.dice{
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	vertical-align: middle;
+	background-color: #ff897c;
+	color: white;
+	border-radius: 5px;
+	margin: 5px;
+	font-size: 40px;
+	text-align: center;
+}
+
+button {
+	background-color: #75aaff;
+	border-radius: 5px;
+	border: 1px solid white;
+	color: white;
+	padding: 10px 15px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 8px;
+	cursor: pointer;
+	transition-duration: 0.3s;
+}
+
+button:hover{
+	background-color: #1b71fc;
+}
+
+button:active{
+	transform: scaleX(0.97) scaleY(0.97);
+}
+
+button:disabled{
+	background-color: #75aaff;
+    opacity: 0.5;
+}
+
+#reset{
+	background-color: #ff897c;
+}
+
+#reset:hover{
+	background-color: #f44242;
+}
+	
+table{
+	background-color: #ffc67c;
+	font-size: 15px;
+}
+
+th{
+	color: white;
+	text-align: left;
+}
+
+td{
+	background-color: white;
+	padding: 5px;
+}
+
