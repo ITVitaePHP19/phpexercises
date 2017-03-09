@@ -8,7 +8,7 @@
 
 <div id="wrapper">
 	<div id="content">
-	<figure><img src="itvitaemjw.png" height="60" width="auto"></figure>
+	<figure><img src="img/itvitaemjw.png" height="60" width="auto"></figure>
 		<nav>
 		<?php 
 			// phpinfo();
@@ -97,6 +97,24 @@
 				include 'opdrachten.php';
 				break;
 			case 'op13':
+				include 'opdrachten.php';
+				break;
+			case 'op14':
+				include 'opdrachten.php';
+				break;
+			case 'op15':
+				include 'opdrachten.php';
+				break;
+			case 'op16':
+				include 'opdrachten.php';
+				break;
+			case 'op17':
+				include 'opdrachten.php';
+				break;
+			case 'op18':
+				include 'opdrachten.php';
+				break;
+			case 'op19':
 				include 'opdrachten.php';
 				break;
 			case 'calculator':

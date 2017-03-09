@@ -55,7 +55,7 @@
 					?><tr>
 						<td class="flagcell"><?php echo $row["flagname"]; ?></td>
 						<td class="flagcell"><?php echo $row["category"]; ?></td>
-						<td class="flagcell"><?php echo "<img height='100' width='auto' src='" . $row["flagname"] . "'>"; ?></td>	
+						<td class="flagcell"><?php echo "<img height='100' width='auto' src='img/" . $row["flagname"] . "'>"; ?></td>	
 					</tr>
 					<?php
 				}

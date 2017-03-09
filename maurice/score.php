@@ -330,7 +330,7 @@
 		}
 		echo "<br>TOTAL: " . $total . "</td>";
 		
-		echo "<img id='croupier' src='croupier.png' height='300' width='auto'>";
+		echo "<img id='croupier' src='img/croupier.png' height='300' width='auto'>";
 		
 		echo "</table>";
 	}

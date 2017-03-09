@@ -22,7 +22,7 @@
 <article>
 	<table>
 		<tr>
-			<td><img src="<?php echo $flagimages[$rand] ?>" height="150" width="auto"></td>
+			<td><img src="img/<?php echo $flagimages[$rand] ?>" height="150" width="auto"></td>
 			<td>
 				<form action="" method="post">
 					 <?php echo $r[0] ?>

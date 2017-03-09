@@ -17,7 +17,7 @@
 			?><tr>
 				<td><?php echo $row["flagname"]; ?></td>
 				<td><?php echo $row["category"]; ?></td>
-				<td><?php echo "<img height='100' width='auto' src='" . $row["flagname"] . "'>"; ?></td>	
+				<td><?php echo "<img height='100' width='auto' src='img/" . $row["flagname"] . "'>"; ?></td>	
 			</tr>
 			<?php
 			}
