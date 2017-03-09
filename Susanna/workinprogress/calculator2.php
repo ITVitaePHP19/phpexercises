@@ -89,7 +89,7 @@ if(isset($_POST["Clear"])) {
 	$_SESSION["operator"] = "";
 	$_SESSION["lastnumber"] = "";
 	$_SESSION["result"] = ""; 
-	$_SESSION["buttonPressPrev"];
+	$_SESSION["buttonPressPrev"] = "";
 }
 // memory buttons function
 function handleMemory($buttonvalue) {
