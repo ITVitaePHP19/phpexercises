@@ -20,7 +20,7 @@
 		$mail->Port = 465; // or 587
 		$mail->IsHTML(true);
 		$mail->Username = "mjwaney@gmail.com";
-		$mail->Password = "sept09NL!";
+		$mail->Password = $configMailPassword;
 		$mail->SetFrom($email);
 		$mail->Subject = $subject;
 		$mail->Body = $message;
