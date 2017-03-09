@@ -49,17 +49,19 @@ if (//isset($_POST['id']) &&
 
 echo <<<_END
 <link rel="stylesheet" href="stylesheet2.css">
-<form action="tracker.php" method="POST"><pre>
-My Activities             <input type="text" name="My_Activities">
-Start Date                <input type="date" name="Start_Date">
-End Date                  <input type="date" name="End_Date">
-Time Spent in Hours       <input type="text" name="Time_spent_in_hours">
-Percentage Completed      <input type="number" name="Percentage_Completed">
-Pleasure                  <input type="number" name="Pleasure">
-Difficulty                <input type="number" name="Difficulty">
-Notes                     <input type="text" name="Notes">
-                          <input type="submit" value="ADD RECORD">
-                          </pre></form>
+<table \class='trackertable'>
+<form action="tracker.php" method="POST">
+<tr><td>My Activities</td><td><input type="text" name="My_Activities"></td></tr>
+<tr><td>Start Date</td>                <td><input type="date"   name="Start_Date"></td></tr>
+<tr><td>End Date</td>                  <td><input type="date"   name="End_Date"></td></tr>
+<tr><td>Time Spent in Hours</td>       <td><input type="text"   name="Time_spent_in_hours"></td></tr>
+<tr><td>Percentage Completed</td>      <td><input type="number" name="Percentage_Completed" min='0'></td></tr>
+<tr><td>Pleasure</td>                  <td><input type="number" name="Pleasure"   min='0'></td></tr>
+<tr><td>Difficulty</td>                <td><input type="number" name="Difficulty" min='0'></td></tr>
+<tr><td>Notes</td>                     <td><input type="text"   name="Notes"></td></tr>
+<tr rowspan="2">                       <td><input type="submit" value="ADD RECORD"></td></tr>
+</form>
+<table><br>
 _END;
 
 $query = "SELECT * FROM activitytracker";
@@ -90,21 +92,13 @@ for ($j = 0; $j < $rows; ++$j) {
   }
 //open table row
   echo "<tr>";
-  //foreach ($row as $table) {
-  //add if statement, if $row = 0, exclude or add from 1+
-  //create new for loop maybe
-  //echo  "<td>".$table."</td>";
-  //}
-  echo "<td>$row[1]</td>";
-  echo "<td>$row[2]</td>";
-  echo "<td>$row[3]</td>";
-  echo "<td>$row[4]</td>";
-  echo "<td>$row[5]</td>";
-  echo "<td>$row[6]</td>";
-  echo "<td>$row[7]</td>";
-  echo "<td>$row[8]</td>";
-
-
+  echo "<td>";
+//copy $row array to a new array called $rowTb as in 'row table'
+//array_shift to take out the first value, which is the ID
+//lastly implode the $rowTb array to include <td> tags
+$rowTb = $row;
+array_shift($rowTb);
+echo implode("</td><td>", $rowTb);
 //close table row
   echo "</tr>";
   echo "</table>";
