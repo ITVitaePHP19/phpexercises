@@ -14,7 +14,7 @@ try {
 //Close connection
 //$db = null;
 
-//TODO Add a new user
+//Add a new user
 function addUser(&$db, $user, $token) {
   $sql = " INSERT INTO sat.users
   (sat.users.userName, sat.users.passCode, sat.users.firstName, sat.users.lastName,

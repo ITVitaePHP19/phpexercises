@@ -94,8 +94,10 @@
     //TODO create verification email and token and add the stuff to the DB
     //Create a token 128bit base64_encode encodes the string so it can be safely send by email.
     $token = base64_encode(openssl_random_pseudo_bytes(16));
+    //Add the new user to the DB
     addUser($db, $user, $token);
-    echo '<br>' . strlen($token) . '<hr>Token=>   ' . $token;//remove when done
+    verMail($user, $token);
+    //Say thank you
     echo  '<div class="box loginbox"><p>Thank you for registering to SAT. You will receive a email with a link.</p>
           <p>Click the link in the email or copy the full path into the addressbar of youre browser to activate the account.</p></div>';
   } else {//Show the registration form.
