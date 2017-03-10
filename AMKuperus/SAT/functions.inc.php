@@ -49,9 +49,9 @@
     $mail->isHTML(true);
     //Create head/body
     $mail->Subject = "Your verification mail from ITVitae-TAS";
-    $mail->Body = '<p>Thank you for registering for the ITVitae TAS' .  $user['firstName'] .
-                  '</p><p><a href=\"amkuperus.nl\">To activate the acount click here</a>' .
-                   $token . '</p>';
+    $mail->Body = '<p>Thank you for registering for the ITVitae TAS ' .  $user['firstName'] .
+                  '</p><p><a href="http://127.0.0.1/GitHub/phpexercises/AMKuperus/SAT/activate' . $token .'">
+                  To activate the acount click here</a></p>';//TODO create activation link thingy
 
     if(!$mail->send()) {
       echo $mail->ErrorInfo;
