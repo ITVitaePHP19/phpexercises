@@ -10,14 +10,4 @@
 	file_put_contents($file, $current);
 	
 	echo $current;
-	
-	// function writeFileContent($file, $content){
-		// $fp = fopen($file, 'w');
-		// fwrite($fp, $content);
-		// fclose($fp);
-		// chmod($file, 0777);//changed to add the zero
-		// return true;
-	// }
-	
-	// writeFileContent("forever.txt", "Commit of the forever, ");
-?>
+?>Commmit of the forever, Commmit of the forever, Commmit of the forever, Commmit of the forever, Commmit of the forever, Commmit of the forever 2, 
