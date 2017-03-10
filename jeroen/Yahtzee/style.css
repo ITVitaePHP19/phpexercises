@@ -11,11 +11,7 @@ h1{
 
 #flex-container{
 	width: 100%;
-/*	flex-wrap: wrap;
-	flex-wrap: -webkit-wrap;
-    display: -webkit-flex;
-	display: -moz-flex;*/
-    display: flex;
+  	display: flex;
 	text-align: center;
 	font-size: 18px;
 }
