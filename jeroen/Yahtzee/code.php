@@ -88,6 +88,13 @@ if (isset($_POST['roll'])){
 	}
 }
 
+//if the page is loaded for the first time or is refreshed, the request method is GET instead of POST.
+//if this is the case, empty all dices, and reset the roll count.
+if($_SERVER['REQUEST_METHOD'] == "GET"){
+	$dice1 = $dice2 = $dice3 = $dice4 = $dice5 = "";
+	$_SESSION['roll_count'] = 0;
+}
+
 //aces
 if(isset($_POST['choice']) && ($_POST['choice']) == "aces"){
 	$_SESSION['aces'] = 0;
