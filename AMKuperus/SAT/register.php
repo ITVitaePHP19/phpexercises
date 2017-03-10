@@ -4,7 +4,7 @@
       //TODO sending email with link with unique token for activation
       //TODO add everything to the database
 
-  include 'head.inc.php'; include 'functions.inc.php';
+  include 'head.inc.php'; include 'functions.inc.php'; include 'jumper.inc.php';
   echo '<body>';
 
   $user = [];
@@ -29,7 +29,7 @@
             if(passContains($p) && passLength($p)) {//Checking for correct mix and length
               //Hash the string
               $pass = password_hash($p, PASSWORD_BCRYPT, ['cost', 12]);
-              $user['pass'] = $pass;
+              $user['passCode'] = $pass;
             } else {//else password not correct mix/length error
               if(!passContains($p)) {
                 array_push($errors, 'Password must contain atleast a digit a small letter a capital letter and a scpecial character. Please try again.');
@@ -94,7 +94,8 @@
     //TODO create verification email and token and add the stuff to the DB
     //Create a token 128bit base64_encode encodes the string so it can be safely send by email.
     $token = base64_encode(openssl_random_pseudo_bytes(16));
-    echo '<br><hr>Token=>   ' . $token;//remove when done
+    addUser($db, $user, $token);
+    echo '<br>' . strlen($token) . '<hr>Token=>   ' . $token;//remove when done
     echo  '<div class="box loginbox"><p>Thank you for registering to SAT. You will receive a email with a link.</p>
           <p>Click the link in the email or copy the full path into the addressbar of youre browser to activate the account.</p></div>';
   } else {//Show the registration form.
