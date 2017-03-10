@@ -14,6 +14,26 @@ try {
 //Close connection
 //$db = null;
 
+//TODO Add a new user
+function addUser(&$db, $user, $token) {
+  $sql = " INSERT INTO sat.users
+  (sat.users.userName, sat.users.passCode, sat.users.firstName, sat.users.lastName,
+    sat.users.email, sat.users.role, sat.users.token)
+    VALUES
+    (:userName, :passCode, :firstName, :lastName, :email, :role, :token)";
+  $ask = $db->prepare($sql);
+  $ask->bindValue(':userName', $user['userName'], PDO::PARAM_STR);
+  $ask->bindValue(':passCode', $user['passCode'], PDO::PARAM_STR);
+  $ask->bindValue(':firstName', $user['firstName'], PDO::PARAM_STR);
+  $ask->bindValue(':lastName', $user['lastName'], PDO::PARAM_STR);
+  $ask->bindValue(':email', $user['email'], PDO::PARAM_STR);
+  $ask->bindValue(':role', 'registered', PDO::PARAM_STR);
+  $ask->bindValue(':token', $token, PDO::PARAM_STR);
+  $ask->execute();
+}
+
+//TODO Activate the account
+
 //show all roles
 function showAllRoles(&$db) {
   $sql = "SELECT * FROM sat.role";
