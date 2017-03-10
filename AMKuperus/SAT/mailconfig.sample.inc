@@ -1,0 +1,21 @@
+<?php
+// 1.) Fill in all the empty fields with their appropriate settings inbetween ''.
+// 2.) Rename this file to mailconfig.inc
+
+//Set mailer to use SMTP
+$mail->isSMTP();
+//Email server.
+$mail->Host = '';
+//Enable SMTP authentication
+$mail->SMTPAuth = true;
+//SMTP Username
+$mail->Username = '';
+//SMTP password
+$mail->Password = '';
+//Enable SSL/TSL
+$mail->SMTPSecure = 'ssl';
+//TCP Port
+$mail->Port = 465;
+//Addres/name sender
+$mail->setFrom('email@example', 'Sender');
+?>
