@@ -58,19 +58,25 @@ img {
 }
 .tableoutput {
   border: 1px solid black;
+
 }
-th {
-  border: 1px solid black;
-  padding: 2px;
-}
-td {
-  border: 1px solid black;
+.trackerth {
+  color: #b3b3ff;
+  text-align: left;
   padding: 3px;
+}
+
+td {
+  border: 1px solid #e6e6ff;
+  padding-top: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
   margin: 1px;
   table-layout: inherit;
   text-indent: 2px;
 }
+
 .trackertable {
 text-align: right;
-border: 1px solid black;
+border: 1px solid #e6e6ff;
 }
