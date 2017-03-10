@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 //TODO Check username/email and give error if username/email already exists in DB
-//TODO Create functions when form is completely filled in and checked ok for:
       //TODO sending email with link with unique token for activation
       //TODO add everything to the database
 
@@ -92,10 +91,13 @@
   //Check $user[] and $errors[] to determine to say thnx and send verificationemail
   //or show the form (with the already filled in content in the fields ex. password)
   if(count($user) == 5 && count($errors) == 0){  //Say thnx and send verificationemail
-    //TODO create verification email.
+    //TODO create verification email and token and add the stuff to the DB
+    //Create a token 128bit base64_encode encodes the string so it can be safely send by email.
+    $token = base64_encode(openssl_random_pseudo_bytes(16));
+    echo '<br><hr>Token=>   ' . $token;//remove when done
     echo  '<div class="box loginbox"><p>Thank you for registering to SAT. You will receive a email with a link.</p>
           <p>Click the link in the email or copy the full path into the addressbar of youre browser to activate the account.</p></div>';
-  } else {//The registration form.
+  } else {//Show the registration form.
     echo '<form class="box registerbox" action="" method="POST">
           <h2>Register</h2>
           <p>Fill in all the fields please</p>
