@@ -12,7 +12,7 @@
 
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['submit'])) {
-      //username
+      //username//TODO check if username is already in db->if so give error
       if(isset($_POST['userName']) && strlen($_POST['userName']) >= 5) {
         $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
         $user['userName'] = $userName;
