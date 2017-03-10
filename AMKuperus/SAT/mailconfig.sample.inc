@@ -13,9 +13,9 @@ $mail->Username = '';
 //SMTP password
 $mail->Password = '';
 //Enable SSL/TSL
-$mail->SMTPSecure = 'ssl';
+$mail->SMTPSecure = '---';
 //TCP Port
-$mail->Port = 465;
+$mail->Port = ---;
 //Addres/name sender
 $mail->setFrom('email@example', 'Sender');
 ?>
