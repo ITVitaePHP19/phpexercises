@@ -8,9 +8,10 @@
   include 'head.inc.php'; include 'functions.inc.php';
   echo '<body>';
 
+  $user = [];
+  $errors = [];
+
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user = [];
-    $errors = [];
     if(isset($_POST['submit'])) {
       //username
       if(isset($_POST['userName']) && strlen($_POST['userName']) >= 5) {
@@ -81,24 +82,21 @@
           array_push($errors, 'Fill in a correct emailadres please.');
         }
       }
-
     } //submitbutton
-
-    if(isset($_POST['reset'])) {
-      unset($user);
-      unset($errors);
-    }
     echo '<hr>Errors ';
     print_r($errors);
     echo '<hr>User ' . count($user) . ': ';
     print_r($user);
-
-    //If the user[] is 5 all field are filled in and we can send to DB and create email with token for activation.
-
   }//$_SERVER['REQUEST_METHOD'] End bracket
 
-  //The registration form.
-  echo '<form class="box registerbox" action="" method="POST">
+  //Check $user[] and $errors[] to determine to say thnx and send verificationemail
+  //or show the form (with the already filled in content in the fields ex. password)
+  if(count($user) == 5 && count($errors) == 0){  //Say thnx and send verificationemail
+    //TODO create verification email.
+    echo  '<div class="box loginbox"><p>Thank you for registering to SAT. You will receive a email with a link.</p>
+          <p>Click the link in the email or copy the full path into the addressbar of youre browser to activate the account.</p></div>';
+  } else {//The registration form.
+    echo '<form class="box registerbox" action="" method="POST">
           <h2>Register</h2>
           <p>Fill in all the fields please</p>
           <p>Username: <input type="text" name="userName" ' . setValue('userName') . 'placeholder="username"></p>
@@ -111,6 +109,7 @@
           <input type="submit" name="submit" value="Submit">
           <input type="reset" name="reset" value="Reset">
         </form>';
+      }
 
   echo '</body></html>';
 ?>
