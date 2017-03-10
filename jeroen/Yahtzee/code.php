@@ -290,6 +290,7 @@ if(isset($_POST['submit'])){
 	$dice5 = $_POST['dice5'];
 	if(!isset($_POST['choice'])){
 		$err_message = "Kies een veld.";
+		$disable_roll = "disabled";
 	}
 	elseif(isset($_POST['choice'])){
 		$disable_submit = "disabled";
