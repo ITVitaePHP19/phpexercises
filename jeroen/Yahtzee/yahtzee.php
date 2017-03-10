@@ -116,7 +116,7 @@
 			</tr>
 				<td><input type="radio" name="choice" value="fh" <?php echo $fh_disable; ?>></td>
 				<td>Full House</td>
-				<td>waarde van alle stenen, met 2 dezelfde + 3 dezelfde</td>
+				<td>25 punten bij 2 dezelfde + 3 dezelfde stenen</td>
 				<td><?php echo $_SESSION['fh'];?></td>
 			</tr>
 				<td><input type="radio" name="choice" value="ss" <?php echo $ss_disable; ?>></td>
