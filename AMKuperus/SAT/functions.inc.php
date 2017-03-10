@@ -39,4 +39,22 @@
       return true;
     }
   }
+
+  //Send a new user a email with the verification-link
+  function verMail($user, $token) {
+    require 'phpmailer/PHPMailerAutoload.php';
+    $mail = new PHPMailer;
+    include 'mailconfig.inc';
+    $mail->AddAddress($user['email'], $user['firstName'] . ' ' . $user['lastName']);
+    $mail->isHTML(true);
+    //Create head/body
+    $mail->Subject = "Your verification mail from ITVitae-TAS";
+    $mail->Body = '<p>Thank you for registering for the ITVitae TAS' .  $user['firstName'] .
+                  '</p><p><a href=\"amkuperus.nl\">To activate the acount click here</a>' .
+                   $token . '</p>';
+
+    if(!$mail->send()) {
+      echo $mail->ErrorInfo;
+    }
+  }
 ?>
