@@ -88,12 +88,6 @@ if (isset($_POST['roll'])){
 	}
 }
 
-//if the page is loaded for the first time or is refreshed, the request method is GET instead of POST.
-//if this is the case, empty all dices, and reset the roll count.
-if($_SERVER['REQUEST_METHOD'] == "GET"){
-	$dice1 = $dice2 = $dice3 = $dice4 = $dice5 = "";
-	$_SESSION['roll_count'] = 0;
-}
 
 //aces
 if(isset($_POST['choice']) && ($_POST['choice']) == "aces"){
@@ -334,5 +328,23 @@ if(is_numeric($_SESSION['aces']) && is_numeric($_SESSION['twos']) && is_numeric(
 	$disable_submit = "disabled";
 	$message = "";
 } 
+
+//if the page is loaded, the request method is GET instead of POST.
+//if this is the case, restart the game.
+if($_SERVER['REQUEST_METHOD'] == "GET"){
+	$dice1 = $dice2 = $dice3 = $dice4 = $dice5 = "";
+	$_SESSION['roll_count'] = 0;
+	$_SESSION['aces']= $_SESSION['twos']= $_SESSION['threes']= $_SESSION['fours']= $_SESSION['fives']= $_SESSION['sixes']=
+	$_SESSION['toak']= $_SESSION['carre']= $_SESSION['fh']= $_SESSION['ss']= $_SESSION['ls']= $_SESSION['chance']=
+	$_SESSION['yahtzee']= $_SESSION['yb']= "";
+	$_SESSION['total_ls'] = $_SESSION['$total_us'] = $_SESSION['total'] = 0;
+	$aces_disable= $twos_disable= $threes_disable = $fours_disable = $fives_disable = $sixes_disable = "";
+	$fh_disable = $toak_disable = $foak_disable = $ss_disable = $ls_disable = $yahtzee_disable = $chance_disable = "";
+	$checked1 = $checked2 = $checked3 = $checked4 = $checked5 = "";
+	$disable_check = "disabled";
+	$disable_submit = "disabled";
+	$_SESSION['total_us'] = 0;
+	$message = "nog 3 worpen";
+}
 
 ?>
