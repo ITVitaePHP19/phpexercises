@@ -183,7 +183,7 @@ if (isset($_POST['choice']) && ($_POST['choice'] == "carre")){
 		$_SESSION['carre'] = 0;
 	}
 }
-if (is_numeric($_SESSION['carre'])) $foak_disable = "disabled";
+if (is_numeric($_SESSION['carre'])) $carre_disable = "disabled";
 
 
 //full house
