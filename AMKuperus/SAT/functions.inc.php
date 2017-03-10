@@ -47,11 +47,13 @@
     include 'mailconfig.inc';
     $mail->AddAddress($user['email'], $user['firstName'] . ' ' . $user['lastName']);
     $mail->isHTML(true);
+    //Create the activationlink for the message-body
+    $link = '<a href="http://127.0.0.1/GitHub/phpexercises/AMKuperus/SAT/activate?id=' . $token .'">
+    To activate the acount click here</a>'
     //Create head/body
     $mail->Subject = "Your verification mail from ITVitae-TAS";
     $mail->Body = '<p>Thank you for registering for the ITVitae TAS ' .  $user['firstName'] .
-                  '</p><p><a href="http://127.0.0.1/GitHub/phpexercises/AMKuperus/SAT/activate' . $token .'">
-                  To activate the acount click here</a></p>';//TODO create activation link thingy
+                  $link . '</p><p></p>';//TODO create activation link thingy
 
     if(!$mail->send()) {
       echo $mail->ErrorInfo;
