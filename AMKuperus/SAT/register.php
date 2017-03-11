@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <?php
-//TODO Check username/email and give error if username/email already exists in DB
-      //TODO add everything to the database
-
+##############################################################################
+##########################@author : AMKuperus#################################
+####Copyleft,only to be used for non-profit and always mention the author.####
+############################Registration for SAT##############################
+##############################################################################
   include 'head.inc.php'; include 'functions.inc.php'; include 'jumper.inc.php';
   echo '<body>';
 
@@ -76,7 +78,13 @@
       //6 is the minimum length for a possible emailadress
       if(isset($_POST['email']) && strlen($_POST['email']) >= 6) {
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-        $user['email'] = $email;
+        $ask = checkEmailExist($db, $email);
+        if(empty($ask)) {
+          $user['email'] = $email;
+        } else {
+          array_push($errors, 'The emailaddress you filled in appears to be already
+                                be in use by somebody, please enter your own emailadress');
+        }
       } else {//Fill in email error
         //if emailadress is empty
         if (empty($_POST['email'])){
@@ -86,16 +94,11 @@
         }
       }
     } //submitbutton
-    echo '<hr>Errors ';
-    print_r($errors);
-    echo '<hr>User ' . count($user) . ': ';
-    print_r($user);
   }//$_SERVER['REQUEST_METHOD'] End bracket
 
   //Check $user[] and $errors[] to determine to say thnx and send verificationemail
   //or show the form (with the already filled in content in the fields ex. password)
   if(count($user) == 5 && count($errors) == 0){  //Say thnx and send verificationemail
-    //TODO create verification email and token and add the stuff to the DB
     //Create a token 128bit base64_encode encodes the string so it can be safely send by email.
     $token = base64_encode(openssl_random_pseudo_bytes(16));
     //Add the new user to the DB
@@ -107,18 +110,25 @@
   } else {//Show the registration form.
     echo '<form class="box registerbox" action="" method="POST">
           <h2>Register</h2>
-          <p>Fill in all the fields please</p>
-          <p>Username: <input type="text" name="userName" ' . setValue('userName') . 'placeholder="username"></p>
+          <p>Fill in all the fields please</p>';
+
+    //If there is errors show them
+    if(!empty($errors)) {
+      foreach($errors as $e) {
+        echo '<small class="error">' . $e . '</small>';
+      }
+    }
+
+    echo  '<p>Username: <input type="text" name="userName" ' . setValue('userName') . 'placeholder="username" required></p>
           <small>Password must be minimal 10 characters long and contain small letter a digit a capital and a special character.</small>
-          <p>Password: <input type="text" name="pass1" placeholder="**********"></p>
-          <p>Re-type password: <input type="password" name="pass2" placeholder="**********"></p>
-          <p>First name: <input type="text" name="firstName" ' . setValue('firstName') . 'placeholder="first name"></p>
-          <p>Last name: <input type="text" name="lastName" ' . setValue('lastName') . 'placeholder="last name"></p>
-          <p>E-mail: <input type="email" name="email" ' . setValue('email') . 'placeholder="your.name@itvitaelearning.nl"></p>
-          <input type="submit" name="submit" value="Submit">
-          <input type="reset" name="reset" value="Reset">
+          <p>Password: <input type="password" name="pass1" placeholder="**********" required></p>
+          <p>Re-type password: <input type="password" name="pass2" placeholder="**********" required></p>
+          <p>First name: <input type="text" name="firstName" ' . setValue('firstName') . 'placeholder="first name" required></p>
+          <p>Last name: <input type="text" name="lastName" ' . setValue('lastName') . 'placeholder="last name" required></p>
+          <p>E-mail: <input type="email" name="email" ' . setValue('email') . 'placeholder="your.name@example.com" required></p>
+          <input id="loginbtn" type="submit" name="submit" value="Submit">
+          <!--<input type="reset" name="reset" value="Reset">-->
         </form>';
       }
-
   echo '</body></html>';
 ?>

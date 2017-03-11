@@ -27,6 +27,10 @@ a:hover {
   text-shadow: 0.02em 0.02em 0.02em #5A585E;
 }
 
+.error {
+  color: tomato;
+}
+
 .box {
   position: absolute;
   background-color: #FFF;
