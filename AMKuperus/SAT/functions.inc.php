@@ -52,7 +52,7 @@
     //Create head/body
     $mail->Subject = "Your verification mail from ITVitae-TAS";
     $mail->Body = '<p>Thank you for registering for the ITVitae TAS ' .  $user['firstName'] .
-                  '<a href="' . $link . '">To activate the acount click here</a>
+                  '<a href="' . $link . '">To activate the account click here</a>
                   </p><p></p>';
 
     if(!$mail->send()) {
