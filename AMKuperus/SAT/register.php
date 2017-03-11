@@ -14,12 +14,12 @@
       //username//TODO check if username is already in db->if so give error
       if(isset($_POST['userName']) && strlen($_POST['userName']) >= 5) {
         $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
-        if(!checkUsernameExist($db, $userName)) {
+        //Go find out if the username already exists is the DB, if so send error, else nothing.
+        if(checkUsernameExist($db, $userName) == true) {
           $user['userName'] = $userName;
         } else {
           array_push($errors, 'This username is already in use, please try something else.');
         }
-        //Go find out if the username already exists is the DB, if so send error, else nothing.
       } else {//Fill in username error
           array_push($errors, 'Fill in a username. Username is the name with which you login and should contain more then 5 characters.');
       }
