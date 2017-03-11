@@ -44,6 +44,15 @@ function checkUsernameExist(&$db, $search) {
     return $ask->fetchAll(PDO::FETCH_ASSOC);
 }
 
+//Check if the emailadres is already in the database
+function checkEmailExist(&$db, $search) {
+  $sql = "SELECT email FROM sat.users WHERE email = :search";
+  $ask = $db->prepare($sql);
+  $ask->bindValue(':search', $search, PDO::PARAM_STR);
+  $ask->execute();
+  return $ask->fetchAll(PDO::FETCH_ASSOC);
+}
+
 //show all roles
 function showAllRoles(&$db) {
   $sql = "SELECT * FROM sat.role";
