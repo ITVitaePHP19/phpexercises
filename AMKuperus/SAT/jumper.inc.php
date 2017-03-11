@@ -30,20 +30,26 @@ function addUser(&$db, $user, $token) {
   $ask->bindValue(':role', 'registered', PDO::PARAM_STR);
   $ask->bindValue(':token', $token, PDO::PARAM_STR);
   $ask->execute();
+  //TODO try/catch with PDOException
 }
 
 //TODO Activate the account
 
 //TODO Check if username is already in the DB
 function checkUsernameExist(&$db, $userName) {
-  $sql = "SELECT * FROM sat.users WHERE 'userName' LIKE :search";
-  $ask = $db->prepare($sql);
-  $ask->bindValue(':search', '%' . $userName . '%', PDO::PARAM_STR);
-  $ask->execute();
-  $ask->fetchAll(PDO::FETCH_ASSOC);
-  if(!$ask->rowCount() == 0) {
-    return true;//TODO catch the exception so it does not give a fatal error
+  try {
+    $sql = "SELECT * FROM sat.users WHERE 'userName' LIKE :search";
+    $ask = $db->prepare($sql);
+    $ask->bindValue(':search', '%' . $userName . '%', PDO::PARAM_STR);
+    $ask->execute();
+    $ask->fetchAll(PDO::FETCH_ASSOC);
+  } catch (PDOException $e){
+    echo 'error: ' . $e->getMessage();
   }
+
+  //if(!$ask->rowCount() == 0) {
+    //return true;//TODO catch the exception so it does not give a fatal error
+  //}
 }
 
 //show all roles
