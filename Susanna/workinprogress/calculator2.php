@@ -12,6 +12,7 @@
 // build functionality for %
 // add euro's mode with rounding and , as punctuation instead of .
 // change the layout of the buttons so it looks a bit better
+// make default for numberPress do nothing to circumvent people changing the value of the buttons in html.
 
 // return function to . to have a 0 appear in front of it if its pressed in an empty field. DONE
 // add another session for last button pressed. DONE 

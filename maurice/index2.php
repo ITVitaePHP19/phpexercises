@@ -2,13 +2,13 @@
 <html>
 <head>
 	<title>PHP Problem Based Learning</title>
-	<link rel="stylesheet" type="text/css" href="style2.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
 </head>
 <body>
 
 <div id="wrapper">
 	<div id="content">
-	<figure><img src="itvitaemjw.png" height="60" width="auto"></figure>
+	<figure><img src="img/itvitaemjw.png" height="60" width="auto"></figure>
 		<nav>
 		<?php 
 			// phpinfo();
@@ -43,13 +43,13 @@
 				echo "<br><br>Home page<br><br>";
 				break;
 			case 'project':
-				include 'pestart.php';
+				include 'projecteuler/pestart.php';
 				break;
 			case 'opdrachten':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'activiteiten':
-				include 'activiteitentracker.php';
+				include 'activiteitentracker/activiteitentracker.php';
 				break;
 			case 'info':
 				echo "<br><br>About<br><br>";
@@ -61,91 +61,115 @@
 				echo "<br><br>Links<br><br>";
 				break;
 			case 'op1':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op2':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op3':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op4':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op5':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op6':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op7':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op8':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op9':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op10':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op11':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op12':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'op13':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
+				break;
+			case 'op14':
+				include 'opdrachten/opdrachten.php';
+				break;
+			case 'op15':
+				include 'opdrachten/opdrachten.php';
+				break;
+			case 'op16':
+				include 'opdrachten/opdrachten.php';
+				break;
+			case 'op17':
+				include 'opdrachten/opdrachten.php';
+				break;
+			case 'op18':
+				include 'opdrachten/opdrachten.php';
+				break;
+			case 'op19':
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'calculator':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'calculator2':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'vlaggen':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'versleutelen':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'letterfrequentie':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'romeinserekenmachine':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'lettertypechaos':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'yahtzee':
 				include 'yahtzee.php';
 				break;
 			case 'bke':
-				include 'opdrachten.php';
+				include 'opdrachten/opdrachten.php';
 				break;
 			case 'sort_flagname':
-				include 'vlaggen.php';
+				include 'vlaggen/vlaggen.php';
 				break;
 			case 'sort_category':
-				include 'vlaggen.php';
+				include 'vlaggen/vlaggen.php';
 				break;
 			case 'test':
-				include 'flagtest.php';
+				include 'vlaggen/flagtest.php';
 				break;
 			case 'uploadFlag':
-				include 'uploadFlag.php';
+				include 'vlaggen/uploadFlag.php';
 				break;
 			case 'login':
-				include 'login.php';
+				include 'activiteitentracker/login.php';
 				break;
 			case 'verification':
-				include 'verification.php';
+				include 'activiteitentracker/verification.php';
 				break;
 			case 'student':
-				include 'student.php';
+				include 'activiteitentracker/student.php';
+				break;
+			case 'staff':
+				include 'activiteitentracker/staff.php';
+				break;
+			case 'wwvergeten':
+				include 'activiteitentracker/wwvergeten.php';
 				break;
 		}
 	?>

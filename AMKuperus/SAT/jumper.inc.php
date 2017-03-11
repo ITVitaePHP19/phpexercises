@@ -14,6 +14,42 @@ try {
 //Close connection
 //$db = null;
 
+//Add a new user
+function addUser(&$db, $user, $token) {
+  $sql = " INSERT INTO sat.users
+  (sat.users.userName, sat.users.passCode, sat.users.firstName, sat.users.lastName,
+    sat.users.email, sat.users.role, sat.users.token)
+    VALUES
+    (:userName, :passCode, :firstName, :lastName, :email, :role, :token)";
+  $ask = $db->prepare($sql);
+  $ask->bindValue(':userName', $user['userName'], PDO::PARAM_STR);
+  $ask->bindValue(':passCode', $user['passCode'], PDO::PARAM_STR);
+  $ask->bindValue(':firstName', $user['firstName'], PDO::PARAM_STR);
+  $ask->bindValue(':lastName', $user['lastName'], PDO::PARAM_STR);
+  $ask->bindValue(':email', $user['email'], PDO::PARAM_STR);
+  $ask->bindValue(':role', 'registered', PDO::PARAM_STR);
+  $ask->bindValue(':token', $token, PDO::PARAM_STR);
+  $ask->execute();
+  //TODO try/catch with PDOException
+}
+
+//TODO Activate the account
+
+//TODO Check if username is already in the DB//TODO Rewite to use for multiple things
+function checkUsernameExist(&$db, $search) {
+    $sql = "SELECT * FROM sat.users WHERE 'userName' LIKE :search";
+    $ask = $db->prepare($sql);
+    $ask->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+    $ask->execute();
+    $ask->fetchAll(PDO::FETCH_ASSOC);
+
+  if($ask->rowCount() == 0) {
+    return true;//TODO catch the exception so it does not give a fatal error
+  } else {
+    return false;
+  }
+}
+
 //show all roles
 function showAllRoles(&$db) {
   $sql = "SELECT * FROM sat.role";

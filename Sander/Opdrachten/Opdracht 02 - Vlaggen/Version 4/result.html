@@ -1,0 +1,56 @@
+<!doctype html>
+
+<?php
+if (!isset($_COOKIE['score'])) {
+	setcookie ('score', 0);
+}
+elseif ($_SESSION['score'] >= $_COOKIE['score']) {
+	setcookie ('score', $_SESSION['score']);
+}
+?>
+
+<html>
+
+<head>
+	<link href="stylesheet.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+	<div class="container quiz">
+		<table class="content">
+			<tr>
+				<td class="header">Flags</td>
+			</tr>
+			<tr>
+				<td class="subheader">These are your results:</td>
+			</tr>
+			<tr>
+				<td>Of the <?php echo ($_SESSION['count'] - 1); ?> questions, you've answered <?php echo $_SESSION['score']; ?> correct!</td>
+			</tr>
+			<tr>
+				<td>Previous highscore: <?php if(isset($_COOKIE['score'])) {echo $_COOKIE['score'];} else {echo '0';} ?></td>
+			</tr>
+		</table>
+	</div>
+	<br />
+	<div class="submit">
+		<table>
+			<tr>
+				<td>
+					<a href="index.php"><div class="button back submit">Menu</div></a>
+					<input class="button forward" type="submit" name="submit" value="<?php echo $button; ?>" />
+				</td>
+			</tr>
+		</table>
+	</div>
+</form>
+
+<?php
+$_SESSION = array();
+?>
+
+</body>
+
+</html>

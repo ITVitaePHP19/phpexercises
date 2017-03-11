@@ -20,7 +20,7 @@
 			<option <?php if ($operator == '*') {?> selected="true" <?php ;}  ?> value="*">x</option>
 			<option <?php if ($operator == '/') {?> selected="true" <?php ;}  ?> value="/">/</option>
 		</select>
-	<input type="text" name="inputB" pattern="[MCIVDXLmcivdxl]{1,3}" style="text-transform:uppercase" value="<?php echo $inputB; ?>" required>
+	<input type="text" name="inputB" pattern="[MCIVDXLOmcivdxlo]{1,3}" style="text-transform:uppercase" value="<?php echo $inputB; ?>" required>
 
 	<button type="submit" name="=" >=</button>
 	<span>

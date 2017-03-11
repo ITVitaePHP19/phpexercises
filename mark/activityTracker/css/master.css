@@ -1,0 +1,23 @@
+body 
+{
+	margin:0px;
+	padding:0px;
+	background-color:rgba(200,223,223,1.00);  	
+}
+.Container{width:800px; height:auto; clear:both; overflow:auto ;margin:40px auto;background-color:#FFF; }
+.Header{height:100px;}
+.Menu{height:50px;}
+.LeftBody{
+	width:350 px;
+	float:left;
+	height:400px;
+	
+}
+.RightBody{
+	width:450px;
+	float:right;
+	height:auto;
+}
+.Footer {
+	height:100px;
+}

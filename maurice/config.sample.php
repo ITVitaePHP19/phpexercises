@@ -1,0 +1,3 @@
+<?php
+	$configMailPassword = "";//password here
+?>

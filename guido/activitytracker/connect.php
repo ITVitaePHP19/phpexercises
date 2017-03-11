@@ -1,5 +1,7 @@
 <?php
-$connection = mysqli_connect('localhost', 'root', 'Leonard1');
+require_once 'config.php';
+
+$connection = mysqli_connect($db, $un, $pw);
 if (!$connection){
     die("Database Connection Failed" . mysqli_error($connection));
 }
