@@ -11,11 +11,12 @@
 
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
     if(isset($_POST['submit'])) {
-      //username//TODO check if username is already in db->if so give error
+      //username
       if(isset($_POST['userName']) && strlen($_POST['userName']) >= 5) {
         $userName = filter_input(INPUT_POST, 'userName', FILTER_SANITIZE_STRING);
         //Go find out if the username already exists is the DB, if so send error, else nothing.
-        if(checkUsernameExist($db, $userName) == true) {
+        $ask = checkUsernameExist($db, $userName);
+        if(empty($ask)) {//If the returned array is empty the username does not exist in DB
           $user['userName'] = $userName;
         } else {
           array_push($errors, 'This username is already in use, please try something else.');

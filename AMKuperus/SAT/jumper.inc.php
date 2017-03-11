@@ -35,19 +35,13 @@ function addUser(&$db, $user, $token) {
 
 //TODO Activate the account
 
-//TODO Check if username is already in the DB//TODO Rewite to use for multiple things
+//Check if username is already in the DB
 function checkUsernameExist(&$db, $search) {
-    $sql = "SELECT * FROM sat.users WHERE 'userName' LIKE :search";
+    $sql = "SELECT userName FROM sat.users WHERE userName = :search";
     $ask = $db->prepare($sql);
-    $ask->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+    $ask->bindValue(':search', $search, PDO::PARAM_STR);
     $ask->execute();
-    $ask->fetchAll(PDO::FETCH_ASSOC);
-
-  if($ask->rowCount() == 0) {
-    return true;//TODO catch the exception so it does not give a fatal error
-  } else {
-    return false;
-  }
+    return $ask->fetchAll(PDO::FETCH_ASSOC);
 }
 
 //show all roles
