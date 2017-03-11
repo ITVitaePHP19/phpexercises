@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 //TODO Check username/email and give error if username/email already exists in DB
-      //TODO sending email with link with unique token for activation
       //TODO add everything to the database
 
   include 'head.inc.php'; include 'functions.inc.php'; include 'jumper.inc.php';
