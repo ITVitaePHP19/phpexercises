@@ -18,4 +18,6 @@ $mail->SMTPSecure = '---';
 $mail->Port = ---;
 //Addres/name sender
 $mail->setFrom('email@example', 'Sender');
+//the url before /SAT if needed for local testing
+$mailUrl = '';
 ?>
