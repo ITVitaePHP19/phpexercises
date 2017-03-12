@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Gegenereerd op: 12 mrt 2017 om 12:16
+-- Gegenereerd op: 12 mrt 2017 om 12:35
 -- Serverversie: 5.6.35
 -- PHP-versie: 5.6.30
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `sat`
 --
+CREATE DATABASE IF NOT EXISTS `sat` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `sat`;
 
 -- --------------------------------------------------------
 
