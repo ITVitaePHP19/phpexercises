@@ -48,7 +48,7 @@
     $mail->AddAddress($user['email'], $user['firstName'] . ' ' . $user['lastName']);
     $mail->isHTML(true);
     //Create the activationlink for the message-body
-    $link = 'http://127.0.0.1/GitHub/phpexercises/AMKuperus/SAT/activate.php?id=' . $user['userName'] . '&t='. $token;
+    $link = $mailUrl . '/SAT/activate.php?id=' . $user['userName'] . '&t='. $token;
     //Create head/body
     $mail->Subject = "Your verification mail from ITVitae-TAS";
     $mail->Body = '<p>Thank you for registering for the ITVitae TAS ' .  $user['firstName'] .
