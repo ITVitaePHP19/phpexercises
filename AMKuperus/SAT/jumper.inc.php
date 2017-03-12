@@ -35,7 +35,7 @@ function addUser(&$db, $user, $token) {
 
 //TODO Activate the account
 
-//Check if username is already in the DB
+//Check if username is already in the database
 function checkUsernameExist(&$db, $search) {
     $sql = "SELECT userName FROM sat.users WHERE userName = :search";
     $ask = $db->prepare($sql);

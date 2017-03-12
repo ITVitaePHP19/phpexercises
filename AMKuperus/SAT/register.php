@@ -21,10 +21,12 @@
         if(empty($ask)) {//If the returned array is empty the username does not exist in DB
           $user['userName'] = $userName;
         } else {
-          array_push($errors, 'This username is already in use, please try something else.');
+          array_push($errors, 'The username you entered is already in use,
+                              please try something else. ');
         }
       } else {//Fill in username error
-          array_push($errors, 'Fill in a username. Username is the name with which you login and should contain more then 5 characters.');
+          array_push($errors, 'Fill in a username. Username is the name with which
+                              you login and should contain more then 5 characters. ');
       }
 
       //password
@@ -38,14 +40,17 @@
               $user['passCode'] = $pass;
             } else {//else password not correct mix/length error
               if(!passContains($p)) {
-                array_push($errors, 'Password must contain atleast a digit a small letter a capital letter and a scpecial character. Please try again.');
+                array_push($errors, 'Password must contain atleast a digit a small
+                                    letter a capital letter and a scpecial character.
+                                    Please try again. ');
               }
               if(!passLength($p)) {
-                array_push($errors, 'Password must be minimal of 10 characters and maximal of 72 characters.');
+                array_push($errors, 'Password must be minimal of 10 characters and
+                                    maximal of 72 characters. ');
               }
             }
           } else {//else password boxes dont match error, retype, empty boxes
-              array_push($errors, 'Passwords do not match, try again please.');
+              array_push($errors, 'Passwords do not match, try again please. ');
           }
         }
       }
@@ -56,9 +61,9 @@
         $user['firstName'] = $firstName;
       } else {//Fill in firstname error
         if (empty($_POST['firstName'])) {
-          array_push($errors, 'Fill in your first name please.');
+          array_push($errors, 'Fill in your first name please. ');
         } elseif (!preg_match('/[a-zA-Z]/', $_POST['firstName'])) {
-          array_push($errors, 'Fill in a correct first name please.');
+          array_push($errors, 'Fill in a correct first name please. ');
         }
       }
 
@@ -68,9 +73,9 @@
         $user['lastName'] = $lastName;
       } else {//Fill in lastname error
         if (empty($_POST['lastName'])) {
-          array_push($errors, 'Fill in your last name please.');
+          array_push($errors, 'Fill in your last name please. ');
         } elseif (!preg_match('/[a-zA-Z]/', $_POST['lastName'])) {
-          array_push($errors, 'Fill in a correct last name please.');
+          array_push($errors, 'Fill in a correct last name please. ');
         }
       }
 
@@ -83,14 +88,14 @@
           $user['email'] = $email;
         } else {
           array_push($errors, 'The emailaddress you filled in appears to be already
-                                be in use by somebody, please enter your own emailadress');
+                              in use, please enter your own emailadress. ');
         }
       } else {//Fill in email error
         //if emailadress is empty
         if (empty($_POST['email'])){
-          array_push($errors, 'Fill in a email-adress please.');
+          array_push($errors, 'Fill in a email-adress please. ');
         } elseif (strlen($_POST['email'])) {
-          array_push($errors, 'Fill in a correct emailadres please.');
+          array_push($errors, 'Fill in a correct emailadres please. ');
         }
       }
     } //submitbutton
