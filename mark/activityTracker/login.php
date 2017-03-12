@@ -11,19 +11,30 @@ if (ISSET($_POST['submit']))
 	//PassWord ='$Password' AND
 	
 	$row=$result->fetch_array(MYSQLI_BOTH);
-	if (Password_verify($Password,$row['PassWord'])){
+	if (Password_verify($Password,$row['PassWord']))
+	{
 	session_start();
 	
 	$_SESSION["UserID"]=$row['UserID'];
-	header('Location: account.php');
-	}
-	else{
-	session_start();
-	echo"wrong login";
+	//userlevel voor de toegekende bevoegdheden
+	$_SESSION["Userlevel"]=$row['UserLevel'];
 	
+		if ($_SESSION["Userlevel"]==2)
+			{
+			header('Location: accountAdmin.php');
+			}
+			else
+			{
+			header('Location: account.php');
+			}
+	}
+	else
+	{
+		session_start();
+		echo"wrong login";
 	}
 	
-	}
+}
 	
 ?>
 

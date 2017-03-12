@@ -51,9 +51,9 @@ else{header ('Location: login.php');}
 	</div>
 	<div class="LeftBody"></div>
 	<div class="RightBody">
-	<p> this is your account 
+	<p> this is your account </p>
 	<?php 
-	echo "hello ".$userID ;
+	echo "hello YOU HAVE ADMIN RIGHTS AT LEAST I HOPE SO".$userID ;
 	//SELECT column_name(s)FROM table1 LEFT OUTER JOIN table2
 	//ON table1.column_name=table2.column_name;
 	//we maken een left outer join ale rijen van linker tabel ic user en 

@@ -51,7 +51,7 @@ else{header ('Location: login.php');}
 	</div>
 	<div class="LeftBody"></div>
 	<div class="RightBody">
-	<p> this is your account 
+	<p> this is your account </p>
 	<?php 
 	echo "hello ".$userID ;
 	//SELECT column_name(s)FROM table1 LEFT OUTER JOIN table2

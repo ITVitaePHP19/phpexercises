@@ -1,7 +1,12 @@
 <?php
 require "connections/connection.php";
+require "sanatize.php";
 //has function to validate form data
 require "validate.php";
+//create an error aray to store errormessages
+$errrors=array();
+
+
 if(ISSET($_POST['submit']))
 {
 	
@@ -15,17 +20,57 @@ if(ISSET($_POST['submit']))
 	$Username = validateInput($_POST["Username"]);
 	$Password = validateInput($_POST["Password"]);
 	$Email = validateInput($_POST["Email"]);
+	//when the submit button is clicked
+	if(ISSET($_POST['submit']))
+	{
+	
+	print "MESSAGE"."<br />\n";
+	//is your gender filled in
+	if (empty($Gender)){
+		$Gender1="we think you have a gender,please say so";
+		print $Gender1;
+		$errors['gender1']=$Gender1;
 		
+	}
+	//password check
+	if (strlen($Password) <= 7)
+	{
+		$Password1= "a password has to consist of at least 8 characters";
+		print $Password1."<br />\n";
+		$errors['password1']=$Password1;
+	}
+	//firstname check
+	$Firstname=escape($Firstname);
+	echo $Firstname;
+	if (strlen($Firstname) <= 2)
+	{
+		$Firstname1= "a firstname has to consist of at least 2 characters";
+		print $Firstname1."<br />\n";
+		$errors['password1']=$Password1;
+	}
+	//The code below shows a simple way to check if the name field only contains letters and whitespace. 
+	//If the value of the name field is not valid, then store an error message:
+	
+	if (!preg_match("/^[a-zA-Z ]*$/",$Firstname)) {
+	$Firstname2 = "Only letters and white space allowed in firstname "; 
+	print $Firstname2;
+	$errors['firstname2']=$Firstname2;
+	
+	}	
+		
+	if (empty($errors))
+	{
 	//after first control of password: hashing of password
 	//gehashte password 
 	//echo $Gender;
 	$gehashtepassword=password_hash($Password,PASSWORD_BCRYPT,array('cost'=>10));
+	$sql=$con->query("INSERT INTO user(FirstName,LastName,Email,UserName,PassWord) Values ('{$Firstname}','{$Lastname}','{$Email}','{$Username}','{$gehashtepassword}')");	
+	print "you have sent a request for registration";
+	}
+}	
 	
 	
-	//if (strlen($Firstname<2)|| strlen($Lastname<2)){
-	//	print "your firname,lastname must be longer than 1";
-//		exit();
-//	}
+	
 	
 	
 	
@@ -91,34 +136,7 @@ if(ISSET($_POST['submit']))
 </div>
 </body>
 <?php
-if(ISSET($_POST['submit']))
-{
-	if (empty($Gender)){
-		print "we think you have a gender";
-		exit();
-	}
-	
-	if (strlen($Password) <= 7)
-	{
-		
-		print "password at least 8 characters";
-		exit();
-	}
-	
-	//The code below shows a simple way to check if the name field only contains letters and whitespace. 
-	//If the value of the name field is not valid, then store an error message:
-	
-	if (!preg_match("/^[a-zA-Z ]*$/",$Firstname)) {
-	$nameErr = "Only letters and white space allowed in firstname "; 
-	print $nameErr;
-	exit();
-	}	
-		
-		
-		
-		$sql=$con->query("INSERT INTO user(FirstName,LastName,Email,UserName,PassWord) Values ('{$Firstname}','{$Lastname}','{$Email}','{$Username}','{$gehashtepassword}')");	
-		
-}
+
 
 ?>
 </html>
