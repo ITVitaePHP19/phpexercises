@@ -16,7 +16,8 @@
 	
 	if(isset($_POST["submit"]))
 	{
-		include "randomletters.php";	
+		include "randomletters.php";
+		$lC->randomize();
 	}
 ?>
 
