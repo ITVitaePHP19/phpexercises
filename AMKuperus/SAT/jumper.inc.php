@@ -33,7 +33,16 @@ function addUser(&$db, $user, $token) {
   //TODO try/catch with PDOException
 }
 
-//TODO Activate the account
+//Return token from database matching userName
+function retToken(&$db, $userName) {
+  $sql = "SELECT token FROM sat.users WHERE userName = :user";
+  $ask = $db->prepare($sql);
+  $ask->bindValue(':user', $userName, PDO::PARAM_STR);
+  $ask->execute();
+  return $ask->fetchColumn();
+}
+
+//TODO Activate account when token matches
 
 //Check if username is already in the database
 function checkUsernameExist(&$db, $search) {
