@@ -4,11 +4,13 @@
 			<tr>
 				<td id="memory" colspan="5"> <?php
 					include "memory.php";
+					$cM->memory();
 				?> </td>
 			</tr>
 			<tr>
 				<td id="screen" colspan="5"> <?php
-					include "result.php";					
+					include "result.php";
+					$cR->calc();
 				?> </td>
 			</tr>
 			<tr>
