@@ -22,16 +22,32 @@
 	</form>
 		
 	<?php
+	
+		//Guess the right picture quiz
+		class pictureQuiz
+		{
+			private $answer;
+			
+			//checks whether your chosen answer is right
+			function question()
+			{
+				$this->answer = $_POST["animal"];
+				
+				if($this->answer == 'dog')
+				{
+					echo "Correct!";
+				}
+				else
+				{
+					echo "Close Enough!";
+				}
+			}
+		}
+		$pQ = new pictureQuiz;
+	
 		if( isset($_POST["submit"]) ) 
 		{
-			$answer = $_POST["animal"];
-			
-			if($answer == 'dog'){
-				echo "Correct!";
-			}
-			else{
-				echo "Close Enough!";
-			}
+			$pQ->question();
 		}	
 	?>
 </article>
