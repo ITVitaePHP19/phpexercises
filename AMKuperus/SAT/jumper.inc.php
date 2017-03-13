@@ -42,9 +42,17 @@ function retToken(&$db, $userName) {
   return $ask->fetchColumn();
 }
 
-//TODO Activate account when token matches
+//Remove token from database when token matches
 function changeToken(&$db, $userName) {
   $sql = "UPDATE users SET token = '' WHERE userName = :name";
+  $ask = $db->prepare($sql);
+  $ask->bindValue(':name', $userName, PDO::PARAM_STR);
+  $ask->execute();
+}
+
+//Change userstate in database
+function changeToStudent(&$db, $userName) {
+  $sql = "UPDATE users SET role = 'student' WHERE userName = :name";
   $ask = $db->prepare($sql);
   $ask->bindValue(':name', $userName, PDO::PARAM_STR);
   $ask->execute();
