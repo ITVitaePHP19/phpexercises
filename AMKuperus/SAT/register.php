@@ -105,7 +105,8 @@
   //or show the form (with the already filled in content in the fields ex. password)
   if(count($user) == 5 && count($errors) == 0){  //Say thnx and send verificationemail
     //Create a token 128bit base64_encode encodes the string so it can be safely send by email.
-    $token = base64_encode(openssl_random_pseudo_bytes(16));
+    //strtr replaces +/= to x to evade conflict with GET
+    $token = strtr(base64_encode(openssl_random_pseudo_bytes(16)), '+/=', 'xxx');
     //Add the new user to the DB
     addUser($db, $user, $token);
     verMail($user, $token);
