@@ -7,6 +7,7 @@
 			if(isset($_POST["roll"]))
 			{
 				include "start.php";
+				$yS->start();
 			}
 		?>
 			<td><input type="checkbox" name="reset" value="reset">Restart Game</td>
