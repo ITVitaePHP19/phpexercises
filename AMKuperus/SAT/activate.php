@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-//TODO token should not be able to have certain chars like + and /
   include 'head.inc.php';
   if(isset($_GET['id']) && isset($_GET['t'])) {
     $userName = $_GET['id'];
