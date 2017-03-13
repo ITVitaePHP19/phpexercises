@@ -40,7 +40,7 @@
 		switch($_GET['p'])
 		{
 			case 'home':
-				echo "<br><br>Home page<br><br>";
+				include "home.php";
 				break;
 			case 'project':
 				include 'projecteuler/pestart.php';
@@ -52,13 +52,13 @@
 				include 'activiteitentracker/activiteitentracker.php';
 				break;
 			case 'info':
-				echo "<br><br>About<br><br>";
+				include "about.php";
 				break;
 			case 'contact':
 				include 'Contact2.php';
 				break;
 			case 'links':
-				echo "<br><br>Links<br><br>";
+				include "links.php";
 				break;
 			case 'op1':
 				include 'opdrachten/opdrachten.php';
@@ -139,7 +139,7 @@
 				include 'opdrachten/opdrachten.php';
 				break;
 			case 'yahtzee':
-				include 'yahtzee.php';
+				include 'yahtzee/yahtzee.php';
 				break;
 			case 'bke':
 				include 'opdrachten/opdrachten.php';
