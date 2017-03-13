@@ -25,7 +25,7 @@
 				"op19" => "Counting Sundays",
 				"op20" => "Factorial Digit Sum",
 				"op22" => "Names scores",
-				"op23" => "Non-abundant sums"
+				"op23" => "Non-abundant sums | WORK IN PROGRESS"
 			);
 
 			$i = 0;
@@ -112,7 +112,7 @@
 				nameScores();
 				break;
 			case 'op23':
-				nonAbundantSums();
+				echo "Work in Progress";// nonAbundantSums();
 				break;
 		}
 	}

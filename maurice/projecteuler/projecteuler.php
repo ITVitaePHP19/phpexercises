@@ -974,7 +974,7 @@ function lexicographicPermutations()
 	{
 		$str = (int)$i;
 		if(	strpos($str, "0") && strpos($str, "1") && strpos($str, "2") && strpos($str, "3") && strpos($str, "4") && 
-			strpos($str, "5") && strpos($str, "6") && strpos($str, "7") && strpos($str, "8") && strpos($str, "9") && )
+			strpos($str, "5") && strpos($str, "6") && strpos($str, "7") && strpos($str, "8") && strpos($str, "9"))
 		{
 			echo $str . "<br>";
 		}

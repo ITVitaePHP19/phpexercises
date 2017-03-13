@@ -13,7 +13,7 @@
 </form>
 
 <form action="" method="post">
-    Select textfile to upload:
+    Select text file to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload Text" name="submit">
 </form>
@@ -22,12 +22,16 @@
 	if(isset($_POST["submit"]))
 	{
 		include "encrypt.php";
-		?><form action="" method="post"><input type="submit" value="Decrypt text" name="decrypt"></form><?php		
+		$enc->encrypt();
+		?>
+		
+		<form action="" method="post"><input type="submit" value="Decrypt text" name="decrypt"></form><?php		
 	}
 	
 	if(isset($_POST["decrypt"]))
 	{
 		include "decrypt.php";
+		$dc->decrypt();
 	}
 ?>
 
