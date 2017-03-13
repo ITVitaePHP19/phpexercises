@@ -16,7 +16,8 @@
 	
 	if(isset($_POST["submit"]))
 	{
-		include "frequentie.php";	
+		include "frequentie.php";
+		$lF->calcFrequentie();
 	}
 ?>
 
