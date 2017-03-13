@@ -59,4 +59,11 @@
       echo $mail->ErrorInfo;
     }
   }
+
+  //Create a token 128bit base64_encode encodes the string so it can be safely send by email.
+  //strtr replaces +/= to x to evade conflict with GET
+  function createToken() {
+    $token = strtr(base64_encode(openssl_random_pseudo_bytes(16)), '+/=', 'duh');
+    return $token;
+  }
 ?>
