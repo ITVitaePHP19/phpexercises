@@ -17,13 +17,31 @@
 	</form>
 		
 	<?php
+		//Calculates Dollars to Euro's
+		class EuroDollar
+		{
+			private $dollar;
+			private $euro;
+			
+			//checkf for valid input and then calculates the input to euro's
+			public function convertED()
+			{
+				if(preg_match('/^-?(?:\d+|\d*\.\d+)$/', $_POST["input"]))
+				{
+					$this->dollar = $_POST["input"];
+					$this->euro = $this->dollar * 1.076767;
+
+					echo $this->euro . " euro";
+				} else{ echo "Not a valid number."; }
+			}
+			
+		}
+		$eD = new EuroDollar;
 		
 		if( isset($_POST["submit"]) ) 
 		{
-			$dollar = $_POST["input"];
-			$euro = $dollar * 1.076767;
-			
-			echo $euro;
+				$eD->convertED();
 		}	
+		
 	?>
 </article>
