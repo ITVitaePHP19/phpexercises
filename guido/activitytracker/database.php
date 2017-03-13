@@ -1,14 +1,6 @@
 <?php
 
-$hn = 'localhost';
-$db = 'activity';
-$un= 'root';
-$pw= 'Leonard1';
-
-//create new connection
-  $conn = new mysqli($hn, $un, $pw, $db);
-//check connection
-if ($conn->connect_error) die($conn->connect_error);
+require_once 'connect.php';
 
   // sql to create table
 $sql = "CREATE TABLE ActivityTracker (
