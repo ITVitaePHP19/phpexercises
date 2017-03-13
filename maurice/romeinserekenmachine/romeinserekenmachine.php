@@ -3,7 +3,8 @@
 		<table id="main">
 			<tr>
 				<td id="screen" colspan="4"> <?php
-					include "romanresult.php";					
+					include "romanresult.php";
+					$rI->inputProcessing();
 				?> </td>
 			</tr>
 			<tr>
