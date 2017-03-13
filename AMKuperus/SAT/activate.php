@@ -9,6 +9,7 @@
     $match = retToken($db, $userName);
     echo $match . '<br>' . $token;
     echo '<div class="box loginbox">';
+    //Test if $token matches $match
     if(preg_match('/(' . $token . ')/', $match)) {
       //Token matches
       echo '<p>Thank you for registering ITVitae-SAT ' .
