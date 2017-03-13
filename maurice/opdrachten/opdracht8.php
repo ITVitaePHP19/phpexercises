@@ -25,6 +25,7 @@
 		if( isset($_POST["submit"]) ) 
 		{
 			include "temperature.php";
+			$tC->convert();
 		}	
 	?>
 </article>
