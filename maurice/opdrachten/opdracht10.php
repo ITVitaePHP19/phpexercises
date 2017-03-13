@@ -9,6 +9,7 @@
 		if( isset($_POST["calculate"]) ) 
 		{
 			include "housingallowance.php";
+			$hA->calculateAllowance();
 		}	
 	?>
 </article>
