@@ -51,8 +51,8 @@
     $link = $mailUrl . '/SAT/activate.php?id=' . $user['userName'] . '&t='. $token;
     //Create head/body
     $mail->Subject = "Your verification mail from ITVitae-TAS";
-    $mail->Body = '<p>Thank you for registering for the ITVitae TAS ' .  $user['firstName'] .
-                  '<a href="' . $link . '">To activate the account click here</a>
+    $mail->Body = '<p>Thank you for registering for the ITVitae-SAT ' .  $user['firstName'] .
+                  '!</p><p><a href="' . $link . '">To activate the account click here.</a>
                   </p><p></p>';
 
     if(!$mail->send()) {

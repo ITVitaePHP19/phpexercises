@@ -110,8 +110,8 @@
     addUser($db, $user, $token);
     verMail($user, $token);
     //Say thank you
-    echo  '<div class="box loginbox"><p>Thank you for registering to SAT. You will receive a email with a link.</p>
-          <p>Click the link in the email or copy the full path into the addressbar of youre browser to activate the account.</p></div>';
+    echo  '<div class="box loginbox"><p>Thank you for registering to ITVitae-SAT. You will receive a email with a link.</p>
+          <p>Click the link in the email to activate the account.</p></div>';
   } else {//Show the registration form.
     echo '<form class="box registerbox" action="" method="POST">
           <h2>Register</h2>

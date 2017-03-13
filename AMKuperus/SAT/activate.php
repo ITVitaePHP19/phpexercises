@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+//TODO token should not be able to have certain chars like + and /
   include 'head.inc.php';
   if(isset($_GET['id']) && isset($_GET['t'])) {
     $userName = $_GET['id'];
@@ -7,6 +8,7 @@
     require_once 'jumper.inc.php';
     //Fetch the token corresponding to $userName from database
     $match = retToken($db, $userName);
+    echo $match . '<br>' . $token;
     echo '<div class="box loginbox">';
     if(preg_match('/(' . $token . ')/', $match)) {
       //Token matches
