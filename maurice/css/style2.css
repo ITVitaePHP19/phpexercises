@@ -4,11 +4,13 @@ body{
 	background: -o-linear-gradient(bottom right, #1aa4bb, #0a8093); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(bottom right, #1aa4bb, #0a8093); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(to bottom right, #1aa4bb, #0a8093); /* Standard syntax */
-	font: Tahoma, Geneva, sans-serif;
+	font-family: Avantgarde, sans-serif;
+	font-weight: 520;
 }
 
 a{
 	padding: 10px;	
+	color: white;
 	/* line-height: 25px; */
 }
 
@@ -25,8 +27,10 @@ a:hover{
 	/* border: 1px solid black; */
 }
 
+
 .navigation{
 	background-color: #E55B44;
+	/* box-shadow: 4px 4px 4px #045f6d; */
 }
 
 .inputText{
@@ -39,35 +43,37 @@ nav{
 	padding: 10px;
 	text-align: center;
 	background-color: #1aa4bb;
+	box-shadow: 4px 4px 4px #0c5763;
 	
 }
 
 /*navigation BAR opdrachten*/
 #nav2{
 	clear:both;
-	height: 150px;
+	height: 250px;
+	text-align: center;
+	margin-top: 10px;
 	padding: 5px;
-	background-color: #a6d1d8;
+	background-color: #E55B44;
+	box-shadow: 4px 4px 4px #874237;
 }
 
 /* Navigation TEXT opdrachten*/
 .navigation2{
 	color: black;
-	
 }
 
 .active{
-	font-weight: bold;
-	color: white !important;
+	color: white;
 }
 
 a.navigation2{
-	color: black;
+	color: blue;
 	line-height: 150%;
 }
 
 a.navigation2:visited{
-	color: black;
+	color: white;
 }
 
 a.navigation2:link{
@@ -75,14 +81,20 @@ a.navigation2:link{
 }
 
 a.navigation2:hover{
-	color: #E55B44;
+	color: white;
 	background-color: transparent;
 }	
 
 article{
+	padding: 30px;
 	text-align: center;
-	width: 100%;
+	min-height: 50%;
 	margin: auto;
+	margin-top: 10px;
+	border: 1px solid #cfd0d1;
+	box-shadow: 4px 4px 4px #707070;
+	word-wrap: break-word;
+	hyphens: auto;
 }
 
 #main{
@@ -255,16 +267,22 @@ article{
 	color: red;
 	background-color: green;
 	font-size: 24px;
+	font-style: italic;
+	font-family: Avantgarde, sans-serif;
 }
 .two{
 	color: blue;
 	background-color: orange;
 	font-size: 48px;
+	font-style: oblique;
+	font-family: Apple Chancery, cursive;
 }
 .three{
 	color: green;
 	background-color: red;
 	font-size: 24px;
+	font-style: italic;
+	font-family: Avantgarde, sans-serif;
 }
 .four{
 	color: yellow;
@@ -275,21 +293,27 @@ article{
 	color: black;
 	background-color: white;
 	font-size: 36px;
+	font-style: oblique;
+	font-family: Apple Chancery, cursive;
 }
 .six{
 	color: white;
 	background-color: black;
 	font-size: 54px;
+	font-family: Apple Chancery, cursive;
 }
 .seven{
 	color: orange;
 	background-color: blue;
 	font-size: 32px;
+	font-style: italic;
 }
 .eight{
 	color: purple;
 	background-color: yellow;
 	font-size: 24px;
+	font-style: oblique;
+	font-family: Apple Chancery, cursive;
 }
 
 #leftscorewrapper{
@@ -336,9 +360,11 @@ figure{
 }
 
 #banner{
-	background-color: #1aa4bb;
+	color: white;
+	background-color: #E55B44;
 	padding: 20px;
-	margin: 20px;
+	margin: 10px 0px 20px 0px;
+	box-shadow: 4px 4px 4px #874237;
 }
 
 #loginlink{
@@ -346,6 +372,11 @@ figure{
 	color: black;
 	font-size: 12px;
 }
+
+#loginlink:hover{
+	background-color: transparent;
+}
+
 
 #logintext{
 	font-size: 12px;
@@ -419,6 +450,7 @@ figure{
 #bketable{
 	margin: 20px;
 	text-align: center;
+	table-layout:fixed;
 }
 
 #commands{
@@ -490,4 +522,14 @@ figure{
 
 #ww{
 	color: black;
+}
+
+#projecteuler{
+	display: inline-block;
+	text-align: left;
+	word-break: break-all;
+}
+
+#opnav{
+	table-layout:fixed;
 }
