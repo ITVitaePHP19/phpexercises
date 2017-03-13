@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-//TODO function for DB to check token with that one
 //TODO remove token in DB so it cant be abused later
 //TODO thank the new user for registering and give a <a> to redirect them to login
   include 'head.inc.php';
@@ -11,12 +10,16 @@
     //Fetch the token corresponding to $userName from database
     $match = retToken($db, $userName);
     echo $match;
-    echo '<div class="box loginbox"><p>Thank you for registering ITVitae-SAT ' .
-          $userName . ' </p>';
-    if(strcmp($token, $match) == 0) {
-      echo '<p>We have a winner!</p>';
+    echo '<br>' . $token;
+    echo '<div class="box loginbox">';
+    if(preg_match('/(' . $token . ')/', $match)) {
+      //Token matches
+      echo '<p>Thank you for registering ITVitae-SAT ' .
+            $userName . ' you can now login</p>' .
+            '<a href="index.php">Go to the login-page</a>';
+            //TODO change state in db
     } else {//no match
-      echo '<h1>DERP</h1>';
+      echo '<small class="error">There is a problem activating your account.</small>';
     }
     echo '</div>';
   }
