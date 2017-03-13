@@ -36,7 +36,7 @@
           if ($p == $_POST['pass2']) {//Both filled in boxes match?
             if(passContains($p) && passLength($p)) {//Checking for correct mix and length
               //Hash the string
-              $pass = password_hash($p, PASSWORD_BCRYPT, ['cost', 12]);
+              $pass = createHash($p);
               $user['passCode'] = $pass;
             } else {//else password not correct mix/length error
               if(!passContains($p)) {
