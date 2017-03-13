@@ -20,6 +20,7 @@
 		if( isset($_POST["submit"]) ) 
 		{
 			include "stickheight.php";
+			$sH->calculateHeight();
 		}	
 	?>
 </article>
