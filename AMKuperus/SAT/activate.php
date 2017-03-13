@@ -9,8 +9,6 @@
     require_once 'jumper.inc.php';
     //Fetch the token corresponding to $userName from database
     $match = retToken($db, $userName);
-    echo $match;
-    echo '<br>' . $token;
     echo '<div class="box loginbox">';
     if(preg_match('/(' . $token . ')/', $match)) {
       //Token matches
@@ -18,6 +16,7 @@
             $userName . ' you can now login</p>' .
             '<a href="index.php">Go to the login-page</a>';
             //TODO change state in db
+            changeToken($db, $userName);
     } else {//no match
       echo '<small class="error">There is a problem activating your account.</small>';
     }

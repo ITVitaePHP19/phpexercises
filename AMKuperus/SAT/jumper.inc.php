@@ -43,6 +43,12 @@ function retToken(&$db, $userName) {
 }
 
 //TODO Activate account when token matches
+function changeToken(&$db, $userName) {
+  $sql = "UPDATE users SET token = '' WHERE userName = :name";
+  $ask = $db->prepare($sql);
+  $ask->bindValue(':name', $userName, PDO::PARAM_STR);
+  $ask->execute();
+}
 
 //Check if username is already in the database
 function checkUsernameExist(&$db, $search) {
