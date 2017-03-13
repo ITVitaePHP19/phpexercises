@@ -25,6 +25,7 @@
 		if( isset($_POST["submit"]) ) 
 		{
 			include "distance.php";
+			$cD->convert();
 		}	
 	?>
 </article>
