@@ -1,6 +1,11 @@
-<?php //if(session_start() == null){ session_start(); }	?>
+<?php 
+	if(!isset($_SESSION["refresh"]))
+	{
+		$_SESSION["refresh"] = "1000";
+	}	
+?>
 <!--refresh/listen for input every 1 second-->
-<meta http-equiv="refresh" content="1; url=index2.php?p=bke" />
+<meta http-equiv="refresh" content="<?php echo $_SESSION["refresh"] ?>" url=index2.php?p=bke" />
 
 <table id="commands"  border="1" width="200">
 	<tr>
@@ -13,7 +18,7 @@
 			bkestart
 		</td>
 		<td>
-			start the game
+			start the game, (remove bkestart again before you continue)
 		</td>
 	<tr>
 	<tr>
@@ -29,7 +34,7 @@
 			reset:	
 		</td>
 		<td>
-			reset all fields (remove reset again if you want to continue
+			reset all fields (remove reset again if you want to continue)
 		</td>
 	<tr>
 	<tr>
@@ -39,6 +44,7 @@
 	<tr>
 </table>
 <?php
+
 	if(!isset($_SESSION["one"]))
 	{
 		$_SESSION["one"] = "1";
@@ -75,6 +81,11 @@
 	{
 		$_SESSION["nine"] = "9";
 	}
+	if(!isset($_SESSION["input"]))
+	{
+		$_SESSION["input"] = "boterkaaseneieren/bke.txt";
+		
+	}
 	$one = $_SESSION["one"];
 	$two = $_SESSION["two"];
 	$three = $_SESSION["three"];
@@ -84,18 +95,32 @@
 	$seven = $_SESSION["seven"];
 	$eight = $_SESSION["eight"];
 	$nine = $_SESSION["nine"];
-	
 	$winner = false;
 	$threeInARow = array("012","345","678","036","147","258","048","246");
+	$file = $_SESSION["input"];
 	
-	//open file for editing
-	$file = file_get_contents("bke.txt");
+	?>
+	<br>
+	<form action="" method="post">
+	    File Path:
+	    <input type="text" name="input" id="input" required>
+	    <input type="submit" value="Submit path" name="submit">
+	</form>
+	<?php	
+	// C:\Users\M\Desktop\wd.txt
+	if(isset($_POST["submit"]))
+	{
+		$_SESSION["input"] = $_POST["input"];
+		$_SESSION["refresh"] = "1";
+	}
+	
+	$file = file_get_contents($file);
 	
 	//commandlist
 	$start = "bkestart";
 	$cells = array("bke1", "bke2", "bke3", "bke4", "bke5", "bke6", "bke7", "bke8", "bke9");
 	$reset = "reset";
-	
+
 	$sessions = array($one, $two, $three, $four, $five, $six, $seven, $eight, $nine);
 		
 	//draw the board when 'command' bkestart is typed	
@@ -119,6 +144,22 @@
 		}
 		// echo count(array_keys($sessions, "X"));
 		
+		//board reset function
+		function resetBoard()
+		{
+			unset($_SESSION["one"]);
+			unset($_SESSION["two"]);
+			unset($_SESSION["three"]);
+			unset($_SESSION["four"]);
+			unset($_SESSION["five"]);
+			unset($_SESSION["six"]);
+			unset($_SESSION["seven"]);
+			unset($_SESSION["eight"]);
+			unset($_SESSION["nine"]);
+			unset($_SESSION["fileToUpload"]);
+			
+		}
+		
 		//Check if player won
 		if(	$sessions[0] == "X" && $sessions[1] == "X" && $sessions[2] == "X" ||
 			$sessions[3] == "X" && $sessions[4] == "X" && $sessions[5] == "X" ||
@@ -132,6 +173,7 @@
 		{
 			echo "You won!";
 			$winner = true;
+			resetBoard();
 		}
 		
 		//If there's more X's than O's, it's the computers turn
@@ -146,13 +188,25 @@
 					$left[] += $sessions[$i];
 				}
 			}
-			if($winner == false)
+			if(!empty($left))
 			{
 				$new =  $left[rand(0, (count($left) - 1))];
 				$f = new NumberFormatter("en", NumberFormatter::SPELLOUT);
 				$n = $f->format($new);
 				$_SESSION[$n] = "O";
 			}
+		}
+		//Check if tie		
+		if(	( 	$_SESSION["one"] !== "1" && $_SESSION["two"] !== "2" && $_SESSION["three"] !== "3" && 
+				$_SESSION["four"] !== "4" && $_SESSION["five"] !== "5" && $_SESSION["six"] !== "6" &&
+				$_SESSION["seven"] !== "7" &&$_SESSION["eight"] !== "8" && $_SESSION["nine"] !== "9" 
+				) 
+				&& $winner == false 
+				) 
+		{ 	
+			echo "Tied!"; 
+			$winner = true;
+			resetBoard();
 		}
 		
 		//Check if computer won
@@ -168,26 +222,23 @@
 			)
 		{
 			echo "Computer won!";
+			$winner = true;
+			resetBoard();
 		}
 		
+		
+		var_dump(strpos($file, $reset));
+		var_dump($file);
 		if(strpos($file, $reset) !== false)
 		{ 
-			unset($_SESSION["one"]);
-			unset($_SESSION["two"]);
-			unset($_SESSION["three"]);
-			unset($_SESSION["four"]);
-			unset($_SESSION["five"]);
-			unset($_SESSION["six"]);
-			unset($_SESSION["seven"]);
-			unset($_SESSION["eight"]);
-			unset($_SESSION["nine"]);
+			resetBoard();
 		}
 	}
 	
 	function drawBoard($one, $two, $three, $four, $five, $six, $seven, $eight, $nine)
 	{
 		
-		echo 	"<table id='bketable' border='1' width='250px' height='250'>" . 
+		echo 	"<table id='bketable' border='1' width='450px' height='450'>" . 
 				"<tr><td>" . $one . "</td><td>" . $two . "</td><td>" . $three . "</td></tr>" .
 				"<tr><td>" . $four . "</td><td>" . $five . "</td><td>" . $six . "</td></tr>" .
 				"<tr><td>" . $seven . "</td><td>" . $eight . "</td><td>" . $nine . "</td></tr>" .
