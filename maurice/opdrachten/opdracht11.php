@@ -1,8 +1,19 @@
 <?php
 	echo "<br><br>";
 	
-	for($i = 1; $i < 11; $i++)
+	//prints out the table of ten
+	class TableTen
 	{
-		echo $i . " * 10 = " . ($i * 10) . "<br>";
+		//loops ten times echoing one through ten times ten
+		function calculateTable()
+		{
+			for($i = 1; $i < 11; $i++)
+			{
+				echo $i . " * 10 = " . ($i * 10) . "<br>";
+			}
+		}
 	}
+	$tT = new TableTen;	
+		
+	$tT->calculateTable();
 ?>
