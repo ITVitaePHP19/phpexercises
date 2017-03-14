@@ -1,9 +1,0 @@
-body, table {
-	font-family: TrustyHomePage;
-	font-size: 20px;
-}
-
-@font-face {
-	font-family: TrustyHomePage;
-	src: url('fonts/Champagne&Limousines.ttf')
-}
