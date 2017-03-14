@@ -1,3 +1,0 @@
-<?php
-##Teacher include
-?>
