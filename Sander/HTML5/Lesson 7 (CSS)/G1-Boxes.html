@@ -1,0 +1,78 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Rounded corners</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css">
+			div {
+				padding: 40px 40px;
+				background-color: dodgerblue;
+				width: 500px;
+				/*height: 75px;*/
+				color: #fff;
+				font-family: sans-serif;
+				font-size: xx-large;
+				/*border-radius: 25px;*/
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 50px;
+				text-align: center;
+			}
+			#box1 {
+				border-top-left-radius: 25px;
+				border-top-right-radius: 5px;
+				border-bottom-left-radius: 5px;
+				border-bottom-right-radius: 25px;
+			}
+			#box2 {
+				border-radius: 25px;
+				opacity: 0.5;
+			}
+			#box3 {
+				background: linear-gradient(dodgerblue,black);
+				background: -webkit-linear-gradient(dodgerblue,black);
+				box-shadow: 5px 5px 10px #888888;
+				text-shadow: 2px 2px 5px #222
+			}
+			#box4 {
+				background: linear-gradient(165deg, dodgerblue, black);
+			}
+			#box5 {
+				background: linear-gradient(to right, rgba(255, 153, 0, .7), black);
+			}
+			#box6 {
+				background: linear-gradient(165deg, red, orange, yellow, green, blue, indigo, violet);
+			}
+			#box7 {
+				background: repeating-linear-gradient(175deg, red, yellow 20%, green 40%);
+			}
+			#box8 {
+				background: radial-gradient(red,#eee,blue);
+				background: radial-gradient(25% 50%, 70% 70%, #99CCFF, #3D5266);
+			}
+			#box9 {
+				background: radial-gradient(circle, red 10%,grey 50%,blue 70%);
+			}
+			#box10 {
+				background: radial-gradient(ellipse farthest-corner at 45px 45px, #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%);
+				background: radial-gradient(25% 50%, 70% 70%, #99CCFF, #3D5266);
+			}
+		</style>
+	</head>
+
+<body>
+	<div id="box1">1. A box with rounded corners</div>
+	<div id="box2">2. A box with rounded corners</div>
+	<div id="box3">3. A box with shadow and gradient</div>
+	<div id="box4">4. A box with linear gradient</div>
+	<div id="box5">5. A box with RGBA gradient</div>
+	<div id="box6">6. A box with multiple colors</div>
+	<div id="box7">7. A box with repeating gradient</div>
+	<div id="box8">8. A box with radial gradient</div>
+	<div id="box9">9. A box with radial gradient</div>
+	<div id="box10">10. A box with radial gradient</div>
+</body>
+</html>

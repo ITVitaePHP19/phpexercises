@@ -1,0 +1,49 @@
+/* This is the E1 stylesheet */
+p {
+	color: black;
+}
+
+/* The prefix for a class selector is a period: '.' */
+.opinion {
+	color: grey;
+}
+
+#slogan1 {
+	font-family: monospace;
+	font-size: 20px;
+	color: #009900;
+	font-style: italic;
+}
+
+#slogan2 {
+	font-family: sans-serif;
+	font-size: 20px;
+	color: #009900;
+	font-style: italic;
+}
+
+#slogan3 {
+	font-family: 'Adobe Garamond Pro';
+	font-size: 20px;
+	color: #009900;
+	font-style: italic;
+}
+
+#slogan4 {
+	font-family: TrustyHomePage;
+	font-size: 20px;
+	color: #009900;
+	font-style: italic;
+}
+
+#slogan5 {
+	font-family: TrustyHomePage;
+	font-size: 20px;
+	color: #009900;
+	font-weight: 900;
+}
+
+@font-face {
+	font-family: TrustyHomePage;
+	src: url('fonts/Champagne&Limousines.ttf')
+}

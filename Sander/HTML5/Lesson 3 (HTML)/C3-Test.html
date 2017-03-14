@@ -1,0 +1,64 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Form Test</title>	
+</head>
+
+<body>
+	<div id="contact-form">
+		<form id="contact" method="post" action="">
+			<fieldset>
+				<table>
+					<tr>
+						<td></td>
+						<td>Fill in your data here:</td>
+					</tr>
+					<tr>
+						<td><label for="fname">First name</label></td>
+						<td><input type="text" id="fname" placeholder="First name" required autofocus /></td>
+						
+					</tr>
+						<p>
+							<label for="fname">Last name</label>
+							<input type="text" id="fname" placeholder="First name" required autofocus />
+						</p>
+						<p>
+							<label for="email">Email</label>
+							<input type="email" id="email" placeholder="Email" required />
+						</p>
+						<p>
+							<label for="phone">Phone</label>
+							<input type="tel" id="phone" placeholder="Phone" novalidate />
+						</p>
+						<p>
+							<label for="phone2">Phone</label>
+							<input type="text" id="phone2" placeholder="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format your phone number as follows: 123-456-7890" />
+						</p>
+						<p>
+							<label for="number">Number between 500 and 10000</label>
+							<input type="number" id="number" placeholder="Number" min="500" max="10000" />
+						</p>
+						<p>
+							<label for="zip">Zip code</label>
+							<input type="text" id="zip" placeholder="Zip code" pattern="[0-9]{4}[A-Z]{2}" title="Format your Zip code as follows: 1234AB" />
+						</p>
+						<p>
+							<label for="message">Questions or Comments</label>
+							<textarea name="message" required></textarea>
+						</p>
+						<p>
+							<label for="url">Website</label>
+							<input type="url" id="url" />
+						</p>
+						<p>
+							<input type="submit" name="submit" id="submit" value="Submit" />
+						</p>
+					
+				</table>
+			</fieldset>
+		</form>
+	</div> <!--End of contact form-->
+</body>
+</html>

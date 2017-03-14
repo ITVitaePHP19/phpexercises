@@ -1,0 +1,33 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>My first JavaScript program</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css">
+			
+		</style>
+
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.5.js">
+			
+		</script>
+
+		<script type="text/javascript">
+			// Once the HTML document loads, execute the function within ready()
+			$(document).ready(function () {
+				// Each paragraph receives a "click" action: hide that particular paragraph.
+				$("p").click(function () {
+					$(this).hide();
+				});
+			});
+		</script>
+	</head>
+
+<body>
+	<p>This is the first paragraph.</p>
+	<p>This is the second paragraph.</p>
+	<p>This is the third paragraph.</p>
+</body>
+</html>

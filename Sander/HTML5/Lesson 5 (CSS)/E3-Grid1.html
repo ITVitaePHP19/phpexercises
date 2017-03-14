@@ -1,0 +1,64 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Flex Function example</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css">
+			#grid {
+				display: grid;
+				/* Two columns: the first sized to content, the second receives the remaining space,   */
+				/* but is never smaller than the minimum size of the board or the game controls, which */
+				/* occupy this column. */
+				grid-columns: auto minmax(min-content, 1fr);
+				/* Three rows: the first and last sized to content, the middle row receives the        */
+				/* remaining space, but is never smaller than the minimum height of the board or stats */
+				/* areas. */
+				grid-rows: auto minmax(min-content, 1fr) auto
+			}
+
+			/* Each part of the game is positioned between grid lines by referencing the starting grid */
+			/* line and then specifying, if more than one, the number of rows or columns spanned to    */
+			/* determine the ending grid line, which establishes bounds for the part. */
+			#title {
+				grid-column: 1;
+				grid-row: 1
+			}
+
+			#score {
+				grid-column: 1;
+				grid-row: 3
+			}
+
+			#stats {
+				grid-column: 1;
+				grid-row: 2;
+				grid-row-align: start
+			}
+
+			#board {
+				grid-column: 2;
+				grid-row: 1;
+				grid-row-span: 2
+			}
+
+			#controls {
+				grid-column: 2;
+				grid-row: 3;
+				grid-column-align: center
+			}
+		</style>
+	</head>
+
+<body>
+	<div id="grid">
+		<div id="title">Game Title</div>
+		<div id="score">Score</div>
+		<div id="stats">Stats</div>
+		<div id="board">Board</div>
+		<div id="controls">Controls</div>
+	</div>
+</body>
+</html>

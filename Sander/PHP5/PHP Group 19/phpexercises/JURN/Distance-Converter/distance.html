@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Distance converter</title>
+</head>
+<body>
+<h1><p class="header">Distance Converter</p></h1>
+<h3>converts kilometers to miles or miles to kilometers</h3>
+<p>put in a number and make sure to select either miles or kilometers</p>
+
+      <form action="convert.php" method="POST">
+      <input type="number" name="in"><br>
+      <input type="radio" name="distance" value="kilometers" required> Kilometers<br>
+      <input type="radio" name="distance" value="miles" required> Miles<br>
+      <input type="submit" name="convert" value="convert">
+      <input type="reset" name="reset" value="reset"><br>
+      </form>
+
+</body>
+</html>

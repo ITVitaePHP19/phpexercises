@@ -1,0 +1,10 @@
+.flex-item {
+	background-color: white;
+	color: transparent;
+	cursor: pointer;
+}
+
+.flex-item:hover {
+	background-color: #e9efde;
+	color: black;
+}

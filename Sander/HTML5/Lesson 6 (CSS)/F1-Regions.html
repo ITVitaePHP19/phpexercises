@@ -1,0 +1,57 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Regions example</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css">
+			body, html {
+				height: 100%;
+				width: 100%;
+			}
+			body {
+				font-family: serif;
+				color: black;
+				font-size: large;
+			}
+			#source {
+				-webkit-flow-into: main;
+				font-family: sans-serif;
+				font-weight: 800;
+			}
+			.region {
+				-webkit-flow-from: main;
+				margin: 0 25px 0 0;
+				padding: 20px;
+				background: #EEE8AA;
+			}
+			#region1 {
+				width: 20%;
+				height: 300px;
+				float: left;
+			}
+			#region2 {
+				width: 20%;
+				height: 300px;
+				float: left;
+			}
+			#workarea {
+				position: relative;
+				padding: 25px;
+			}
+		</style>
+	</head>
+
+<body>
+	<div id="source">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et mi sollicitudin erat porttitor imperdiet sit amet et purus. <b>Nunc nec varius ipsum, venenatis gravida risus.</b> Vestibulum hendrerit est sit amet dolor facilisis, non faucibus nibh interdum. Nam facilisis urna ipsum, ut euismod nulla pretium a. Vivamus magna tortor, semper vel purus a, viverra ultricies ipsum. Curabitur fermentum sodales lacus in consequat. Fusce eu aliquet sem, quis suscipit metus. Sed porta elementum enim suscipit egestas. Vivamus porttitor congue nulla accumsan tempor. Nulla laoreet, ligula vitae vestibulum mollis, lectus purus congue mi, sed vulputate augue lectus nec nisi. Donec eu risus a risus blandit condimentum. Vivamus ultricies porta lacinia. Morbi in suscipit leo. Donec mollis turpis eu arcu gravida mollis at nec dui.</p>
+	</div>
+	<div id="workarea">
+		<div id="region1" class="region"></div>
+		<div id="region2" class="region"></div>
+		<br />
+	</div>
+</body>
+</html>

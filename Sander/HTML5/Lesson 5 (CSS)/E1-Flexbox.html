@@ -1,0 +1,40 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Flexible Child Box example</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css">
+			div {
+				display: flexbox;
+				outline: 2px solid silver;
+			}
+			p {
+				flex: 1 auto;
+				margin: 1em;
+				font-family: sans-serif;
+				color: white;
+				background: limegreen;
+				height: 25px;
+				padding: 1em;
+				font-weight: bold;
+				font-size: xx-large;
+				text-align: center;
+			}
+			.weight {
+				flex: 3 auto;
+			}
+		</style>
+	</head>
+
+<body>
+	<div>
+		<p>This is child1.</p>
+		<p>This is child2.</p>
+		<p>This is child3.</p>
+		<p class="weight">This is child4.</p>
+	</div>
+</body>
+</html>

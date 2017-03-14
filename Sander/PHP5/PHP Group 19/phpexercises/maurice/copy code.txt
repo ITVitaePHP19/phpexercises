@@ -1,0 +1,106 @@
+<?php
+
+echo results with '='
+			if($_POST["press"] == '=')
+			{
+				
+				Calculate the string to numbers
+				for($i = 0; $i < strlen($rev); $i++)
+				{
+					add the first
+					if($i == 0)
+						$calc = substr($rev, 0);
+	
+					if current is I add the next one
+					elseif(substr($rev, $i) == "I")
+					{
+						$calc +=  substr($rev, $i + 1);
+					}
+					if current is V add the next one unless its I, then subtract
+					elseif(substr($rev, $i) == "V")
+					{
+						if(substr($rev, $i + 1) == "I")
+							$calc -= "I";
+						else
+							$calc += substr($rev, $i + 1);
+					}
+					// etc
+					elseif(substr($rev, $i) == "X")
+					{
+						if(substr($rev, $i + 1) == "I" || substr($rev, $i + 1) == "V")
+							$calc -= substr($rev, $i + 1);
+						else
+							$calc += substr($rev, $i + 1);
+					}
+					elseif(substr($rev, $i) == "L")
+					{
+						if(substr($rev, $i + 1) == "I" || substr($rev, $i + 1) == "V" || substr($rev, $i + 1) == "X")
+							$calc -= substr($rev, $i + 1);
+						else
+							$calc += substr($rev, $i + 1);
+					}
+					elseif(substr($rev, $i) == "C")
+					{
+						if(substr($rev, $i + 1) == "I" || substr($rev, $i + 1) == "V" || substr($rev, $i + 1) == "X" || substr($rev, $i + 1) == "L")
+							$calc -= substr($rev, $i + 1);
+						else
+							$calc += substr($rev, $i + 1);
+					}
+					elseif(substr($rev, $i) == "D")
+					{
+						if(substr($rev, $i + 1) == "I" || substr($rev, $i + 1) == "V" || substr($rev, $i + 1) == "X" || substr($rev, $i + 1) == "L" || substr($rev, $i + 1) == "C")
+							$calc -= substr($rev, $i + 1);
+						else
+							$calc += substr($rev, $i + 1);
+					}
+					elseif(substr($rev, $i) == "M")
+					{
+						if(substr($rev, $i + 1) == "I" || substr($rev, $i + 1) == "V" || substr($rev, $i + 1) == "X" || substr($rev, $i + 1) == "L" || substr($rev, $i + 1) == "C" || substr($rev, $i + 1) == "D")
+							$calc -= substr($rev, $i + 1);
+						else
+							$calc += substr($rev, $i + 1);
+					}
+					var_dump($calc);
+				}
+				
+			}
+			
+			
+			// var_dump(explode('*', $result, ));
+			// $parts = preg_split('/([.?!:])/', $result, -1, PREG_SPLIT_DELIM_CAPTURE);
+			// $input1 = "hello";
+			// $input2 = "hello,there";
+			// $input3 = ',';
+			// var_dump( explode( ',', $input1 ) );
+			// var_dump( explode( ',', $input2 ) );
+			// var_dump( explode( ',', $input3 ) );
+
+				// $expressions = preg_split("/^(.*)([><!]?[=]+|[>]+|[<]+)(.*)$/mgU", $result, PREG_SPLIT_DELIM_CAPTURE);
+				// print_r($expressions);
+
+				
+				
+				
+				// $equals = eval("return " . "$calc;");
+				// echo $equals;
+				// $_SESSION["saveRoman"] = $equals;
+				
+				//reverse string
+				$rev = strrev($result);
+				
+				//roman values
+				$rI = 1;
+				$rV = 5;
+				$rX = 10;
+				$rL = 50;
+				$rC = 100;
+				$rD = 500;
+				$rM = 1000;
+				$calc = 0;
+				
+				$operators = array("x", "=", "%", "I", "V", "X", "L", "C", "D", "M" );
+				$replace = array("*", "", $percentage, $rI, $rV, $rX, $rL, $rC, $rD, $rM);		
+				$get = str_replace($operators, $replace, $result);
+				
+				var_dump($rev);	
+?>

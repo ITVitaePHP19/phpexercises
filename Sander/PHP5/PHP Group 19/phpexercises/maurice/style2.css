@@ -1,0 +1,492 @@
+body{
+	background: #1aa4bb; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(left top, #1aa4bb, #0a8093); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #1aa4bb, #0a8093); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #1aa4bb, #0a8093); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #1aa4bb, #0a8093); /* Standard syntax */
+}
+
+a{
+	padding: 10px;	
+	/* line-height: 25px; */
+}
+
+a:visited, a:link{
+    text-decoration: none;
+	color: white;
+}
+
+a:hover{
+	background-color: #0a8093;
+}	
+
+.labeling{
+	/* border: 1px solid black; */
+}
+
+.navigation{
+	background-color: #E55B44;
+}
+
+.inputText{
+	
+}
+
+/*navigation BAR*/
+nav{
+	clear:both;
+	padding: 10px;
+	text-align: center;
+	background-color: #1aa4bb;
+	
+}
+
+/*navigation BAR opdrachten*/
+#nav2{
+	clear:both;
+	height: 150px;
+	padding: 5px;
+	background-color: #a6d1d8;
+}
+
+/* Navigation TEXT opdrachten*/
+.navigation2{
+	color: black;
+	
+}
+
+.active{
+	font-weight: bold;
+	color: white !important;
+}
+
+a.navigation2{
+	color: black;
+	line-height: 150%;
+}
+
+a.navigation2:visited{
+	color: black;
+}
+
+a.navigation2:link{
+	color: black;
+}
+
+a.navigation2:hover{
+	color: #E55B44;
+	background-color: transparent;
+}	
+
+article{
+	text-align: center;
+	width: 100%;
+	margin: auto;
+}
+
+#main{
+	margin: auto;
+	font-size: 24px;
+	color: white;
+	background-color: #02c4ce;
+	border: 5px solid black;
+	border-radius: 5px;
+	box-shadow: 10px 10px 10px #888888;
+}
+
+#C>input:hover{
+	background-color: #00ffd4;
+    color: white;
+}
+
+#C>input{
+	background-color: #00efe3;	
+}
+
+.key{
+	width: 70px;
+	height: 70px;
+}
+
+.key>input{
+	padding: 22px 27px;
+	background-color: #404244;
+	border-radius: 5px;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	color: white;
+	border: none;
+}
+
+.key>input:hover{
+	background-color: #00ffd4;
+    color: white;
+}
+
+.key>a:hover{
+    text-decoration: none;
+	color: #00ffd4	;
+}
+
+.operators{
+	width: 70px;
+	height: 70px;
+}
+
+.operators>input{
+	padding: 22px 27px;
+	background-color: gray;
+	border-radius: 5px;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	color: white;
+	border: none;
+	font-size: 24px;
+}
+
+.operators>input:hover{
+	background-color: #00ffd4;
+    color: white;
+}
+
+
+.mem{
+}
+
+.mem>input{
+	padding: 12px 17px;
+	background-color: #404244;
+	border-radius: 5px;
+	text-align: center;
+	width: 70px;
+	height: 70px;
+	color: white;
+	border: none;
+	font-size: 12px;
+}
+
+.mem>input:hover{
+    background-color: #00ffd4;
+    color: white;
+}
+
+
+
+#memory{
+	padding: 2px;
+	color: black;
+	border: 1px solid black;
+	height: 30px;
+	width: auto;
+	background-color: white;
+	text-align: right;
+	font-size: 10px;
+}
+
+#screen{
+	padding: 10px;
+	color: black;
+	border: 1px solid black;
+	height: 80px;
+	width: auto;
+	background-color: white;
+	text-align: right;
+	font-size: 21	px;
+}
+
+#content{
+	margin: auto;
+	text-align: center;
+	padding: 10px 50px;
+	/* float: left; */
+	/* float: center; */
+    position: relative;
+    /* left: -50%; */
+	background-color: white;
+	width: 860px;
+	height: 100%;
+	overflow-y:auto;
+	min-height: 670px;
+	box-shadow: 10px 0px 10px #0e5560;
+}
+
+#wrapper{
+	margin: auto;
+	float: center;
+    position: relative;
+    /* left: 50%; */
+}
+
+#flagtable{
+	/* background-color: red; */
+	margin: auto;
+	text-align: center;
+	width: 600px;
+}
+
+#flagtable > td{
+	border: 1px solid blue;	
+}
+
+.flagheader{
+	color: white;
+	background-color: #1aa4bb;
+	padding: 10px 0px;
+}
+
+.flagcell{
+	background-color: #a6d1d8;
+	padding: 10px 0px;
+}
+
+#flagsort{
+	background-color: #1aa4bb;
+	padding: 5px 0px;
+}
+
+#answers{
+	float: center;
+}
+
+.one{
+	color: red;
+	background-color: green;
+	font-size: 24px;
+}
+.two{
+	color: blue;
+	background-color: orange;
+	font-size: 48px;
+}
+.three{
+	color: green;
+	background-color: red;
+	font-size: 24px;
+}
+.four{
+	color: yellow;
+	background-color: purple;
+	font-size: 60px;
+}
+.five{
+	color: black;
+	background-color: white;
+	font-size: 36px;
+}
+.six{
+	color: white;
+	background-color: black;
+	font-size: 54px;
+}
+.seven{
+	color: orange;
+	background-color: blue;
+	font-size: 32px;
+}
+.eight{
+	color: purple;
+	background-color: yellow;
+	font-size: 24px;
+}
+
+#leftscorewrapper{
+	float: left;
+	padding: 20px 10px;
+	margin: 5px;
+	border: 1px solid black;
+}
+#rightscorewrapper{
+	float: left;
+	padding: 20px 10px;	
+	margin: 5px;
+	border: 1px solid black;
+}
+
+#grandtotal{
+	padding: 20px 0px;
+	border: 1px solid black;
+}
+
+#lowerrow{
+	border: 1px solid black;
+	float: left;
+}
+
+.roll{
+	border: 1px solid black;
+	background-color: green;
+	color: blue;
+}
+
+footer{
+	float:bottom;
+}
+
+figure{
+	
+	float: left;
+	clear: both;
+}
+
+.midtable{
+	margin: auto;
+}
+
+#banner{
+	background-color: #1aa4bb;
+	padding: 20px;
+	margin: 20px;
+}
+
+#loginlink{
+	text-decoration: underline;
+	color: black;
+	font-size: 12px;
+}
+
+#logintext{
+	font-size: 12px;
+}
+
+#atregister{
+	background-color: #1aa4bb;
+	padding: 5px;
+	color: white;
+}
+
+#highscore{
+	width: 400px;
+	border: 1px solid white;
+	margin: auto;
+	color: white;
+}
+
+#scoretable{
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid white;
+	background-color: green;
+	color: white;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.roll{
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid white;
+	background-color: green;
+	color: white;
+	height: 200px;
+}
+
+#rollbutton{
+	border: 2px solid white;
+	border-radius: 10;
+	padding: 10px 20px;
+	margin: 10px;
+	background-color: red;
+	float: left;
+	color: white;
+	font-size: 16px;
+}
+
+#yahtzee{
+	background: repeating-linear-gradient(
+  45deg,
+  green,
+  green 10px,
+  #056b23 10px,
+  #056b23 20px
+  );
+	height: 100%;
+	color: white;
+}
+
+.die{
+	width: 150px;
+	text-align: center;
+}
+
+#croupier{
+	float: right;
+	padding-right: 30px;
+}
+
+#bketable{
+	margin: 20px;
+	text-align: center;
+}
+
+#commands{
+	margin: 20px;
+	float: right;
+}
+
+#activiteitentracker{
+	margin: auto;
+	text-align: center;
+	padding: 20px;
+}
+
+#actbody{
+	background-color: #e0e0e0;
+	height: auto;
+	margin: 50px;
+	box-shadow: 10px 10px 10px #0b4751;
+}
+
+#actbanner{
+	background-color: white;
+	width: auto;
+	height: 50px;
+	padding: 20px;
+}
+
+#itvllogo{
+	float: left;
+}
+
+#bannertext{
+	padding-top: 20px;
+	font-size: 25px;
+	width: 300px;
+	color: orange;
+	text-align:center;
+	float: left;
+}
+
+#bannername{
+	padding-top: 20px;
+	
+}
+
+.even{
+	background-color: #1aa4bb;
+	width: 150px;
+}
+
+.odd{
+	background-color: #bbf3f7;
+	width: 150px;
+}
+
+#ths{
+	color: orange;
+	background-color: #0b4751;
+	height: 30px;	
+}
+
+#studentselect{
+	background-color: #e0e0e0;
+	height: auto;
+	margin: auto;
+	box-shadow: 10px 10px 10px #0b4751;
+	width: 800px;
+}
+
+#ww{
+	color: black;
+}

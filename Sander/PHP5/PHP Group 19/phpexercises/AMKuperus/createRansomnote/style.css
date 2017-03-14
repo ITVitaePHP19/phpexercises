@@ -1,0 +1,12 @@
+body {
+  background-color: lightgrey;
+}
+.flexcontainer {
+  display: flex;
+}
+
+.flex {
+  width: 1.1em;
+  height: 1.1em;
+  margin: 0.1em;
+}

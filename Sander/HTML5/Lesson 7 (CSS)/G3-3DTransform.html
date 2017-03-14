@@ -1,0 +1,52 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Rounded corners</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css">
+			div {
+				font-family: "c&l";
+				font-size: xx-large;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: #EEE;
+				width: 450px;
+				height: 100px;
+				background: linear-gradient(dodgerblue, black);
+				/*margin-left: auto;
+				margin-right: auto;*/
+			}
+			#transformParent {
+				perspective: 100px;
+			}
+			#transform1 {
+				/*perspective: 100px;*/
+				margin: 50px 0 50px 50px;
+				transform: rotate3d(1,1,1,5deg)
+			}
+			@font-face {
+				font-family: "c&l";
+				src: url("fonts/Champagne&Limousines.ttf");
+			}
+		</style>
+	</head>
+
+<body>
+	<div id="transformParent">
+		<div id="transform1">1. A box with translate</div>
+		<div id="transform2">2. A box with scale</div>
+		<div id="transform3">3. A box with rotation</div>
+		<div id="transform4">4. A box with vertical scaling</div>
+		<div id="transform5">5. A box with horizontal scaling</div>
+		<div id="transform6">6. A box with skew</div>
+		<div id="transform7">7. A box with horizontal skew</div>
+		<div id="transform8">8. A box with vertical skew</div>
+		<div id="transform9">9. Transform all the things!</div>
+	</div>
+</body>
+</html>

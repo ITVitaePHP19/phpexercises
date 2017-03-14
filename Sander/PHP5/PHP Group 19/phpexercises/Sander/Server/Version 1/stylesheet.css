@@ -1,0 +1,40 @@
+body {
+	background-color: rgba(255,255,255,1.00);
+	color: #444444;
+	font-size: 17px;
+	line-height: 20px;
+	text-align: center;
+	font-family: 'Century Gothic';
+}
+
+.imgHeader {
+	height: 80px;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}
+
+.header {
+	width: 100%;
+	position: fixed;
+	top: 50px;
+	left: 0px;
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid #00a7be;
+	font-family: 'Century Gothic';
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	padding-top: 14px;
+	height: 35px;
+	width: 135px;
+	border: 0px solid;
+	border-left-color: #EEE;
+	border-right-color: #CCC;
+	border-top: none;
+	border-bottom: none;
+	background-color: #FFF;
+}

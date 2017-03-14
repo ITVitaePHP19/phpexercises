@@ -1,0 +1,98 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Form Test</title>	
+</head>
+
+<body>
+	<div id="contactform">
+		<form id="contact" method="post" action="">
+			<fieldset>
+				<label for="fname">First name</label>
+				<input type="text" name="name" placeholder="First name" required />
+			</fieldset>
+			<fieldset>
+				<label for="name">Last name</label>
+				<input type="text" name="name" placeholder="Last name" required />
+			</fieldset>
+			<fieldset>
+				<label for="email">Email</label>
+				<input type="email" name="email" placeholder="Email" required />
+			</fieldset>
+			<fieldset>
+				<label for="phone">Phone</label>
+				<input type="tel" name="phone" placeholder="Phone" required />
+			</fieldset>
+			<fieldset>
+				<input id="country" name="country" size="30" list="countries" required />
+				<datalist id="countries">
+					<option value="United States"></option>
+					<option value="Canada"></option>
+					<option value="United Kingdom"></option>
+				</datalist>
+			</fieldset>
+			<fieldset>
+				<input name="search" required />
+				<input type="submit" value="Search" />
+			</fieldset>
+			<fieldset>
+				<label for="empID">Employee ID</label>
+				<input type="text" name="empID" placeholder="Employee ID" pattern="[A-Z]{2}[0-9]{4}" title="Employee ID is two capital letters followed by four digits" required />
+			</fieldset>
+			<fieldset>
+				<input type="text" name="comments" placeholder="Questions or comments" height="500" size="100" />
+			</fieldset>
+			<fieldset>
+				<label for="gender">Gender</label>
+				<input type="checkbox" />
+			</fieldset>
+			<fieldset>
+				<label for="submit">Submit</label>
+				<input type="submit" name="submit" placeholder="Submit" />
+			</fieldset>
+		</form>
+	</div> <!--End of contact form-->
+	<br />
+	<br />
+	<br />
+	<div id="contact-form">
+		<form id="contact" method="post" action="">
+			<fieldset>
+				<p>
+					<label for="custname">Name</label>
+					<input type="text" id="custname" placeholder="Name" required autofocus />
+				</p>
+				<p>
+					<label for="email">Email</label>
+					<input type="email" id="email" placeholder="Email" required />
+				</p>
+				<p>
+					<label for="phone2">Phone</label>
+					<input type="text" id="phone2" placeholder="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format your phone number as follows: 123-456-7890" />
+				</p>
+				<p>
+					<label for="number">Number between 500 and 10000</label>
+					<input type="number" id="number" placeholder="Number" min="500" max="10000" />
+				</p>
+				<p>
+					<label for="zip">Zip code</label>
+					<input type="text" id="zip" placeholder="Zip code" pattern="[0-9]{4}[A-Z]{2}" title="Format your Zip code as follows: 1234AB" />
+				</p>
+				<p>
+					<label for="message">Questions or Comments</label>
+					<textarea name="message" required></textarea>
+				</p>
+				<p>
+					<label for="url">Website</label>
+					<input type="url" id="url" />
+				</p>
+				<p>
+					<input type="submit" name="submit" id="submit" value="Submit" />
+				</p>
+			</fieldset>
+		</form>
+	</div> <!--End of contact form-->
+</body>
+</html>

@@ -1,0 +1,22 @@
+body {
+	font-family: Verdana;
+}
+
+.form {
+	display: flex;
+	justify-content: center;
+}
+
+form {
+	width: 500px;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	font-size: xx-large;
+}
+
+input {
+	font-family: Verdana;
+}

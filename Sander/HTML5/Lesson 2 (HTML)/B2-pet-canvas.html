@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Canvas Test</title>	
+<script>
+	function f1() {
+		var canvas =
+		document.getElementById("smlRectangle");
+		context = canvas.getContext("2d");
+		context.fillStyle = "rgb(0,0,255)";
+		context.fillRect(10, 20, 200, 100);
+	}
+</script>
+</head>
+
+<body onload = "f1();">
+<canvas id="smlRectangle" height="100" width="200">
+		</canvas>
+		
+</body>
+</html>

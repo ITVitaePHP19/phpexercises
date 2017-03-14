@@ -1,0 +1,36 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>In browser calculator</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css"></style>
+			
+		<script type="text/javascript">
+			function init() {
+				alert("At this point, it is guaranteed that all HTML elements have loaded.");
+			}
+			function validate() {
+				var value = document.getElementById("input1").value;
+				if (isNaN(value)) {
+					modifier = "not";
+				}
+				else {
+					modifier = "";
+				}
+				var report = "You entered '" + value + "'; this is " + modifier + "a valid number.";
+				alert(report);
+			}
+		</script>		
+	</head>
+
+<body onload="init();">
+	<h1>In-browser calculator</h1>
+	<form name="calculator">
+		<input type="text" name="input1" size="25" value="" />
+		<button type="button" onclick="validate();">Click me to see what I think of your entry</button>
+	</form>
+</body>
+</html>

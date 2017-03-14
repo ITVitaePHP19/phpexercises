@@ -1,0 +1,93 @@
+.header {
+	display: flex;
+	justify-content: center;
+	background-color: #FFF;
+	font: 30px Century Gothic;
+	color: #666;
+	height: 50px;
+	width: 302px;
+	margin: 0.5px;
+	padding-top: 10px;
+}
+
+.subheader {
+	display: flex;
+	justify-content: center;
+	border: 1px solid #BBB;
+	border-radius: 50px;
+	background-color: #FFF;
+	font: 20px Century Gothic;
+	color: #666;
+	height: 37px;
+	width: 302px;
+	margin: 0.5px;
+	padding-top: 13px;
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+}
+
+
+/* Buttons */
+
+.button {
+	border: 1px solid #BBB;
+	font: 30px Century Gothic;
+	color: #666;
+	height: 100px;
+	width: 100px;
+	margin: 0.5px;
+	outline: none;
+}
+
+.reset {
+	border: 1px solid #BBB;
+	background-color: #FFF;
+	border-radius: 50px;
+	font: 20px Century Gothic;
+	color: #666;
+	height: 50px;
+	width: 302px;
+	margin: 0.5px;
+	outline: none;
+}
+
+
+/* Active/inactive buttons */
+
+.active {
+	background-color: #FFF;
+}
+
+.active:hover {
+	background-color: #F8F8F8;
+}
+
+.active:disabled:hover {
+	background-color: #FFF;
+}
+
+.reset:hover {
+	background-color: #F8F8F8;
+}
+
+
+/* Rounded corners */
+
+.topleft {
+	border-top-left-radius: 25px;
+}
+
+.topright {
+	border-top-right-radius: 25px;
+}
+
+.bottomleft {
+	border-bottom-left-radius: 25px;
+}
+
+.bottomright {
+	border-bottom-right-radius: 25px;
+}

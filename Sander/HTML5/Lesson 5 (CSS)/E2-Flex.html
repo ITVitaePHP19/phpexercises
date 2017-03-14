@@ -1,0 +1,48 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Flex Function example</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css" media="screen">
+			div {
+				display: flex;
+				flex-flow: row;
+				flex-wrap: wrap;
+				height: 200px;
+				padding: 1em;
+				outline: 2px solid silver;
+				background-color: palegoldenrod;
+				font: bold 100%/1 sans-serif;
+				text-align: center;
+			}
+			div > div {
+				margin: 1em;
+				height: 100px;
+				width: 100px;
+				background-color: dodgerblue;
+				text-align: center;
+				color: white;
+				line-height: 100px;
+				font-size: x-large;
+			}
+			div>div:first-child,
+				div>div:last-child {
+					order: 1;
+			}
+			.weight {
+				flex: 3 auto;
+			}
+		</style>
+	</head>
+
+<body>
+	<div>
+		<div>Keys</div>
+		<div>Phone</div>
+		<div>Wallet</div>
+	</div>
+</body>
+</html>

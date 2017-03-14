@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<link href="Opdracht 02 - Vlaggen.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<form action="Opdracht 02 - Vlaggen.php" method="post">
+	<div class="container">
+		<table class="content">
+			<tr>
+				<td class="header">What country does<br />this flag belong to?</td>
+			</tr>
+			<tr>
+				<td><img src="images/Afghanistan.jpg" /></td>
+			</tr>
+			<tr>
+				<td class="answer"><input type="radio" name="answer" value="afghanistan" /><label for="afghanistan">Afghanistan</label></td>
+			</tr>
+			<tr>
+				<td class="answer"><input type="radio" name="answer" value="albania" /><label for="albania">Albania</label></td>
+			</tr>
+			<tr>
+				<td class="answer"><input type="radio" name="answer" value="algeria" /><label for="algeria">Algeria</label></td>
+			</tr>
+			<tr>
+				<td class="answer"><input type="radio" name="answer" value="andorra" /><label for="andorra">Andorra</label></td>
+			</tr>
+		</table>
+	</div>
+	<br />
+	<div class="submit">
+		<table>
+			<tr>
+				<td>
+					<input class="button" type="submit" name="submit" value="Validate answer" />
+				</td>
+			</tr>
+		</table>
+	</div>
+</form>
+
+<div class="correct">Correct!</div>
+<div class="wrong">Wrong! The correct answer should be: <?php something ?></div>
+
+</body>
+
+</html>

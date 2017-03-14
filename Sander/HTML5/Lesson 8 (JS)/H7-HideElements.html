@@ -1,0 +1,36 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Show/hide responsively</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css"></style>
+			
+		<script type="text/javascript">
+			function check_range() {
+				var value = document.getElementById("price1").value;
+				var paragraph_list = document.getElementsByTagName("p")
+				var first_paragraph = paragraph_list[0];
+				if (value >= 80) {
+					display = "block";
+				}
+				else {
+					display = "none";
+				}
+				first_paragraph.style.display = display;
+			}
+		</script>		
+	</head>
+
+<body onload="init();">
+	<h1>Show/hide responsively</h1>
+	<form>
+		Enter a price: <input type="number" id="price1" min="0" max="100" oninput="check_range()" />
+	</form>
+	<p style="display: none;">
+		Warning: you are within 20% of your limit.
+	</p>
+</body>
+</html>

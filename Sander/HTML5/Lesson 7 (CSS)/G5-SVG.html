@@ -1,0 +1,85 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>SVG</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css">
+			div {
+				font-family: "c&l";
+				font-size: xx-large;
+				/*text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;*/
+			}
+			#wrapper {
+				padding: 40px 40px;
+				background: dodger-blue;
+				width: 200px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 100px;
+				color: #111;
+				transition-duration: 3s;
+				transition-delay: 1s;
+				transition-timing-function: linear;
+			}
+			#wrapper #front, #wrapper:hover #back {
+				opacity: 1;
+				transition-property: opacity;
+				transition-duration: 1s;
+				transition-timing-function: linear;
+			}
+			#wrapper:hover #front, #wrapper #back {
+				opacity: 0;
+				transition-property: opacity;
+				transition-duration: 1s;
+				transition-timing-function: linear;
+			}
+			@font-face {
+				font-family: "c&l";
+				src: url("fonts/Champagne&Limousines.ttf");
+			}
+		</style>
+	</head>
+
+<body>
+
+	<svg>
+		<defs>
+			<filter id="a1" x="0" y="0">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="20" />
+			</filter>
+		</defs>
+		<rect width="150" height="150" stroke="plum" stroke-width="30" fill="green" filter="url(#a1)" />
+	</svg>
+
+	<br />
+
+	<svg width="155" height="155">
+		<defs>
+			<filter id="b1" x="0" y="0">
+				<feOffset dx="5" dy="5" />
+			</filter>
+		</defs>
+		<rect width="150" height="150" fill="grey" filter="url(#b1)" />
+		<rect width="150" height="150" fill="green" />
+	</svg>
+
+	<br />
+
+	<svg width="155" height="155">
+		<defs>
+			<filter id="c1" x="0" y="0">
+				<feOffset dx="5" dy="5" />
+			</filter>
+		</defs>
+		<rect width="150" height="150" fill="grey" filter="url(#c1)" />
+		<rect width="150" height="150" fill="springgreen" />
+	</svg>
+
+</body>
+</html>

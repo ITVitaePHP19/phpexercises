@@ -1,0 +1,56 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Rounded corners</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css">
+			div {
+				font-family: "c&l";
+				font-size: xx-large;
+				/*text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;*/
+			}
+			#wrapper {
+				padding: 40px 40px;
+				background: dodger-blue;
+				border-collapse: 
+				width: 200px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 100px;
+				color: #111;
+				transition-duration: 3s;
+				transition-delay: 1s;
+				transition-timing-function: linear;
+			}
+			#wrapper #front, #wrapper:hover #back {
+				opacity: 1;
+				transition-property: opacity;
+				transition-duration: 1s;
+				transition-timing-function: linear;
+			}
+			#wrapper:hover #front, #wrapper #back {
+				opacity: 0;
+				transition-property: opacity;
+				transition-duration: 1s;
+				transition-timing-function: linear;
+			}
+			@font-face {
+				font-family: "c&l";
+				src: url("fonts/Champagne&Limousines.ttf");
+			}
+		</style>
+	</head>
+
+<body>
+	<div id="wrapper">
+		<div id="front">Knock knock</div>
+		<div id="back">Go f*ck yourself</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Flex Function example</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css" media="screen">
+			#grid {
+				background: palegoldenrod;
+				border: silver;
+				display: grid;
+				color: white;
+				font-family: sans-serif;
+				font-weight: bold;
+				-ms-grid-columns: 150px auto 2fr;
+				-ms-grid-rows: 50px 6em auto;
+			}
+			#logo {
+				background: dodgerblue;
+				grid-row: 1;
+				grid-column: 1;
+			}
+			#item {
+				background: olive;
+				grid-row: 2;
+				grid-column: 2;
+			}
+			#item2 {
+				background: orange;
+				grid-row: 3;
+				grid-column: 3;
+			}
+		</style>
+	</head>
+
+<body>
+	<div id="grid">
+		<div id="logo">Logo</div>
+		<div id="item">Item</div>
+		<div id="item2">Item2</div>
+	</div>
+</body>
+</html>

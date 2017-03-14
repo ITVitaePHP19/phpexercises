@@ -1,0 +1,50 @@
+﻿<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Compute element</title>
+		<link href="" rel="stylesheet" type="text/css" />
+
+		<style type="text/css"></style>
+			
+		<script type="text/javascript">
+			// check_range assigns a display style to the first paragraph a function of the displayed price - whether is 80 and above, or 79 and below.
+			function check_range() {
+				var value = document.getElementById("price1").value;
+				var paragraph_list = document.getElementsByTagName("p")
+				if (value >= 80) {
+					display = "block";
+				}
+				else {
+					display = "none";
+				}
+				paragraph_list.style.display = display;
+			}
+			// compute_total has the responsibility to update the display with the total of the price and its tax.
+			function compute_total() {
+				var value = document.getElementById("price1").value;
+				if (isNaN(value)) {
+					total = "INDETERMINATE";
+				}
+				else {
+					// Assume a 8% tax.
+					total = 1.08 * value;
+				}
+				var total_slot = document.getElementById("total");
+				total_slot.innerHTML = total;
+			}
+		</script>		
+	</head>
+
+<body onload="init();">
+	<h1>Compute element</h1>
+	<form>
+		Enter a price: <input type="number" id="price1" min="0" max="100" oninput="check_range(); compute_total();" />
+		The total price, including tax, is $<span id="total">INDETERMINATE</span>.
+	</form>
+	<p style="display: none;">
+		Warning: you are within 20% of your limit.
+	</p>
+</body>
+</html>

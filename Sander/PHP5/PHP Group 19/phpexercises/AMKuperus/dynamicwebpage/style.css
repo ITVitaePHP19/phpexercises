@@ -1,0 +1,66 @@
+body {
+  background-image: url("bck.jpg");
+}
+
+p {
+  font-family: fantasy;
+}
+
+h1 {
+  font-family: sans-serif;
+  letter-spacing: 1em;
+  text-align: center;
+  color: crimson;
+  text-shadow: 2px 2px #FFCC00;
+}
+
+h2 {
+  font-family: sans-serif;
+  letter-spacing: 0.8em;
+  text-align: right;
+  text-shadow: 2px 2px silver;
+}
+
+footer {
+  background: rgba(102, 153, 153, 0.8);
+  border-radius: 8px;
+  padding: 0.2vw;
+  text-align: center;
+  text-shadow: 1px 1px silver;
+  position: absolute;
+  bottom: 0.1vw;
+  left: 45%;
+  right: 45%;
+}
+
+.content {
+  background: crimson;
+  border-radius: 8px;
+  padding: 1vw;
+  margin: 1vw;
+  width: 75vw;
+}
+nav {
+}
+
+nav a {
+  background: #669999;
+  box-shadow: 2px 2px #FFCC00;
+  padding: 0.5vw;
+  font-family: sans-serif;
+  letter-spacing: 0.2em;
+  color: #E0EBEB;
+}
+
+nav a:hover{
+  background: #77AAAA;
+  color: #FFFFFF;
+}
+
+#msg {
+  border-radius: 8px;
+  background: silver;
+  margin: 1vw;
+  padding: 1vw;
+  font-family: monospace;
+}

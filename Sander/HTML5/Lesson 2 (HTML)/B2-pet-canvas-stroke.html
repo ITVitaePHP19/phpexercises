@@ -1,0 +1,24 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Canvas Test</title>	
+<script>
+	function f1() {
+		var canvas =
+		document.getElementById("smlRectangle");
+		context = canvas.getContext("2d");
+		context.strokeStyle = "red";
+		context.strokeRect(10, 20, 200, 100);
+	}
+</script>
+</head>
+
+<body onload = "f1();">
+<canvas id="smlRectangle" height="125" width="215">
+	<img src="images/PillowRB12Q-small.png" alt="FAIL!">
+</canvas>
+		
+</body>
+</html>
