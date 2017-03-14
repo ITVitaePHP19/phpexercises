@@ -49,12 +49,13 @@ if ($grid[0] =='x' && $grid[1] =='x' && $grid[2] =='x' ||
 //this is to determine whether there are any moves left
 $blank = 0;
   for ($i=0; $i < 9; $i++) {
-    //if $grid equals nothing (in value) set $blank to 1
+//if $grid equals nothing (in value) set $blank to 1
     if ($grid[$i] == '') {
         $blank = 1;
   }
 }
 //if any empty positions in grid, so if blank is equal to 1 and winner is false, choose a random field
+//this will decide whether 'o' will have a move when there are blank fields
 if ($blank == 1 && $winner == false) {
         $i = rand(0,8);
 while ($grid[$i] != '') {
@@ -76,7 +77,7 @@ $grid[$i] = 'o';
           $disable = "disabled";
           echo "<span class=message>You lost.</span><br><br>";
         }
-//if winner is false after nought has had it's last move, it's a tie
+//if winner is false after nought has had its last move, it's a tie
   } elseif ($winner == false) {
     $winner = "tie";
     $disable = "disabled";
@@ -94,7 +95,7 @@ if ($i == 2 || $i == 5 || $i == 8) {
   }
 }
 
-//if winner is equal to false as stated on line 5, echo the Play and Reset buttons
+//if winner is equal to false as stated on line 5, echo the Play button
 if ($winner == false) {
     echo "<br><table><tr><td><input type=submit name=submit value=Play></td></tr><table>
           <div>Current high score is $score</div>";
@@ -108,6 +109,7 @@ if (isset($_POST['retry'])) {
     header("Location: tictactoe.php");
   }
 //sets the $_SESSION['score'] variable to 0 when Clear score has been pressed
+//also go back to first page to play again
 if (isset($_POST['clear'])) {
   $_SESSION['score'] = 0;
   header("Location: tictactoe.php");
