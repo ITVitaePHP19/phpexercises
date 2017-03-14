@@ -1,0 +1,57 @@
+body {
+	font-family: 'Century Gothic';
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+}
+
+/* Dice */
+
+.diceContainer {
+	border: 1px solid #666;
+}
+
+.dice {
+	border: 1px solid #666;
+}
+
+
+/* Upper section */
+
+.border {
+	border: 1px solid #CCC;
+	border-right: 0px;
+	transform: rotate(-45deg) skewX(45deg);
+}
+
+.text {
+	transform: skewX(-45deg);
+	width: 100px;
+	height: 40px;
+	margin-bottom: -17px;
+	padding-top: 3px;
+	padding-left: 10px;
+}
+
+.button {
+	width
+}
+
+/* Checkbox */
+
+input[type=checkbox]:before {
+	content: "";
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background: #FFF;
+	background-image: url('images/dice1.png');
+}
+
+input[type=checkbox]:checked:before {
+	width: 150px;
+	height: 150px;
+	background-image: url('images/dice1.png');
+}

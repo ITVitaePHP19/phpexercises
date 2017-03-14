@@ -1,7 +1,8 @@
 .text {
 	display: flex;
-	width: 100px;
-	height: 100px;
+	justify-content: center;
+	width: 1.4em;
+	height: 1.4em;
 	border: solid 1px;
 }
 

@@ -22,6 +22,7 @@ function integerToRoman($integer) {
 	'I' => 1);
  
 	foreach ($lookup as $roman => $value) {
+
 		// Determine the number of matches
 		$matches = intval($integer / $value);
  

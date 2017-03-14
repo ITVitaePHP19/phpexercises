@@ -4,9 +4,9 @@
 
 <?php
 
-echo '<div class="content">';
-
 $text = $_POST['text'];
+
+echo '<div class="content">';
 
 // Check if 'post' is set
 if (isset($_POST['submit'])) {
@@ -20,6 +20,8 @@ if (isset($_POST['submit'])) {
 
 }
 
+echo "</div>";
+
 // Jumble $text
 function jumble($text) {
 	
@@ -29,11 +31,11 @@ function jumble($text) {
 	// Give random style to values
 	foreach ($text as $i) {
 		echo '<div class="text" style="
-			background-color: ' . color() . '
-			font-family: ' . font() . '
-			font-size: ' . size() . '
-			transform: rotate(' . rotate() . 'deg)
-			;">'
+			background-color: ' . color() . ';
+			font-family: ' . font() . ';
+			font-size: ' . size() . ';
+			transform: rotate(' . rotate() . 'deg);
+			">'
 			. $i .
 			"</div>";
 	}
@@ -68,7 +70,7 @@ function rotate() {
 
 // Create random size
 function size() {
-	$size = mt_rand(3, 7);
+	$size = mt_rand(50, 100);
 
 	return $size;
 }
@@ -80,9 +82,5 @@ function font() {
 
 	return $font[$r];
 }
-
-echo "</div>";
-
-echo "<pre>" . color() . " " . rotate() . " " . size() . " " . font() . "</pre>";
 
 ?>

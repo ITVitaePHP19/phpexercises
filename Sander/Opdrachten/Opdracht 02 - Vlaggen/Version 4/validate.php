@@ -1,7 +1,7 @@
 <?php
 
 // Set session values
-if ($_SESSION == array()) {
+if (empty($_SESSION[''])) {
 	$_SESSION['count'] = 1;
 	$_SESSION['score'] = 0;
 }
