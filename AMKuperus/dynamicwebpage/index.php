@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php
-  include 'head.php';
+  include 'head.php'; 
 ?>
   <body>
     <h1>This is A website!</h1>

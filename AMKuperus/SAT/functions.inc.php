@@ -40,6 +40,12 @@
     }
   }
 
+  //Creates a hash from $p
+  function createHash($p) {
+    $return = password_hash($p, PASSWORD_BCRYPT, ['cost', 12]);
+    return $return;
+  }
+
   //Send a new user a email with the verification-link
   function verMail($user, $token) {
     require 'phpmailer/PHPMailerAutoload.php';
