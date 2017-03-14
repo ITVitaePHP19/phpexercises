@@ -1,18 +1,8 @@
 ##StudentActivityTracker
+As of today the SAT-project has moved to my personal Github and can be found in the codeStash.
 
-A program to track students activity by monitoring data based on the activity
-of a student and their feeling on difficulty/pleasure per activity and overall.
+Reason for the move to my personal Git is that it will be easier for me to monitor progress to the project over time.
 
-##Database connection
+If you're interested in following the SAT-project you can follow the progress from there.
 
-To make a database work with the S.A.T. you need:
-- A MySql database
-- A user with basic read-write acces
-- Change the file config.sample.inc to configure the program to work with the database.
-
-(info on how to change the sample-file is included in the sample-file)
-
-##User registration and permissions
-When a user registers they enter the platform on the lowest level being registered.
-- Teacher can change registered -> student
-- Admin can change registered -> student & user -> teacher
+cheers - AMKuperus
