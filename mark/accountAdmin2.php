@@ -45,8 +45,9 @@ else{header ('Location: login.php');}
 	$result = $con->query($sql);
 	
 	//$sql2 = "SELECT user.UserID, user.FirstName, user.LastName, user.Email, useractivities.ActivityID, activities.ActOmschrijving FROM user,useractivities,activities LEFT JOIN useractivities ON User.UserID=useractivities.UserID AND useractivities.ActivityID= activities.ActID ";
-	$sql2 = "SELECT user.UserID, user.FirstName, user.LastName, user.Email, useractivities.ActivityID FROM user,useractivities LEFT JOIN user ON User.UserID=useractivities.UserID  ";
-	$sql2 = "SELECT user.UserID, user.FirstName, user.LastName, user.Email FROM user ";
+	//$sql2 = "SELECT user.UserID, user.FirstName, user.LastName, user.Email, useractivities.ActivityID FROM user,useractivities LEFT JOIN user ON User.UserID=useractivities.UserID  ";
+	//$sql2 = "SELECT user.UserID, user.FirstName, user.LastName, user.Email,useractivities.ActivityID FROM user LEFT OUTER JOIN useractivities ON User.UserID=useractivities.UserID";
+	$sql2 = "SELECT user.UserID, user.FirstName, user.LastName, user.Email,useractivities.ActivityID,activities.ActOmschrijving FROM user LEFT OUTER JOIN useractivities ON User.UserID=useractivities.UserID  LEFT OUTER JOIN activities ON activities.ActID=useractivities.ActivityID";
 	$result2 = $con->query($sql2);
 	?>
 	<h1 align="center"> Employee Details </h1>
@@ -114,8 +115,8 @@ else{header ('Location: login.php');}
 	<td><?php echo $row["FirstName"]; ?></td>
 	<td><?php echo $row["LastName"]; ?></td>
 	<td><?php echo $row["Email"]; ?></td>
-	
-	
+	<td><?php echo $row["ActivityID"]; ?></td>
+	<td><?php echo $row["ActOmschrijving"]; ?></td>
     </tr>
 	<?php
 	//echo "id: " . $row["UserID"]. " - voornaam: " . $row["FirstName"].  " - achternaam: " . $row["LastName"]." " ."email:". $row["Email"]." "."actOmschrijving: ". $row["ActOmschrijving"]."<br>";
