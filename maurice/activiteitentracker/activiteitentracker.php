@@ -1,6 +1,7 @@
 <div id="banner">
 	PHP learning track - Registratie
 </div>	
+<article>
 <table class="midtable">
 	<form action="learningtrack.php" method="post">
 		<tr>
@@ -25,9 +26,10 @@
 		<tr>
 			<td></td>
 			<td>
-				<p id="logintext"><input id="atregister" type="submit" name="submit" value="Registreer"> 
+				<p id="logintext"><input id="atregister" type="submit" name="submit" value="Registreer"><br><br>
 				Al geregistreerd?<a id="loginlink" href="index2.php?p=login">Login</a></p>
 			</td>	 		
 		</tr>
 	</form>
 </table>
+</article>
