@@ -1,12 +1,12 @@
 <?php
-//TO DO: Add option to update a row
-//TO DO: Maybe if query entry is succesful, do not show form.
+//TODO: Add option to update a row dynamically
 
 require('connect.php');
+include('a.class.php');
 
 //if delete is not set and no record is to be deleted, 'id' and other values are checked
 if (isset($_POST['delete']) && isset($_POST['id'])) {
-  $id = get_post($connection, 'id');
+  $id = $object->get_post('id');
   $query = "DELETE FROM activitytracker WHERE id='$id'";
   $result = $connection->query($query);
 //if $result isn't true give database connection error message
@@ -22,16 +22,17 @@ if (isset($_POST['My_Activities']) &&
     isset($_POST['Difficulty']) &&
     isset($_POST['Notes']))
 {
-//set up variables using get_post function written at the bottom, passing along 2 values (db, value from db table to insert)
-  $id                   = get_post($connection, 'id');
-  $myActivities         = get_post($connection, 'My_Activities');
-  $startDate            = get_post($connection, 'Start_Date');
-  $endDate              = get_post($connection, 'End_Date');
-  $timeSpentInHours     = get_post($connection, 'Time_spent_in_hours');
-  $percentageCompleted  = get_post($connection, 'Percentage_Completed');
-  $pleasure             = get_post($connection, 'Pleasure');
-  $difficulty           = get_post($connection, 'Difficulty');
-  $notes                = get_post($connection, 'Notes');
+
+//set up variables using get_post function from class A
+  $id                   = $object->get_post('id');
+  $myActivities         = $object->get_post('My_Activities');
+  $startDate            = $object->get_post('Start_Date');
+  $endDate              = $object->get_post('End_Date');
+  $timeSpentInHours     = $object->get_post('Time_spent_in_hours');
+  $percentageCompleted  = $object->get_post('Percentage_Completed');
+  $pleasure             = $object->get_post('Pleasure');
+  $difficulty           = $object->get_post('Difficulty');
+  $notes                = $object->get_post('Notes');
   $query                = "INSERT INTO activitytracker VALUES" .
       "('$id',  '$myActivities', '$startDate', '$endDate', '$timeSpentInHours', '$percentageCompleted', '$pleasure', '$difficulty', '$notes')";
   $result = $connection->query($query);
@@ -45,7 +46,7 @@ echo <<<_END
 <link rel="stylesheet" href="stylesheet2.css">
 <table class='trackertable'>
 <form action="tracker.php" method="POST">
-<tr><td>My Activities</td>             <td><input type="text" name="My_Activities"></td></tr>
+<tr><td>My Activities</td>             <td><input type="text"   name="My_Activities"></td></tr>
 <tr><td>Start Date</td>                <td><input type="date"   name="Start_Date"></td></tr>
 <tr><td>End Date</td>                  <td><input type="date"   name="End_Date"></td></tr>
 <tr><td>Time Spent in Hours</td>       <td><input type="number" name="Time_spent_in_hours"></td></tr>
@@ -73,7 +74,7 @@ $activityHeader = array(
 //open table here
 echo "<table>";
 foreach ($activityHeader as $head) {
-  echo "<th> $head </th>";
+  echo "<th class='trackerth'> $head </th>";
 }
 
 $query = "SELECT * FROM activitytracker";
@@ -93,7 +94,7 @@ for ($j = 0; $j < $rows; ++$j) {
 //copy $row array to a new array called $rowTb as in 'row table'
 //array_shift to take out the first value, which is the ID
 //lastly implode the $rowTb array to include <td> tags
-  $rowTb = $row;
+$rowTb = $row;
 array_shift($rowTb);
 //echo implode("</td><td>", $rowTb);
 foreach ($rowTb as $table) {
@@ -115,17 +116,5 @@ echo "</table>".PHP_EOL;
 //close the connections to the database
 $result->close();
 $connection->close();
-
-//function to pass each item through the real_escape_string method, strip out characters
-//to prevent hacking (filter_input is a safer method)
-function get_post($connection, $var)
-{
-  if(isset($_POST[$var])) {
-    return $connection->real_escape_string($_POST[$var]);
-  }
-  else {
-    return false;
-  }
-}
 echo "<img src='http://127.0.0.1/itvitae/opdrachten/activiteitentracker/images/itvitae.png' alt=''>";
 ?>

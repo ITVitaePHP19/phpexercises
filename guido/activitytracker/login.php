@@ -1,16 +1,21 @@
 <?php
+//TODO BETTER PASSWORD HASHING -md5 not safe, real_escape_string does not allow certain chars
+//TODO Make use of filter_input.
+//TODO Figure out connection issue when not using mysqli_real_escape_string
 	require('connect.php');
+	include('error.class.php');
 	session_start();
     // If the values are posted, insert them into the database.
 		if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form
 
-      $myusername = mysqli_real_escape_string($connection,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($connection,$_POST['password']);
+      $myUsername = mysqli_real_escape_string($connection,$_POST['username']);
+			$passwordHash = md5($_POST['password']);
+      $myPassword = mysqli_real_escape_string($connection,$passwordHash);
 
 //selects the ID from the login table where the username is equal to the username posted
 //and the password that is posted in the username/password fields
-			$sql = "SELECT id FROM login WHERE username = '$myusername' and password = '$mypassword'";
+			$sql = "SELECT id FROM login WHERE username = '$myUsername' and password = '$myPassword'";
 //performs a query on the database(activity, the query to perform)
 			$result = mysqli_query($connection,$sql);
 //fetch array from $result, in associative array
@@ -23,10 +28,10 @@
       if($count == 1) {
 //if table row is 1, register the session "myusername"
     //     session_register("myusername");
-         $_SESSION['login_user'] = $myusername;
+         $_SESSION['login_user'] = $myUsername;
          header("location: welcome.php");
       }else {
-         $error = "Your username/password is invalid";
+         $objError->message = "Your username/password is invalid";
       }
    }
     ?>
@@ -51,12 +56,12 @@
                   <input type= "submit" value ="Submit"/><br>
 									<?php
 //if variable error is set, echo error variable inside in div
-									if(isset($error))
+									if($objError->isError())
 									{
 										?>
 										<div class="alert" role="alert">
 											<?php
-											echo $error;
+											echo $objError->message;
 											?>
 										</div>
 										<?php

@@ -6,7 +6,7 @@
 
    <head>
       <title>Welcome</title>
-      <link rel="stylesheet" href="stylesheet.css">
+      <link rel="stylesheet" href="stylesheet2.css">
    </head>
    <body>
      <div class="welcome">

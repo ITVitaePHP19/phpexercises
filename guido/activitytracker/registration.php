@@ -1,5 +1,8 @@
 <?php
+//TO DO: Assign roles, add aditional field for role teacher/student
+//			or set up a 2nd welcome page depending on the email address used
 	require('connect.php');
+	include('error.class.php');
     // If the values are posted, insert them into the database.
     if (isset($_POST['username']) && isset($_POST['password'])){
         $firstName = $_POST['firstname'];
@@ -7,13 +10,14 @@
         $username = $_POST['username'];
 	      $email = $_POST['email'];
         $password = $_POST['password'];
-
-        $query = "INSERT INTO `login` (Firstname, Lastname, username, password, email) VALUES ('$firstName','$lastName','$username', '$password', '$email')";
+				$passwordHash = md5($password);
+				echo $passwordHash;
+        $query = "INSERT INTO `login` (Firstname, Lastname, username, password, email) VALUES ('$firstName','$lastName','$username', '$passwordHash', '$email')";
         $result = mysqli_query($connection, $query);
         if($result){
             $success = "User Created Successfully.";
         }else{
-            $fail = "User Registration Failed.";
+            $objError->message = "User Registration Failed.";
         }
     }
     ?>
@@ -54,12 +58,12 @@
                 }
                 ?>
                   <?php
-                  if(isset($fail))
+                  if($objError->isError())
                   {
                     ?>
                     <div class="alert alert-danger" role="alert">
                       <?php
-                      echo $fail;
+                      echo $objError->message;
                       ?>
                     </div>
                     <?php
