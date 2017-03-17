@@ -13,7 +13,7 @@
     $email = isset($_POST['email']) ? $_POST["email"] : '';
     $message = isset($_POST['message']) ? $_POST["message"] : '';
     $from = 'From: webtest'; 
-    $to = 'bontekoe.s@gmail.com'; 
+    $to = '';   // enter receivingg mail here
     $subject = 'contactformtest';
 
     $body = "From: $name\n E-Mail: $email\n Message:\n $message";
@@ -103,8 +103,8 @@ function  sendMail($subject, $msg, $to, $from, $from_name) {
 	
 
 	require_once("phpmailer/class.phpmailer.php");
-	$account="itvitae1@gmail.com";
-	$password="itvitae12";
+	$account="";  // enter sending gmail account here
+	$password="";  // enter sending gmail account pwd here
 
 
 	$mail = new PHPMailer();
