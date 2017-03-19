@@ -1,0 +1,66 @@
+@font-face {
+	font-family: 'fourHand';
+	src: url('fonts/fourHand.ttf');
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	background: #DDD;
+	font-family: fourHand;
+	font-size: x-large;
+}
+
+.page {
+	position: fixed;
+	top: 0;
+	width: 80%;
+	min-width: 500px;
+	height: 100%;
+	background: #FFF;
+}
+
+
+/* Header */
+
+.headerContainer {
+	display: flex;
+	width: 100%;
+	height: 55px;
+	overflow: auto;
+	background-color: #5C4432;
+	color: #EEE;
+}
+
+.headerFiller {
+	min-width: 250px;
+	width: 20%;
+}
+
+.headerButton {
+	display: inline;
+	line-height: 50px;
+	padding-top: 5px;
+	text-align: center;
+	# border: 1px solid #666;
+	border-left: 1px solid #999;
+}
+
+.headerLogin {
+	width: 125px;
+}
+
+.headerOptions {
+	width: 50px;
+	overflow: hidden;
+}
+
+.headerImage {
+	background-color: #CCC;
+	position: fixed;
+	top: 55px;
+	# background-image: url('images/headerImage.jpg');
+	width: 80%;
+	min-width: 500px;
+}
+
