@@ -8,7 +8,7 @@ body {
 	justify-content: center;
 	background: #DDD;
 	font-family: fourHand;
-	font-size: x-large;
+	font-size: 20px;
 }
 
 .page {
@@ -26,9 +26,10 @@ body {
 .headerContainer {
 	display: flex;
 	width: 100%;
-	height: 55px;
+	height: 50px;
 	overflow: auto;
 	background-color: #5C4432;
+	font-size: 20px;
 	color: #EEE;
 }
 
@@ -39,15 +40,15 @@ body {
 
 .headerButton {
 	display: inline;
-	line-height: 50px;
-	padding-top: 5px;
+	line-height: 47px;
+	padding-top: 3px;
 	text-align: center;
 	# border: 1px solid #666;
 	border-left: 1px solid #999;
 }
 
 .headerLogin {
-	width: 125px;
+	width: 100px;
 }
 
 .headerOptions {
@@ -57,10 +58,64 @@ body {
 
 .headerImage {
 	background-color: #CCC;
-	position: fixed;
-	top: 55px;
-	# background-image: url('images/headerImage.jpg');
-	width: 80%;
+	width: 100%;
 	min-width: 500px;
 }
 
+
+/* Menu */
+
+.menuContainer {
+	display: flex;
+	justify-content: center;
+	font-size: 30px;
+}
+
+.menuButton {
+	display: inline;
+	border-radius: 2px;
+	width: 175px;
+	height: 45px;
+	margin-left: -1px;
+	padding-top: 15px;
+	text-align: center;
+}
+
+.menuButton:hover {
+	box-shadow: inset 0px 0px 0px 1px #CCC;
+}
+
+
+/* Left */
+
+.left {
+	display: inline;
+	height: 100%;
+	width: 20%;
+	min-width: 100px;
+	border: 1px solid #CCC;
+}
+
+
+/* Content */
+
+.content {
+	display: inline;
+	height: 100%;
+	width: 60%;
+	min-width: 300px;
+	border: 1px solid #CCC;
+	font-family: Verdana;
+	font-size: 17px;
+}
+
+
+/* Right */
+
+.right {
+	display: inline;
+	height: 100%;
+	width: 20%;
+	min-width: 100px;
+	border: 1px solid #CCC;
+}
