@@ -1,0 +1,37 @@
+<html>
+
+<head>
+	<title>Index</title>
+	<link href="stylesheet.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+	function DetectTheThing() {
+		var uagent = navigator.userAgent.toLowerCase();
+		if (uagent.search("iphone") > -1 || uagent.search("ipad") > -1
+		|| uagent.search("android") > -1 || uagent.search("blackberry") > -1
+		|| uagent.search("webos") > -1)
+			window.location.href ="otherindex.html";
+    }
+	</script>
+</head>
+
+<body>
+	<div class="page">
+		<div class="headerContainer">
+			<div class="headerButton headerLogin">Login</div>
+			<div class="headerButton headerLogin">Register</div>
+			<div class="headerButton headerOptions"><img src="images/options.png" height="44" /></div>
+		</div>
+		<div class="indexImage"><img src="images/logoBlack.png" style="height:50%; margin-top:8%;" /></div>
+		<br />
+		<div class="indexContainer">
+			<div class="menuContainer">
+				<div class="menuButton">Home</div>
+				<div class="menuButton">Ingredients</div>
+				<a href="recipes.html" class="menuButton">Recipes</a>
+				<div class="menuButton">Button</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

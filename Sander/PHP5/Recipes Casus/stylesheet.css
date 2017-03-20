@@ -18,6 +18,49 @@ body {
 	min-width: 500px;
 	height: 100%;
 	background: #FFF;
+	overflow: auto;
+}
+
+
+/* Links */
+
+a {
+	text-decoration: none;
+}
+
+/* Unvisited */
+a:link {
+
+}
+
+/* Visited */
+a:visited {
+	color: #5C4432;
+}
+
+/* Hover */
+a:hover {
+	color: #333;
+}
+
+/* Selected */
+a:active {
+	color: #5C4432;
+}
+
+/* Index */
+
+.indexContainer {
+	position: fixed;
+	bottom: 15%;
+	left: 35%;
+	right: 35%;
+	font-size: 30px;
+}
+
+.indexImage {
+	display: flex;
+	justify-content: center;
 }
 
 
@@ -43,12 +86,11 @@ body {
 	line-height: 47px;
 	padding-top: 3px;
 	text-align: center;
-	# border: 1px solid #666;
 	border-left: 1px solid #999;
 }
 
 .headerLogin {
-	width: 100px;
+	width: 125px;
 }
 
 .headerOptions {
@@ -63,6 +105,11 @@ body {
 }
 
 
+/* Header clickmenu */
+
+
+
+
 /* Menu */
 
 .menuContainer {
@@ -73,49 +120,87 @@ body {
 
 .menuButton {
 	display: inline;
-	border-radius: 2px;
-	width: 175px;
+	width: 125px;
 	height: 45px;
-	margin-left: -1px;
+	margin: 0px 2% 5px;
+	margin-bottom: 5px;
 	padding-top: 15px;
 	text-align: center;
+	color: #333;
+	#border: 1px solid #999;
 }
 
 .menuButton:hover {
-	box-shadow: inset 0px 0px 0px 1px #CCC;
-}
-
-
-/* Left */
-
-.left {
-	display: inline;
-	height: 100%;
-	width: 20%;
-	min-width: 100px;
-	border: 1px solid #CCC;
+	border-bottom: 5px solid #5C4432;
+	margin-bottom: 0px;
 }
 
 
 /* Content */
 
 .content {
+	display: flex;
+	#border: 1px solid #CCC;
+}
+
+.column {
 	display: inline;
-	height: 100%;
+	padding: 25px 10px;
+}
+
+/* Left */
+
+.left {
+	width: 20%;
+	min-width: 100px;
+}
+
+.ingredients {
+	width: 100%;
+	border-spacing: 0;
+}
+
+.ingredients .header {
+	background: #5C4432;
+	padding: 10px;
+	font-size: 25px;
+	color: #EEE;
+}
+
+.ingredients .content {
+	border: 1px solid #DDD;
+	border-top: 0;
+	padding: 10px;
+	font-size: 17px;
+	color: #222;
+	font-family: Verdana;
+}
+
+
+/* Center */
+
+.center {
 	width: 60%;
 	min-width: 300px;
-	border: 1px solid #CCC;
 	font-family: Verdana;
 	font-size: 17px;
+}
+
+h1.center {
+	width: 100%;
+	font-family: fourHand;
+	font-size: 50px;
+}
+
+.contentImage {
+	width: 500px;
+	margin: 0px auto 10px;
 }
 
 
 /* Right */
 
 .right {
-	display: inline;
-	height: 100%;
 	width: 20%;
 	min-width: 100px;
-	border: 1px solid #CCC;
 }
