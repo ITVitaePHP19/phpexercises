@@ -50,21 +50,21 @@ if (isset($_POST['button'])) {
 // if a session for count is set, make a variable for the session 'count'   
     if (isset($_SESSION['count']))
     $count = $_SESSION['count'];
-// if count is an even number 
+// if count is an even number show a message that Player O is next
     if ($count % 2 == 0) {
         // set Message property
         $objMessage->setMessage("Player O's turn");
 // previous player = X
         $prevplayer = 'X';
     }
-// if count is an odd number
+// if count is an odd number show a message that Player X is next
     else {
 // set Message property
         $objMessage->setMessage("Player X's turn");
 // previous player is O
         $prevplayer = 'O';
     }
-// if count is 8 or above
+// if count is 8 or above and noone won the game, show a message that it's a draw
     if ($count >= 8){
         // set Message property
         $objMessage->setMessage("It's a draw!");
