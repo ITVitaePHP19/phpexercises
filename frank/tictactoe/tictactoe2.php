@@ -127,10 +127,9 @@ if (isset($_POST['button'])) {
         }
         }
     }
-// if no button is set yet, show a message for Player X te begin
+// if no button is set yet, show a message for Player X to begin instead of Player O to begin
     if (!isset($_POST['button'])) {
-    $objMessage->setMessage('Player X begins');
-        //$turn = 'Player X begins';   
+    $objMessage->setMessage('Player X begins');  
     } 
     // echo the message
     echo $objMessage->getMessage();
@@ -161,4 +160,3 @@ if (isset($_POST['button'])) {
 </form>
 </body>
 </html>
-
