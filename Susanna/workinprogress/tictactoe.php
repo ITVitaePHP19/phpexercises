@@ -11,6 +11,14 @@ body,html{
 input, button, select, option, textarea {
     font-size: 100%;
 }
+button {
+  background: none;
+  border: 0;
+}
+
+button:focus {
+  outline: 0;
+}
 </style>
 
 <?php
@@ -36,6 +44,8 @@ input, button, select, option, textarea {
 // have the player be able to rename from default to a name of their choosing, either both players before the game starts, or before each's first turn.
 // or
 // pick a name from random silly names
+var_dump($_POST);
+
 
 if (!isset ($_SESSION["player"])){
 	$_SESSION["player"] = "1";
@@ -80,6 +90,7 @@ if(isset($_POST["Reset"])) {
 // function for putting in the X or O
 // FIX not correctly changing session of field to player numer
 function handleButton($buttonvalue){
+	echo "debug: ".$buttonvalue;
 	if($_SESSION["fields"][$buttonvalue] == "0"){
 		$_SESSION["fields"][$buttonvalue] == $_SESSION["player"];
 //		$_SESSION["player"] == $_SESSION["fields"][$buttonvalue];
@@ -110,17 +121,17 @@ function imageDisplay($imageNum){
 <p align='center'>
 <table width="600" border="5" height="600">
 
-<tr><td><input name="buttonPress" value="1" type="image" min="0" step="any" src=<?php imageDisplay($_SESSION["fields"][1]);?> alt="" border='0' height='200' width='200'/></td>
-	<td><input name="buttonPress" value="2" type="image" min="0" step="any" src=<?php imageDisplay($_SESSION["fields"][2]);?> alt="" border='0' height='200' width='200'/></td>
-	<td><input name="buttonPress" value="3" type="image" min="0" step="any" src=<?php imageDisplay($_SESSION["fields"][3]);?> alt="" border='0' height='200' width='200'/></td>
+<tr><td><button name="buttonPress" value="1" type="submit" min="0" step="any"> <img src=<?php imageDisplay($_SESSION["fields"][1]);?> alt="" border='0' height='200' width='200'> </button></td>
+	<td><button name="buttonPress" value="2" type="submit" min="0" step="any"> <img src=<?php imageDisplay($_SESSION["fields"][2]);?> alt="" border='0' height='200' width='200'> </button></td>
+	<td><button name="buttonPress" value="3" type="submit" min="0" step="any"> <img src=<?php imageDisplay($_SESSION["fields"][3]);?> alt="" border='0' height='200' width='200'> </button></td>
 </tr>
-<tr><td><input name="buttonPress" value="4" type="image" min="0" step="any" src=<?php imageDisplay($_SESSION["fields"][4]);?> alt="" border='0' height='200' width='200'/></td>
-	<td><input name="buttonPress" value="5" type="image" min="0" step="any" src=<?php imageDisplay($_SESSION["fields"][5]);?> alt="" border='0' height='200' width='200'/></td>
-	<td><input name="buttonPress" value="6" type="image" min="0" step="any" src=<?php imageDisplay($_SESSION["fields"][6]);?> alt="" border='0' height='200' width='200'/></td>
+<tr><td><button name="buttonPress" value="4" type="submit" min="0" step="any"> <img src=<?php imageDisplay($_SESSION["fields"][4]);?> alt="" border='0' height='200' width='200'> </button></td>
+	<td><button name="buttonPress" value="5" type="submit" min="0" step="any"> <img src=<?php imageDisplay($_SESSION["fields"][5]);?> alt="" border='0' height='200' width='200'> </button></td>
+	<td><button name="buttonPress" value="6" type="submit" min="0" step="any"> <img src=<?php imageDisplay($_SESSION["fields"][6]);?> alt="" border='0' height='200' width='200'> </button></td>
 </tr>
-<tr><td><input name="buttonPress" value="7" type="image" min="0" step="any" src=<?php imageDisplay($_SESSION["fields"][7]);?> alt="" border='0' height='200' width='200'/></td>
-	<td><input name="buttonPress" value="8" type="image" min="0" step="any" src=<?php imageDisplay($_SESSION["fields"][8]);?> alt="" border='0' height='200' width='200'/></td>
-	<td><input name="buttonPress" value="9" type="image" min="0" step="any" src=<?php imageDisplay($_SESSION["fields"][9]);?> alt="" border='0' height='200' width='200'/></td>
+<tr><td><button name="buttonPress" value="7" type="submit" min="0" step="any"> <img src=<?php imageDisplay($_SESSION["fields"][7]);?> alt="" border='0' height='200' width='200'> </button></td>
+	<td><button name="buttonPress" value="8" type="submit" min="0" step="any"> <img src=<?php imageDisplay($_SESSION["fields"][8]);?> alt="" border='0' height='200' width='200'> </button></td>
+	<td><button name="buttonPress" value="9" type="submit" min="0" step="any"> <img src=<?php imageDisplay($_SESSION["fields"][9]);?> alt="" border='0' height='200' width='200'> </button></td>
 </tr>
 
 
