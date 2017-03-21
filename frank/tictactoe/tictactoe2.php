@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html>
+<head>
+<title>
+Tic tac toe
+</title>
+<link rel='stylesheet' type='text/css' href='style.css'>  
+</head>
+<body>
+<h1>Tic-tac-toe</h1> 
+
+<?php     
+// class to store message about who's turn it is
+class TurnMessage {
+// property for message
+private $message;
+// method for set new message
+public function setMessage($newMsg) {
+$this->message = $newMsg;
+}
+// method for get message
+public function getMessage() {
+return $this->message;
+}
+}
+
+// destroy session if reset/play again button is pressed
+if(isset($_POST['destroy'])){
+$_SESSION = [];
+session_destroy();
+}
+    
+$destroy = 'Reset';
+
+// Create object for message
+$objMessage = new TurnMessage();
+
+// session for disable for the whole field
+if(isset($_SESSION['gameover'])){
+    $_SESSION['gameover'];
+}
+    
+// session for disable when a button is pressed    
+if (isset($_POST['button'])) {
+    $_SESSION['dis'] = 'disabled';    
+// if nothing is set, $count = empty   
+    $count = '';
+    
+// if a session for count is set, make a variable for the session 'count'   
+    if (isset($_SESSION['count']))
+    $count = $_SESSION['count'];
+// if count is an even number 
+    if ($count % 2 == 0) {
+        // set Message property
+        $objMessage->setMessage("Player O's turn");
+// previous player = X
+        $prevplayer = 'X';
+    }
+// if count is an odd number
+    else {
+// set Message property
+        $objMessage->setMessage("Player X's turn");
+// previous player is O
+        $prevplayer = 'O';
+    }
+// if count is 8 or above
+    if ($count >= 8){
+        // set Message property
+        $objMessage->setMessage("It's a draw!");
+    }
+    
+    $_SESSION['count'] = $count+1;
+    
+// make a session for each pressed button and decide who's turn it is    
+    if($_POST['button'] == 0) {
+        $_SESSION['but0'] = $prevplayer;
+    }
+    if($_POST['button'] == 1) {
+        $_SESSION['but1'] = $prevplayer;
+    }
+    if($_POST['button'] == 2) {
+        $_SESSION['but2'] = $prevplayer;
+    }
+    if($_POST['button'] == 3) {
+        $_SESSION['but3'] = $prevplayer;
+    }
+    if($_POST['button'] == 4) {
+        $_SESSION['but4'] = $prevplayer;
+    }
+    if($_POST['button'] == 5) {
+        $_SESSION['but5'] = $prevplayer;
+    }
+    if($_POST['button'] == 6) {
+        $_SESSION['but6'] = $prevplayer;
+    }
+    if($_POST['button'] == 7) {
+        $_SESSION['but7'] = $prevplayer;
+    }
+    if($_POST['button'] == 8) {
+        $_SESSION['but8'] = $prevplayer;
+    }
+// see which button sessions are set to decide which player has won
+        if(isset($_SESSION['but0']) && $_SESSION['but0'] == $prevplayer && isset($_SESSION['but1']) && $_SESSION['but1'] == $prevplayer && isset($_SESSION['but2']) && $_SESSION['but2'] == $prevplayer || isset($_SESSION['but3']) && $_SESSION['but3'] == $prevplayer && isset($_SESSION['but4']) && $_SESSION['but4'] == $prevplayer && isset($_SESSION['but5']) && $_SESSION['but5'] == $prevplayer ||
+        isset($_SESSION['but6']) && $_SESSION['but6'] == $prevplayer && isset($_SESSION['but7']) && $_SESSION['but7'] == $prevplayer && isset($_SESSION['but8']) && $_SESSION['but8'] == $prevplayer ||
+        isset($_SESSION['but0']) && $_SESSION['but0'] == $prevplayer && isset($_SESSION['but3']) && $_SESSION['but3'] == $prevplayer && isset($_SESSION['but6']) && $_SESSION['but6'] == $prevplayer ||
+        isset($_SESSION['but1']) && $_SESSION['but1'] == $prevplayer && isset($_SESSION['but4']) && $_SESSION['but4'] == $prevplayer && isset($_SESSION['but7']) && $_SESSION['but7'] == $prevplayer ||
+        isset($_SESSION['but2']) && $_SESSION['but2'] == $prevplayer && isset($_SESSION['but5']) && $_SESSION['but5'] == $prevplayer && isset($_SESSION['but8']) && $_SESSION['but8'] == $prevplayer ||
+        isset($_SESSION['but0']) && $_SESSION['but0'] == $prevplayer && isset($_SESSION['but4']) && $_SESSION['but4'] == $prevplayer && isset($_SESSION['but8']) && $_SESSION['but8'] == $prevplayer ||
+        isset($_SESSION['but2']) && $_SESSION['but2'] == $prevplayer && isset($_SESSION['but4']) && $_SESSION['but4'] == $prevplayer && isset($_SESSION['but6']) && $_SESSION['but6'] == $prevplayer) {
+// if previous player = player X        
+        if ($prevplayer == 'X'){
+// set message property
+        $objMessage->setMessage('Player X has won the game');
+// call session to disable all buttons if player X has won
+        $_SESSION['gameover'] = 'disabled';
+// change the text of the reset button to 'Play again'
+        $destroy = 'Play again';
+        }
+// if previous player = player O        
+            elseif ($prevplayer == 'O'){
+        $objMessage->setMessage('Player O has won the game');
+// call session to disable all buttons if player X has won
+        $_SESSION['gameover'] = 'disabled';
+// change the text of the reset button to 'Play again'        
+        $destroy = 'Play again';
+        }
+        }
+    }
+// if no button is set yet, show a message for Player X te begin
+    if (!isset($_POST['button'])) {
+    $objMessage->setMessage('Player X begins');
+        //$turn = 'Player X begins';   
+    } 
+    // echo the message
+    echo $objMessage->getMessage();
+?>   
+<form method='POST'>
+<table>
+    <tr>
+        <?php // if a button is pressed, remember it in a session and disable the button. Also disable the buttons if a player has won (gameover).
+        ?>
+        <td><button name="button" value="0" <?php if (isset($_SESSION['but0']) || isset($_SESSION['gameover'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but0'])) echo $_SESSION['but0']; ?></button></td>
+        <td><button name="button" value="1" <?php if (isset($_SESSION['but1']) || isset($_SESSION['gameover'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but1'])) echo $_SESSION['but1']; ?></button></td>
+        <td><button name="button" value="2" <?php if (isset($_SESSION['but2']) || isset($_SESSION['gameover'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but2'])) echo $_SESSION['but2']; ?></button></td>
+    </tr>
+    <tr>
+        <td><button name="button" value="3" <?php if (isset($_SESSION['but3']) || isset($_SESSION['gameover'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but3'])) echo $_SESSION['but3']; ?></button></td>
+        <td><button name="button" value="4" <?php if (isset($_SESSION['but4']) || isset($_SESSION['gameover'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but4'])) echo $_SESSION['but4']; ?></button></td>
+        <td><button name="button" value="5" <?php if (isset($_SESSION['but5']) || isset($_SESSION['gameover'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but5'])) echo $_SESSION['but5']; ?></button></td>
+    </tr>
+    <tr>
+        <td><button name="button" value="6" <?php if (isset($_SESSION['but6']) || isset($_SESSION['gameover'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but6'])) echo $_SESSION['but6']; ?></button></td>
+        <td><button name="button" value="7" <?php if (isset($_SESSION['but7']) || isset($_SESSION['gameover'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but7'])) echo $_SESSION['but7']; ?></button></td>
+        <td><button name="button" value="8" <?php if (isset($_SESSION['but8']) || isset($_SESSION['gameover'])) echo $_SESSION['dis']; ?> ><?php if (isset($_SESSION['but8'])) echo $_SESSION['but8']; ?></button></td>
+    </tr>
+</table>
+    <?php // give the destroy button a variable so the text of the button can be changed
+    ?>
+    <input type='submit' name='destroy' value='<?= $destroy ?>'>
+</form>
+</body>
+</html>
+
