@@ -5,17 +5,25 @@ if (isset($_POST["number"]))
 {
 $number = $_POST["number"];
 }
+if (isset($_POST["op"]))
+{
 $op = $_POST["op"];
+}
+if (isset($_POST["ans"]))
+{
 $ansm = $_POST["ans"];
+}
 
 $sum = $_SESSION["sum"];
 
+if (isset($op))
+{
 if($op == "=")
 {
 	$math = trim($sum);
 	if(!($calc = create_function("", "return (" . $math . ");" )))
 	{
-		$sum = "ERROR = last char was not a number";
+		$sum = "ERROR = Invalid Sum";
 	}
 	else 
 	{
@@ -29,10 +37,14 @@ if($op == "=")
 	
 	header("Location: index.php");
 }
+}
 
+if (isset($ansm))
+{
 if($ansm == true)
 {
 $number = $_SESSION["ans"];
+}
 }
 
 if(is_numeric(substr($_SESSION["sum"] , -1)))
@@ -44,6 +56,8 @@ else
 $sum = $sum . " " . $number;
 }
 
+if (isset($op))
+{
 if ($op == true && $op!="=")
 {
 $sum = $sum . " " . $op . " ";
@@ -52,6 +66,7 @@ $sum = $sum . " " . $op . " ";
 if($op == "C")
 {
 	$sum = "";
+}
 }
 
 $_SESSION["sum"] = $sum;

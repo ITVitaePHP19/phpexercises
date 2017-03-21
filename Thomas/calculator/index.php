@@ -30,7 +30,10 @@ th, td {
 			</div>
 			<div>
 			<?php 
+			if (isset($_SESSION["sum"]))
+			{
 			$sumdis = $_SESSION["sum"];
+			}
 			?>
 			<table>
 			<tr>
