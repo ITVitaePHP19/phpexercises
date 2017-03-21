@@ -1,0 +1,92 @@
+@font-face {
+	font-family: 'fourHand';
+	src: url('fonts/fourHand.ttf');
+}
+
+body {
+	font-family: fourHand;
+	font-size: x-large;
+}
+
+
+/* Layout */
+
+.side {
+	width: 200px;
+	height: 100%;
+	background-color: #DDD;
+}
+
+.left {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+}
+
+.right {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+}
+
+.center {
+	position: fixed;
+	top: 0px;
+	left: 200px;
+	width: 100%;
+	height: 100%;
+	background-color: #FFF;
+}
+
+
+/* Header */
+
+.headerContainer {
+	display: flex;
+	width: 100%;
+	height: 55px;
+	overflow: auto;
+	background-color: #5C4432;
+	color: #EEE;
+}
+
+.headerFiller {
+	width: 20%;
+}
+
+.headerButton {
+	display: inline;
+	line-height: 50px;
+	padding-top: 5px;
+	text-align: center;
+#	border: 1px solid #666;
+	border-left: 1px solid #999;
+}
+
+.headerLogin {
+	width: 125px;
+}
+
+.headerOptions {
+	width: 50px;
+	overflow: hidden;
+}
+
+.headerImage {
+	background-color: #CCC;
+	position: fixed;
+	top: 55px;
+	background-image: url('images/headerImage.jpg');
+	width: 80%;
+}
+
+/* Inputs */
+
+.inputText {
+	display: block;
+	width: 200px;
+	margin: 8px 0px;
+	padding: 8px;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+}

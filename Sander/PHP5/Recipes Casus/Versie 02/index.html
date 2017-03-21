@@ -1,0 +1,37 @@
+<html>
+
+<head>
+	<title>What's in my fridge?</title>
+	<link href="stylesheet.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+	function DetectTheThing() {
+		var uagent = navigator.userAgent.toLowerCase();
+		if (uagent.search("iphone") > -1 || uagent.search("ipad") > -1
+		|| uagent.search("android") > -1 || uagent.search("blackberry") > -1
+		|| uagent.search("webos") > -1)
+			window.location.href ="otherindex.html";
+    }
+	</script>
+</head>
+
+<body>
+	<div class="page">
+		<div class="headerContainer">
+			<div class="headerButton headerLogin">Login</div>
+			<div class="headerButton headerLogin">Register</div>
+			<div class="headerButton headerOptions"><img src="images/options.png" height="44" /></div>
+		</div>
+		<div class="indexImage"><img src="images/logoBlack.png" style="height:40%; margin-top:10%;" /></div>
+		<br />
+		<div class="indexContainer">
+			<div class="menuContainer">
+                <a href="recipes.html" class="menuButton">Home</a>
+                <a href="recipes.html" class="menuButton">Ingredients</a>
+				<a href="recipes.html" class="menuButton">Recipes</a>
+                <a href="recipes.html" class="menuButton">Button</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

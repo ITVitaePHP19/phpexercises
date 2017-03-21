@@ -1,0 +1,207 @@
+@font-face {
+	font-family: 'fourHand';
+	src: url('fonts/fourHand.ttf');
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	background: #DDD;
+	font-family: fourHand;
+	font-size: 20px;
+}
+
+.page {
+	position: fixed;
+	top: 0;
+	width: 80%;
+	min-width: 500px;
+	height: 100%;
+	background: #FFF;
+	overflow: auto;
+}
+
+
+/* Links */
+
+a {
+	text-decoration: none;
+}
+
+/* Unvisited */
+a:link {
+
+}
+
+/* Visited */
+a:visited {
+	color: #5C4032;
+}
+
+/* Hover */
+a:hover {
+	color: #333;
+}
+
+/* Selected */
+a:active {
+	color: #5C4032;
+}
+
+/* Index */
+
+.indexContainer {
+	position: fixed;
+	bottom: 15%;
+	left: 35%;
+	right: 35%;
+	font-size: 30px;
+}
+
+.indexImage {
+	display: flex;
+	justify-content: center;
+}
+
+
+/* Header */
+
+.headerContainer {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	overflow: auto;
+	background-color: #5C4032;
+	font-size: 20px;
+	color: #EEE;
+}
+
+.headerFiller {
+	min-width: 250px;
+	width: 20%;
+}
+
+.headerButton {
+    display: inline;
+    line-height: 47px;
+    padding-top: 3px;
+    text-align: center;
+    border-left: 1px solid #7D665B;
+}
+
+.headerLogin {
+	width: 125px;
+}
+
+.headerOptions {
+	width: 50px;
+	overflow: hidden;
+}
+
+.headerImage {
+	background-color: #CCC;
+	width: 100%;
+	min-width: 500px;
+}
+
+
+/* Header clickmenu */
+
+
+
+
+/* Menu */
+
+.menuContainer {
+	display: flex;
+	justify-content: center;
+	font-size: 32px;
+}
+
+.menuButton {
+	display: inline;
+	width: 125px;
+	height: 45px;
+	margin: 0px 2% 5px;
+	margin-bottom: 5px;
+	padding-top: 15px;
+	text-align: center;
+	color: #333;
+	#border: 1px solid #999;
+}
+
+.menuButton:hover {
+	border-bottom: 5px solid #5C4032;
+	margin-bottom: 0px;
+}
+
+
+/* Content */
+
+.content {
+    display: flex;
+    #border: 1px solid #CCC;
+}
+
+.column {
+	display: inline;
+	padding: 25px 10px;
+}
+
+/* Left */
+
+.left {
+	width: 20%;
+	min-width: 100px;
+}
+
+.ingredients {
+	width: 100%;
+	border-spacing: 0;
+}
+
+.ingredients .header {
+	background: #5C4032;
+	padding: 10px;
+	font-size: 27px;
+	color: #EEE;
+}
+
+.ingredients .content {
+	border: 1px solid #DDD;
+	border-top: 0;
+	padding: 10px;
+	font-size: 17px;
+	color: #222;
+	font-family: Verdana;
+}
+
+
+/* Center */
+
+.center {
+	width: 60%;
+	min-width: 300px;
+	font-family: Verdana;
+	font-size: 17px;
+}
+
+h1.center {
+    width: 100%;
+    font-family: fourHand;
+    font-size: 50px;
+    color: #5C4032;
+}
+
+.contentImage {
+	width: 500px;
+	margin: 0px auto 10px;
+}
+
+
+/* Right */
+
+.right {
+	width: 20%;
+	min-width: 100px;
+}
