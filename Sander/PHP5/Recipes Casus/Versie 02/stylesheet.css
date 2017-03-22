@@ -198,6 +198,43 @@ h1.center {
 	margin: 0px auto 10px;
 }
 
+.registerInput {
+	width: 20vw;
+	margin-left: 10px;
+    padding: 8px;
+	font-family: Verdana;
+	font-size: 15px;
+	resize: none;
+	border: 1px solid #CCC;
+}
+
+.registerSubmit {
+	margin-left: 10px;
+	padding-top: 5px;
+	width: 94%;
+	height: 45px;
+	border: 0px;
+	background: #5C4032;
+	font-family: fourHand;
+	font-size: 25px;
+	color: #EEE;
+	outline: none;
+}
+
+.registerSubmit:hover {
+	margin-left: 10px;
+	padding-top: 5px;
+	width: 94%;
+	height: 45px;
+	border: 0px;
+	background: #FFF;
+	font-family: fourHand;
+	font-size: 25px;
+	color: #5C4032;
+	outline: none;
+	box-shadow: inset 0px 0px 0px 1px #CCC;
+}
+
 
 /* Right */
 
