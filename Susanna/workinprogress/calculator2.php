@@ -7,16 +7,18 @@
 <?php
 
 // TODO
+// make default for buttonPress do nothing to circumvent people changing the value of the buttons in html. DONE
+// return function to . to have a 0 appear in front of it if its pressed in an empty field. DONE
+// add another session for last button pressed. DONE 
+// fix fatal error from pressing = twice DONE 
+
 // remove the ability to press operators one after another, maybe by not allowing them to do anything if both result and lastnumber sessions are blank
 // or by saying if buttonPressPrev is a operator or = for it to do nothing
 // build functionality for %
 // add euro's mode with rounding and , as punctuation instead of .
 // change the layout of the buttons so it looks a bit better
-// make default for numberPress do nothing to circumvent people changing the value of the buttons in html.
 
-// return function to . to have a 0 appear in front of it if its pressed in an empty field. DONE
-// add another session for last button pressed. DONE 
-// fix fatal error from pressing = twice DONE 
+
 
 
 // checks if the session var exists, if not, creates it with empty string
@@ -36,6 +38,7 @@ if (!isset ($_SESSION["buttonPressPrev"])){
 	$_SESSION["buttonPressPrev"] = "";
 }
 
+$allowedValues = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 // any button pressed except for Clear enters here through $_POST["buttonPress"]
 if(isset($_POST["buttonPress"])) {	
@@ -76,9 +79,14 @@ if(isset($_POST["buttonPress"])) {
 		case "M-":
 			handleMemory($_POST["buttonPress"]);
 			break;
-		// send all other buttonPress values to appendValue function
-		default:
+		// send all numerical buttonPress values to appendValue function
+		case (in_array($_POST["buttonPress"], $approvedValues, TRUE));
 			$_SESSION["result"] = appendValue($_POST["buttonPress"]);
+			break;
+		// have default do nothing in case someone changes a value
+		default:
+			break;
+			
 	}
 	// store button press value into session "buttonPressPrev"
 	$_SESSION["buttonPressPrev"] = $_POST["buttonPress"];
