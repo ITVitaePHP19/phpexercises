@@ -38,6 +38,7 @@ button:focus {
 // solved the refresh player switching bug DONE 
 // (by adding it to the function handleButton, which checks if a field is empty before putting in an 1 or a 2)
 // implement whitelist in case someone edits the value of the buttons in html DONE
+// fix bug that displays draw whilst simulatenously showing winning player DONE
 
 // php require external file for all the logic
 
@@ -82,9 +83,8 @@ if(isset($_POST["Reset"])) {
 	
 }
 
-// function for putting in the X or O
+// checks if field is empty, if true switches ownership of field to current player, and switches to other player
 function handleButton($buttonvalue){
-//	echo "debug: ".$buttonvalue;
 	if($_SESSION["fields"][$buttonvalue] == "0"){
 		$_SESSION["fields"][$buttonvalue] = $_SESSION["player"];
 		if($_SESSION["player"] == "1"){
@@ -97,7 +97,7 @@ function handleButton($buttonvalue){
 	
 	
 }
-// checks for winning combinations for each player
+// checks for winning combinations for each player, if not checks for draw
 function winningCombo(){
 	if ($_SESSION["player"] == 1){
 		if ((($_SESSION["fields"][1] == 1) && ($_SESSION["fields"][2] == 1) && ($_SESSION["fields"][3] == 1)) ||
@@ -111,6 +111,13 @@ function winningCombo(){
 		{
 			echo "Player 1 has won the game!";
 		}
+		else
+			if (in_array("0",$_SESSION["fields"],TRUE)){
+			;
+			}
+			else {
+			echo "It's a draw!";
+		} 
 	}	
 	if ($_SESSION["player"] == 2){
 		if ((($_SESSION["fields"][1] == 2) && ($_SESSION["fields"][2] == 2) && ($_SESSION["fields"][3] == 2)) ||
@@ -124,16 +131,18 @@ function winningCombo(){
 		{
 			echo "Player 2 has won the game!";
 		}		
-	}
-	// checks session array for a 0 value, if true does nothing if false echoes the its a draw statement
-	if (in_array("0",$_SESSION["fields"],TRUE)){
-		;
-	}
-		else {
+		else
+			if (in_array("0",$_SESSION["fields"],TRUE)){
+			;
+			}
+			else {
 			echo "It's a draw!";
 		} 
+	}
+
+
 }
-// function for displaying images on each square based on which session player owns the referred to session field
+// sends correct img src, based upon ownership of the field mentioned in the button php script
 function imageDisplay($imageNum){
 	if($imageNum == "0"){
 		echo "blankspot.png";
