@@ -16,7 +16,13 @@ $startingNumber = 600851475143;
 // pt5 is $result more than 1?  then start again from pt 1.
 
 
-
+$primes = array();
+for ($x = 2; $x <= 1000; $x++) {
+    $xIsPrime = TRUE;
+    $sqrtX = sqrt($x);
+    foreach ($primes as $prime) if ($prime > $sqrtX || ((!($x % $prime)) && (!$xIsPrime = FALSE))) break;
+    if ($xIsPrime) echo ($primes[] = $x)  . "<br>";
+}
 
 
 
