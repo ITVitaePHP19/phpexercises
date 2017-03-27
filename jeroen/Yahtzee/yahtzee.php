@@ -10,56 +10,24 @@
 
 <div id="flex-container">
 	<div class="card">
-		<div class="card-header">Gooi</div>
+	<div class="card-header">Gooi</div>
 		<div class="card-content">
 		<form method="post" name="dice">
 		<div id="dice_container">
-			<div class="dicebox">
-				<div class="dice">
-					<?= $dice1; ?>
-				</div>
-				<input type="hidden" name="dice1" value="<?= $dice1;?>">
-				<input type="checkbox" name="check1" <?= $disable_check." ".$checked1; ?>>
-			</div>
 
-			<div class="dicebox">
-				<div class="dice">
-					<?= $dice2; ?>
-				</div>
-				<input type="hidden" name="dice2" value="<?= $dice2;?>">
-				<input type="checkbox" name="check2" <?= $disable_check." ".$checked2; ?>>
-			</div>
+	<?php
+	echo 	show_dice($dice1, $checkname1, $checked1, $dicename1),
+		show_dice($dice2, $checkname2, $checked2, $dicename2),
+		show_dice($dice3, $checkname3, $checked3, $dicename3),
+		show_dice($dice4, $checkname4, $checked4, $dicename4),
+		show_dice($dice5, $checkname5, $checked5, $dicename5);
+	?>
 
-			<div class="dicebox">
-				<div class="dice">
-					<?= $dice3; ?>
-				</div>
-				<input type="hidden" name="dice3" value="<?= $dice3;?>">
-				<input type="checkbox" name="check3" <?= $disable_check." ".$checked3; ?>>
-			</div>
-
-			<div class="dicebox">
-				<div class="dice">
-					<?= $dice4; ?>
-				</div>
-				<input type="hidden" name="dice4" value="<?= $dice4;?>">
-				<input type="checkbox" name="check4" <?= $disable_check." ".$checked4; ?>>
-			</div>
-
-			<div class="dicebox">
-				<div class="dice">
-					<?= $dice5; ?>
-				</div>
-				<input type="hidden" name="dice5" value="<?= $dice5;?>">
-				<input type="checkbox" name="check5" <?= $disable_check." ".$checked5; ?>>
-			</div>
 		</div>
 		<button name="roll" <?= $disable_roll; ?>>Gooi</button>
-		<p><?= $message.$end_message.$fill_in_message ?>
+		<p><?= $message.$end_message.$fill_in_message; ?>
 		</div>
 	</div>
-
-
 
 	<div class = "card">
 		<div class="card-header">Score</div>
