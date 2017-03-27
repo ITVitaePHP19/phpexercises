@@ -1,7 +1,5 @@
 <?php
-
 session_start();
-
 $a1="a1";
 $a2="a2";
 $a3="a3";
@@ -12,14 +10,11 @@ $c1="c1";
 $c2="c2";
 $c3="c3";
 
-//difine message if player has won or the game end in a draw.
-if(!isset($end_message))$end_message="";
+//define message if player has won or the game end in a draw.
+if(!isset($message))$message="";
 
-//difine variable for disabling the submit button
+//define variable for disabling the submit button
 if(!isset($disable_sub))$disable_sub="";
-
-//counter for number of times that submit is pressed
-$counter = 0;
 
 //create for each field a session, whitch is empty at the start of the game
 if(!isset($_SESSION['a1'])){$_SESSION['a1'] = "";}
@@ -35,8 +30,7 @@ if(!isset($_SESSION['turn_count'])){$_SESSION['turn_count'] = "";}
 
 //count number of times that submit button is pressed
 if (isset($_POST['submit'])){
-	$counter ++;
-	$_SESSION['turn_count'] += $counter;
+	$_SESSION['turn_count'] ++;
 }
 
 //if counter is uneven, it's O's turn, else its X's turn.
@@ -44,10 +38,12 @@ if($_SESSION['turn_count']%2==0){
 	$player = 'O';
 	$opponent = 'X';
 }
-elseif($_SESSION['turn_count']%2==1){
+else{
 	$player = 'X';
 	$opponent = 'O';
 }
+
+$message = "Beurt: speler <b>". $opponent ."</b>";
 
 //fill the field
 function fill_field($field){
@@ -56,9 +52,9 @@ function fill_field($field){
 	if (isset($_POST['submit'])){
 		if(is_array($field_select)){				//needed for foreach, to confirm $field_select is an array
 			foreach($field_select as $selected){	//makes for each option in drop-downmenu a variable '$selected'
-				if($selected == $field){			//if drop-down item matches with $field
-					$field = $player;				//$field will be filled with X or O
-					return $field;
+				if($selected == $field){			//if that variable is the same as $field
+					$field = $player;
+					return $field;					//$field will be filled with either X or O
 				}
 			}
 		}
@@ -88,7 +84,7 @@ $sesc2 = $_SESSION['c2'];
 $sesc3 = $_SESSION['c3'];
 
 //if a player has a winning combination, the players wins. 
-//the end message shows the player who won, by showing the last player whos played
+//the message shows the player who won, by showing the last player whos played
 //the submit button will be set to "disabled", so the game can't continue. 
 if (($sesa1==$sesa2)&&($sesa2==$sesa3) && $sesa1!=null||
 	($sesb1==$sesb2)&&($sesb2==$sesb3) && $sesb1!=null||
@@ -98,21 +94,23 @@ if (($sesa1==$sesa2)&&($sesa2==$sesa3) && $sesa1!=null||
 	($sesa3==$sesb3)&&($sesb3==$sesc3) && $sesa3!=null||
 	($sesa1==$sesb2)&&($sesb2==$sesc3) && $sesa1!=null||
 	($sesa3==$sesb2)&&($sesb2==$sesc1) && $sesa3!=null){
-	$end_message = "Speler <b>" .$player. "</b> heeft gewonnen.";
+	$message = "Speler <b>" .$player. "</b> heeft gewonnen.";
 	$disable_sub = "disabled";
 }
 
 //if session-counter is 9 and there is no winner, the game ends in a draw and submit-button will be disabled.
-if (($_SESSION['turn_count'] >= 9) && ($end_message == "")){
+if (($_SESSION['turn_count'] >= 9) && ($message != "Speler <b>" .$player. "</b> heeft gewonnen.")){
 	$disable_sub = "disabled";
-	$end_message = "Geen winnaar";
+	$message = "Geen winnaar";
 }
 
 //by pressing reset, clear all sessions and enable submit button.
 if(isset($_POST['reset'])){
 	$_SESSION['a1'] = $_SESSION['a2'] = $_SESSION['a3'] = $_SESSION['b1'] =
 	$_SESSION['b2'] = $_SESSION['b3'] = $_SESSION['c1'] = $_SESSION['c2'] =
-	$_SESSION['c3'] = $_SESSION['turn_count'] = $disable_sub = $end_message = "";
+	$_SESSION['c3'] = $_SESSION['turn_count'] = $disable_sub = "";
 	$opponent = "X";
+	$message = "Beurt: speler <b>". $opponent ."</b>";
+	
 }
 ?>
