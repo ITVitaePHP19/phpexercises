@@ -3,32 +3,47 @@ html{
 	background-color: #f4f4f4;
 }
 
-h1{
-	font-size: 18px;
-	text-align: center;
-	color: #999999;
-}
 
-#ttt{
+.card{
 	box-shadow: 5px 5px 6px 0px #c5c5c5;
 	background-color: white;
+	display: inline-block;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.card-header{
+	background-color: dodgerblue;
+	font-size: 13px;
+	font-weight: bold;
 	padding: 10px;
-	width: 240px;
+	text-transform: uppercase;
+	color: white;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding: 5px;
+	line-height: 23px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.card-game{
+	margin: 20px;
 	
 }
 
-td .game{
-	width: 60px;
-	height:60px;
+.field{
+	width: 100px;
+	height:100px;
 }
 
 table div{
-	line-height: 63px;
+	line-height: 103px;
 	vertical-align: middle;
-	font-size: 60px;
+	font-size: 100px;
 	font-weight: bold;
 	text-align: center;
-	background-color: dodgerblue;
+	background-color: #a4baf9;
 	color: white;
 	margin: 1.5px;
 	border-radius: 5px;
@@ -36,4 +51,35 @@ table div{
 
 form{
 	margin: 15px;
+}
+
+select {
+  font-size: 20px;
+}
+
+button {
+	background-color: #75aaff;
+	border-radius: 5px;
+	border: 1px solid white;
+	color: white;
+	padding: 10px 15px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 20px;
+	margin: 8px;
+	cursor: pointer;
+	transition-duration: 0.3s;
+}
+
+button:hover{
+	background-color: #1b71fc;
+}
+
+button:active{
+	transform: scaleX(0.97) scaleY(0.97);
+}
+
+button:disabled{
+	background-color: #75aaff;
+    opacity: 0.5;
 }
