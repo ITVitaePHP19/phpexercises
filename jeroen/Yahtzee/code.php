@@ -25,6 +25,29 @@ $message="";
 $end_message = "";
 $fill_in_message = "";
 
+$checkname1 = 'check1';
+$checkname2 = 'check2';
+$checkname3 = 'check3';
+$checkname4 = 'check4';
+$checkname5 = 'check5';
+$dicename1 = 'dice1';
+$dicename2 = 'dice2';
+$dicename3 = 'dice3';
+$dicename4 = 'dice4';
+$dicename5 = 'dice5';
+
+//function to show dices
+function show_dice($dice, $check, $checked, $name){
+	global $disable_check;
+	return '<div class="dicebox">
+			<div class="dice">'
+				. $dice .
+			'</div>
+			<input type="hidden" name="'.$name.'" value="'. $dice .'">
+			<input type="checkbox" name="'.$check.'" '. $disable_check." ".$checked .'>
+		</div>';
+}
+
 //set initial session count
 if(!isset($_SESSION['roll_count'])) $_SESSION['roll_count'] = 0;
 
