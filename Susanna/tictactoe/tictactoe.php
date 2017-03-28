@@ -39,6 +39,8 @@ button:focus {
 // (by adding it to the function handleButton, which checks if a field is empty before putting in an 1 or a 2)
 // implement whitelist in case someone edits the value of the buttons in html DONE
 // fix bug that displays draw whilst simulatenously showing winning player DONE
+// fix bug that declares draw when the last move is a player winning DONE
+// fix bug that declares winner after next player does a move DONE
 
 // php require external file for all the logic
 
@@ -97,9 +99,9 @@ function handleButton($buttonvalue){
 	
 	
 }
-// checks for winning combinations for each player, if not checks for draw
+// checks for winning combinations for each player, if neither have won checks for draw state.
 function winningCombo(){
-	if ($_SESSION["player"] == 1){
+	
 		if ((($_SESSION["fields"][1] == 1) && ($_SESSION["fields"][2] == 1) && ($_SESSION["fields"][3] == 1)) ||
 		   (($_SESSION["fields"][4] == 1) && ($_SESSION["fields"][5] == 1) && ($_SESSION["fields"][6] == 1)) ||
 		   (($_SESSION["fields"][7] == 1) && ($_SESSION["fields"][8] == 1) && ($_SESSION["fields"][9] == 1)) ||
@@ -111,16 +113,8 @@ function winningCombo(){
 		{
 			echo "Player 1 has won the game!";
 		}
-		else
-			if (in_array("0",$_SESSION["fields"],TRUE)){
-			;
-			}
-			else {
-			echo "It's a draw!";
-		} 
-	}	
-	if ($_SESSION["player"] == 2){
-		if ((($_SESSION["fields"][1] == 2) && ($_SESSION["fields"][2] == 2) && ($_SESSION["fields"][3] == 2)) ||
+ 	
+		elseif ((($_SESSION["fields"][1] == 2) && ($_SESSION["fields"][2] == 2) && ($_SESSION["fields"][3] == 2)) ||
 		   (($_SESSION["fields"][4] == 2) && ($_SESSION["fields"][5] == 2) && ($_SESSION["fields"][6] == 2)) ||
 		   (($_SESSION["fields"][7] == 2) && ($_SESSION["fields"][8] == 2) && ($_SESSION["fields"][9] == 2)) ||
 		   (($_SESSION["fields"][1] == 2) && ($_SESSION["fields"][5] == 2) && ($_SESSION["fields"][9] == 2)) ||
@@ -131,14 +125,15 @@ function winningCombo(){
 		{
 			echo "Player 2 has won the game!";
 		}		
-		else
+		else {
 			if (in_array("0",$_SESSION["fields"],TRUE)){
 			;
 			}
 			else {
 			echo "It's a draw!";
+			}
 		} 
-	}
+	
 
 
 }
