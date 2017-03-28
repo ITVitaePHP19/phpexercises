@@ -1,13 +1,32 @@
 <?php
 
-$buttons = array('but0', 'but1', 'but2', 'but3', 'but4', 'but5', 'but6', 'but7', 'but8');
-
-
 // Set empty session variables
-foreach ($buttons as $but) {
-	if (empty($_SESSION[$but])) {
-		$_SESSION[$but] = '';
-	}
+if (empty($_SESSION['but0'])) {
+	$_SESSION['but0'] = '';
+}
+if (empty($_SESSION['but1'])) {
+	$_SESSION['but1'] = '';
+}
+if (empty($_SESSION['but2'])) {
+	$_SESSION['but2'] = '';
+}
+if (empty($_SESSION['but3'])) {
+	$_SESSION['but3'] = '';
+}
+if (empty($_SESSION['but4'])) {
+	$_SESSION['but4'] = '';
+}
+if (empty($_SESSION['but5'])) {
+	$_SESSION['but5'] = '';
+}
+if (empty($_SESSION['but6'])) {
+	$_SESSION['but6'] = '';
+}
+if (empty($_SESSION['but7'])) {
+	$_SESSION['but7'] = '';
+}
+if (empty($_SESSION['but8'])) {
+	$_SESSION['but8'] = '';
 }
 
 // Set counter
@@ -17,20 +36,140 @@ if (empty($_SESSION['counter']) || $_SESSION['counter'] >= 9) {
 
 
 // Set buttons
-foreach ($buttons as $but) {
-	if (isset($_POST[$but])) {
-	
-		// X's turn
-		if ($_SESSION['counter'] % 2 == 0) {
-			$_SESSION[$but] = 'X';
-		}
-		// O's turn
-		else {
-			$_SESSION[$but] = 'O';
-		}
-		// Up counter
-		$_SESSION['counter']++;
+
+// Button 0
+if (isset($_POST['but0'])) {
+
+	// X's turn
+	if ($_SESSION['counter'] % 2 == 0) {
+		$_SESSION['but0'] = 'X';
 	}
+	// O's turn
+	else {
+		$_SESSION['but0'] = 'O';
+	}
+	// Up counter
+	$_SESSION['counter']++;
+}
+
+// Button 1
+if (isset($_POST['but1'])) {
+
+	// X's turn
+	if ($_SESSION['counter'] % 2 == 0) {
+		$_SESSION['but1'] = 'X';
+	}
+	// O's turn
+	else {
+		$_SESSION['but1'] = 'O';
+	}
+	// Up counter
+	$_SESSION['counter']++;
+}
+
+// Button 2
+if (isset($_POST['but2'])) {
+
+	// X's turn
+	if ($_SESSION['counter'] % 2 == 0) {
+		$_SESSION['but2'] = 'X';
+	}
+	// O's turn
+	else {
+		$_SESSION['but2'] = 'O';
+	}
+	// Up counter
+	$_SESSION['counter']++;
+}
+
+// Button 3
+if (isset($_POST['but3'])) {
+
+	// X's turn
+	if ($_SESSION['counter'] % 2 == 0) {
+		$_SESSION['but3'] = 'X';
+	}
+	// O's turn
+	else {
+		$_SESSION['but3'] = 'O';
+	}
+	// Up counter
+	$_SESSION['counter']++;
+}
+
+// Button 4
+if (isset($_POST['but4'])) {
+
+	// X's turn
+	if ($_SESSION['counter'] % 2 == 0) {
+		$_SESSION['but4'] = 'X';
+	}
+	// O's turn
+	else {
+		$_SESSION['but4'] = 'O';
+	}
+	// Up counter
+	$_SESSION['counter']++;
+}
+
+// Button 5
+if (isset($_POST['but5'])) {
+
+	// X's turn
+	if ($_SESSION['counter'] % 2 == 0) {
+		$_SESSION['but5'] = 'X';
+	}
+	// O's turn
+	else {
+		$_SESSION['but5'] = 'O';
+	}
+	// Up counter
+	$_SESSION['counter']++;
+}
+
+// Button 6
+if (isset($_POST['but6'])) {
+
+	// X's turn
+	if ($_SESSION['counter'] % 2 == 0) {
+		$_SESSION['but6'] = 'X';
+	}
+	// O's turn
+	else {
+		$_SESSION['but6'] = 'O';
+	}
+	// Up counter
+	$_SESSION['counter']++;
+}
+
+// Button 7
+if (isset($_POST['but7'])) {
+
+	// X's turn
+	if ($_SESSION['counter'] % 2 == 0) {
+		$_SESSION['but7'] = 'X';
+	}
+	// O's turn
+	else {
+		$_SESSION['but7'] = 'O';
+	}
+	// Up counter
+	$_SESSION['counter']++;
+}
+
+// Button 8
+if (isset($_POST['but8'])) {
+
+	// X's turn
+	if ($_SESSION['counter'] % 2 == 0) {
+		$_SESSION['but8'] = 'X';
+	}
+	// O's turn
+	else {
+		$_SESSION['but8'] = 'O';
+	}
+	// Up counter
+	$_SESSION['counter']++;
 }
 
 

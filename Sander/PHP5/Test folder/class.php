@@ -42,5 +42,20 @@ echo "Stefan's full name: " .  $stefan->get_name() ;
 	Since $pinn_number was declared private, this line of code will generate an error. Try it out!   
 	*/  
  
-echo "Tell me private stuff: ".$stefan->pinn_number;  
+// echo "Tell me private stuff: ".$stefan->pinn_number;  
 ?>
+
+<?php 
+
+/* Part 4 */
+
+$stefan = new Person4 ("stefan", "Mischook");
+echo "<br>Stefan's first name: ".$stefan->getFirstName();
+echo "<br>Stefan's full name: ".$stefan->getFirstName()." ".$stefan->getLastName();
+echo "<br>Stefan's full name: ".$stefan->getName();
+
+?>
+
+<br>
+<br>
+
