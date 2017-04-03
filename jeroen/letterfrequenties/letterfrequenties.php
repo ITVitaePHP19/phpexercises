@@ -5,9 +5,11 @@
 </head>
 <body>
 <?php
-if(isset($_POST['file'])){$file = file_get_contents($_POST['file']);}else{$file="";}
-if(isset($_POST['character'])){$character = file_get_contents($_POST['character']);}else{$character="";}
-
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+	$file = file_get_contents($_POST["file"]);
+	$character = $_POST["character"];
+}
+else {$file = $character = "";}
 ?>
 <form method="post">
 <fieldset>
