@@ -33,7 +33,7 @@ class login extends CI_Controller
 				// set session
 				$sess_data = array('login' => TRUE, 'uname' => $uresult[0]->username, 'uid' => $uresult[0]->id);
 				$this->session->set_userdata($sess_data);
-				redirect("profile/index");
+				redirect("exam/index");
 			}
 			else
 			{

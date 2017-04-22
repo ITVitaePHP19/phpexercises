@@ -35,20 +35,21 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4 well">
+			<?php $attributes = array("name" => "addexamform");
+			echo form_open("insert_ctrl", $attributes);?>
 			<legend>Examen toevoegen</legend>
-            <div class="form-group">
+            
+			<div class="form-group">
 				<label for="name">Examennaam</label>
-				<input class="form-control" name="examname" placeholder="Examen" type="text" value="<?php echo set_value('examname'); ?>" />
-				<span class="text-danger"><?php echo form_error('examname'); ?></span>
-			</div>	
-            <div class="form-group">
-				<button name="submit" type="submit" class="btn btn-info">Verzenden</button>
+				<input class="form-control" name="dname" placeholder="Examennaam" type="text" value="<?php echo set_value('dname'); ?>" />
+				<span class="text-danger"><?php echo form_error('dname'); ?></span>
 			</div>
-
-		</div>
-	</div>
-
-</div>
+            <div class="form-group">
+				<button name="submit" type="submit" class="btn btn-info">Invoeren</button>
+			</div>
+			<?php echo form_close(); ?>
+			<?php echo $this->session->flashdata('msg'); ?>
+</div>  
     
 <script type="text/javascript" src="<?php echo base_url("assets/js/jquery-1.10.2.js"); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.js"); ?>"></script>
