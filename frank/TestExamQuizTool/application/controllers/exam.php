@@ -1,26 +1,33 @@
 <?php
-class exam extends CI_Controller
-{
-	public function __construct()
-	{
-		parent::__construct();
-        $this->load->helper(array('form','url','html'));
-		$this->load->library('session');
-		$this->load->database();
-		$this->load->model('user_model');
-        
+class exam extends CI_Controller {
+function __construct() {
+parent::__construct();
+$this->load->model('exam_model');
+$this->load->library('session');
         if (! $this->session->userdata('uname'))
         {
             redirect('login'); // the user is not logged in, redirect them!
         }
-    
-    }
-	
-	function index()
-	{
-		$details = $this->user_model->get_user_by_id($this->session->userdata('uid'));
-		$data['uname'] = $details[0]->username;
-		$data['uemail'] = $details[0]->email;
-		$this->load->view('exam_view', $data);
-	}
 }
+function index() {
+//Including validation library
+$this->load->library('form_validation');
+$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+//Validating Exam name field
+$this->form_validation->set_rules('dname', 'examname', 'required|min_length[5]|max_length[50]');
+if ($this->form_validation->run() == FALSE) {
+$this->load->view('exam_view');
+} else {
+//Setting values for tabel columns
+$data = array(
+'examname' => $this->input->post('dname'),
+);
+//Transfering data to Model
+$this->exam_model->form_insert($data);
+$data['message'] = 'Data Inserted Successfully';
+//Loading View
+$this->load->view('newpage', $data);
+}
+}
+}
+?>

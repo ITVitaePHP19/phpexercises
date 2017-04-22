@@ -36,7 +36,7 @@
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4 well">
 			<?php $attributes = array("name" => "addexamform");
-			echo form_open("insert_ctrl", $attributes);?>
+			echo form_open("exam", $attributes);?>
 			<legend>Examen toevoegen</legend>
             
 			<div class="form-group">
