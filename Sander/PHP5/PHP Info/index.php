@@ -7,6 +7,10 @@
 <body>
 	<?php
 		include 'phpinfo.php';
+
+		echo '<br><hr><br>';
+
+		include 'phpmodules.php'
 	?>
 </body>
 

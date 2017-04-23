@@ -1,7 +1,5 @@
 <?php
 
-phpinfo();
-
-phpinfo(INFO_MODULES);
+phpinfo(INFO_GENERAL);
 
 ?>
