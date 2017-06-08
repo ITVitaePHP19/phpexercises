@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'fourHand';
-	src: url('fonts/fourHand.ttf');
+	src: url('../fonts/fourHand.ttf');
 }
 
 body {
